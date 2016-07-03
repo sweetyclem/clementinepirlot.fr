@@ -1,0 +1,92 @@
+body {
+
+	font-family: 'Muli', sans-serif;
+	margin: 0 auto;
+}
+
+header {
+		text-align: center;
+}
+
+main {
+	margin: 70px auto;
+	width: 60%;
+
+}
+
+nav {
+    padding: 20px;
+    margin: 0 auto;
+    background: rgba(0,206,209,1);
+    font-size: 20px;
+}
+
+nav a {
+	text-decoration: none;
+	margin-right: 15px;
+	color: white;
+}
+
+h1 {
+	margin: 60px 20px 20px 20px;
+}
+
+#pic {
+	height: 900px;
+	float: left;
+}
+
+.left-col {
+	width:250px;
+    height: auto;
+    padding: 10px;
+    margin-right: 50px;
+    float: left;
+}
+
+#me {
+    border-radius: 300px;
+}
+
+resume {
+	float: right;
+}
+
+#velo {
+	border-radius: 30px;
+}
+
+.pages {
+	text-decoration: none;
+	color: rgba(6,161,161,1);
+}
+
+
+p {
+	text-align: justify;
+}
+
+.poste {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#hotels {
+	list-style-type: none;
+	padding-left:0;
+}
+
+li:before {
+    content: "• ";
+    color: rgba(0,206,209,1);
+}
+
+ul {
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+
+#center {
+	text-align: center;
+}
