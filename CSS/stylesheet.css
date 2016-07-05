@@ -12,16 +12,39 @@ main {
 }
 
 nav {
-    padding: 20px;
-    margin: 0 auto;
-    background: rgba(0,206,209,1);
     font-size: 20px;
 }
 
-nav a {
-	text-decoration: none;
-	margin-right: 15px;
-	color: white;
+.navbar-default {
+    background-color: rgba(0,206,209,1);
+    border-color: rgba(0,206,209,1);
+    color: white;
+    margin-top: 0px;
+}
+
+.navbar-default .navbar-nav > .open > a .caret, 
+.navbar-default .navbar-nav > .open > a:hover .caret, 
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: #339091;
+    border-bottom-color: #339091;
+}
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: white;
+    background-color: #34B9BA;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+.navbar-default .navbar-brand {
+    color: white;
 }
 
 h1 {
@@ -38,11 +61,14 @@ h1 {
 	margin-right: 70px;
 }
 
-.pages {
+a {
 	text-decoration: none;
 	color: rgba(6,161,161,1);
-}
 
+ &:hover {
+    text-decoration: none;
+  }
+}
 
 p {
 	text-align: justify;
@@ -59,27 +85,20 @@ p {
 #hotels {
 	list-style-type: none;
 	padding-left:0;
+	font-size: 16px;
 }
 
-li:before {
+.listes:before {
     content: "•  ";
     color: rgba(0,206,209,1);
 }
 
-ul {
-    list-style: none;
-    padding:0;
-    margin:0;
-}
 
 #email {
 	text-align: center;
 	font-size: 20px;
 }
 
-li {
-	font-size: 16px;
-}
 
 #hobbies {
 	margin-left: 50px;
