@@ -104,3 +104,15 @@ p {
 #hobbies {
 	margin-left: 50px;
 }
+
+li {
+	font-size: 16px;
+}
+
+nav ul li {
+	font-size: 20px
+}
+
+h1 {
+	text-align: center;
+}
