@@ -20,6 +20,7 @@ nav {
     border-color: rgba(0,206,209,1);
     color: white;
     margin-top: 0px;
+    padding: 8px;
 }
 
 .navbar-default .navbar-nav > .open > a .caret, 
