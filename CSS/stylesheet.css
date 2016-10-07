@@ -28,13 +28,12 @@ main {
     border-bottom-color: #339091;
 }
 
-/* @media screen and (min-width: 700px) {
 .navbar-default .navbar-nav li:hover {
    background-color: rgba(6,161,161,0.8);
    border-radius: 3px;
-   margin-left: 5px;
-   margin-right: 5px;
-} } */
+} 
+}
+
 .navbar-default .navbar-nav li a:hover {
 	color: white;
 }
