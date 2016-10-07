@@ -28,10 +28,12 @@ main {
     border-bottom-color: #339091;
 }
 
+
 .navbar-default .navbar-nav li:hover {
    background-color: rgba(6,161,161,0.8);
    border-radius: 3px;
 } 
+
 }
 
 .navbar-default .navbar-nav li a:hover {
@@ -54,11 +56,13 @@ main {
 .navbar-default .navbar-nav > li > a {
     color: white;
     font-size: 19px;
+    background-color: rgb(0,206,209);
 }
+/*
 #home {
 	width: 32%;
 }
-
+*/
 .navbar-default .navbar-brand {
     color: white;
 }
