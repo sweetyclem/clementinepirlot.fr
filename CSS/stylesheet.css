@@ -107,6 +107,14 @@ a {
     text-decoration: none;
   }
 }
+#piscine {
+	text-decoration: none;
+	color: black;
+
+ &:hover {
+    text-decoration: none;
+  }
+}
 
 p {
 	text-align: justify;
@@ -152,4 +160,40 @@ nav ul li {
 
 h1 {
 	text-align: center;
+}
+
+div.project {
+    border: 1px solid #ccc;
+}
+
+div.project:hover {
+    border: 1px solid #777;
+}
+
+div.project img {
+    width: 100%;
+    height: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tables {
+	border: solid, rgba(0,206,209,1), 1px;
+	border-collapse: collapse;
+}
+td, th {
+    border: 1px solid rgba(0,206,209,1);
+    text-align: center;
+    padding: 8px;
+}
+td a {
+    color: rgb(1,91,92);
 }
