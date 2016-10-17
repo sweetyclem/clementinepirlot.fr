@@ -4273,24 +4273,19 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: 0;
   border-width: 1px 0 0;
 }
-.navbar-brand {
-  float: left;
-  height: 50px;
-  padding: 15px 15px;
-  font-size: 18px;
-  line-height: 20px;
-}
+
 .navbar-brand:hover,
 .navbar-brand:focus {
   text-decoration: none;
 }
 .navbar-brand > img {
-  display: block;
+  display: inline-block;
 }
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
-    margin-left: -15px;
+    margin-left: -20px;
+    margin-right: -25px;
   }
 }
 .navbar-toggle {
@@ -4507,14 +4502,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: transparent;
 }
 .navbar-default .navbar-text {
-  color: #777;
+  color: (243, 243, 243, 0.9);
 }
 .navbar-default .navbar-nav > li > a {
-  color: #777;
+  color: (243, 243, 243, 0.9);
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #007b80;
+  color: (243, 243, 243, 0.9);
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,

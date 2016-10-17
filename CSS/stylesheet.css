@@ -14,13 +14,17 @@ main {
 .navbar-default {
     background-color: rgb(0,206,209);
     border-color: rgba(0,206,209,1);
-    color: white;
+    color: rgba(253, 253, 253, 0.9);
+}
+.navbar-default .navbar-nav > li  {
+	border: solid 0.1px rgba(253, 253, 253, 0.1);
+	border-radius: 3px;
 }
 .navbar-default .navbar-nav > li > a {
-	color: white;
+	color: rgba(253, 253, 253, 0.9);
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-	color: white;
+	color: rgba(253, 253, 253, 0.9);
 }
 
 .navbar-default .navbar-nav > .open > a .caret, 
@@ -28,45 +32,51 @@ main {
 .navbar-default .navbar-nav > .open > a:focus .caret {
     border-top-color: #339091;
     border-bottom-color: #339091;
+    color: rgba(243, 243, 243, 0.7);
 }
 
 
 .navbar-default .navbar-nav li:hover {
-   background-color: rgba(6,161,161,0.8);
+   background-color: rgba(108, 222, 236,0.8);
+   color: rgba(253, 253, 253, 0.9);
    border-radius: 3px;
 } 
-
-}
-
-.navbar-default .navbar-nav li a:hover {
-	color: white;
-}
 
 .navbar-default .navbar-nav > .active > a, 
 .navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus {
-    color: white;
-    background-color: #34B9BA;
+    color: rgba(253, 253, 253, 0.9);
+    background-color: rgba(110, 214, 226,0.7);
     border-radius: 3px;
 }
 
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-    color: white;
+.navbar-default .navbar-brand> a:hover,
+.navbar-default .navbar-brand> a:focus {
+   color: rgba(253, 253, 253, 0.9);
+   color: rgba(253, 253, 253, 0.9);
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: white;
+    color: rgba(253, 253, 253, 0.9);
     font-size: 19px;
     background-color: rgb(0,206,209);
 }
-/*
+
 #home {
-	width: 32%;
+	width: 26%;
+	margin: auto;
+	text-align: left;
 }
-*/
+
+.navbar-brand {
+	padding-top: 5px;
+  font-size: 18px;
+  float: left;
+  max-width: 160px;
+}
+
 .navbar-default .navbar-brand {
-    color: white;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 h1 {
@@ -169,16 +179,23 @@ h1 {
 }
 
 div.project {
-    border: 1px solid #ccc;
+    border: 1px solid rgba(0,206,209,1);
 }
 
 div.project:hover {
-    border: 1px solid #777;
+    border: 2px solid rgba(0,206,209,1);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 div.project img {
     width: 100%;
     height: auto;
+}
+
+.projectdescription {
+	border: solid 1px rgba(0,206,209,1);
+	padding: 8px;
 }
 
 * {
