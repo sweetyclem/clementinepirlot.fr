@@ -200,6 +200,7 @@ th {
   a,
   a:visited {
     text-decoration: none;
+    color: #57402F;
   }
   a[href]:after {
     content: " (" attr(href) ")";
