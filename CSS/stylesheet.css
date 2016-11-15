@@ -64,8 +64,7 @@ main {
 .navbar-default .navbar-nav > .active > a:focus {
     color: rgba(253, 253, 253, 0.9);
     background-color: #89796D;
-    border-top-color: #89796D;
-   	border-bottom-color: #89796D;
+    border-color: #89796D;
     border-radius: 3px;
 }
 
@@ -79,6 +78,16 @@ main {
     color: rgba(253, 253, 253, 0.9);
     font-size: 19px;
     background-color: #57402F;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background-color: #57402F;
+    border-color: #89796D;
+}
+
+.navbar-default .navbar-toggle {
+	background-color: #57402F;
+    border-color: #89796D;
 }
 
 #home {
