@@ -123,7 +123,7 @@ h2 {
 
 @media screen and (min-width: 700px) and (max-width: 899px) {
 	#me {
-		width: 30%;
+		width: 50%;
 		z-index: 1;
 		position: relative;
 	}
@@ -134,7 +134,7 @@ h2 {
 
 @media screen and (max-width: 690px) {
 	#me {
-		width: 30%;
+		width: 50%;
 	}
 	#velo {
 		visibility: hidden;
