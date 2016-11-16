@@ -132,6 +132,9 @@ h2 {
 	#me {
 		width: 70%;
 	}
+	.row {
+		margin-top: 40px;
+	}
 }
 
 @media screen and (min-width: 700px) and (max-width: 899px) {
