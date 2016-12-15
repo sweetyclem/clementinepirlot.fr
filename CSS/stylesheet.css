@@ -3,7 +3,8 @@ body {
 }
 
 #index_page {
-	background-image: url("../images/paris.jpg");
+	/*background-image: url("../images/Lyon.jpg");*/
+	background-image: url("../images/lyon2.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment:fixed;
