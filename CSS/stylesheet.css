@@ -197,6 +197,8 @@ h3 {
 }
 
 .box {
+	line-height: 30px;
+    	min-height: 600px;
 	border: 1px solid rgba(32,188,175, 1);
 	padding: 10px 10px 10px 15px;
 }
