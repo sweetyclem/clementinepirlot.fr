@@ -4,7 +4,7 @@ body {
 
 #index_page {
 	/*background-image: url("../images/Lyon.jpg");*/
-	background-image: url("../images/lyon2.jpg");
+	background-image: url("../images/Lyon.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment:fixed;
@@ -26,9 +26,13 @@ main {
 	margin-top: 30px;
 }
 
+.navbar {
+	border: none;
+}
+
 .navbar-default {
-    background-color: #57402F;
-    border-color: #57402F;
+    background-color: #1da8af;
+    border-color: #1da8af;
     color: rgba(253, 253, 253, 0.9);
 }
 .navbar-default .navbar-nav > li  {
@@ -39,34 +43,34 @@ main {
 	text-decoration: none;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-	color: #B5E5D1;
-	background-color: #89796D;
-    border-top-color: #89796D;
-   	border-bottom-color: #89796D;
+	color: #1da8af;
+	background-color: #1da8af;
+    border-top-color: #1da8af;
+   	border-bottom-color: #1da8af;
 }
 
 .navbar-default .navbar-nav > .open > a .caret, 
 .navbar-default .navbar-nav > .open > a:hover .caret, 
 .navbar-default .navbar-nav > .open > a:focus .caret {
-    border-top-color: #57402F;
-    border-bottom-color: #57402F;
-    color: rgba(243, 243, 243, 0.7);
+    border-top-color: #1da8af;
+    border-bottom-color: #1da8af;
+    color: #1da8af;
 }
 
 
 .navbar-default .navbar-nav li:hover {
-   background-color: #89796D;
+   background-color: #2daeb5;
    color: rgba(253, 253, 253, 0.9);
-   border-top-color: #89796D;
-   border-bottom-color: #89796D;
+   border-top-color: #1da8af;
+   border-bottom-color: #1da8af;
 } 
 
 .navbar-default .navbar-nav > .active > a, 
 .navbar-default .navbar-nav > .active > a:hover, 
 .navbar-default .navbar-nav > .active > a:focus {
     color: rgba(253, 253, 253, 0.9);
-    background-color: #89796D;
-    border-color: #89796D;
+    background-color: #2daeb5;
+    border-color: #2daeb5;
 }
 
 .navbar-default .navbar-brand> a:hover,
@@ -78,21 +82,22 @@ main {
 .navbar-default .navbar-nav > li > a {
     color: rgba(253, 253, 253, 0.9);
     font-size: 19px;
-    background-color: #57402F;
+    background-color: #1da8af;
 }
 
+
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-	background-color: #57402F;
-    border-color: #89796D;
+	background-color: #1da8af;
+    border-color: #1da8af;
 }
 
 .navbar-default .navbar-toggle {
-	background-color: #57402F;
-    border-color: #89796D;
+	background-color: #1da8af;
+    border-color: #1da8af;
 }
 
 #home {
-	width: 26%;
+	width: 22%;
 	margin: auto;
 	text-align: left;
 }
@@ -211,17 +216,17 @@ h3 {
 
 a {
 	text-decoration: underline;
-	color: #57402F;
+	color: #1da8af;
 }
 
 a:hover {
 	text-decoration: none;
-    color: #57402F;
+    color: #1da8af;
 }
 
 a:visited {
 	text-decoration: none;
-    color: #57402F;
+    color: #1da8af;
 }
 
 p {
@@ -258,7 +263,7 @@ li {
 }
 li:before {
 	content: "•  ";
-	color: #57402F;
+	color: #1da8af;
 }
 
 ul {
