@@ -216,17 +216,17 @@ h3 {
 
 a {
 	text-decoration: underline;
-	color: #1da8af;
+	color: #0b7177;
 }
 
 a:hover {
 	text-decoration: none;
-    color: #1da8af;
+    color: #0b7177;
 }
 
 a:visited {
 	text-decoration: none;
-    color: #1da8af;
+    color: #023538;
 }
 
 p {
