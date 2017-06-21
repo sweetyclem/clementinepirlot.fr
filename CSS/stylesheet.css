@@ -281,13 +281,14 @@ p {
 li {
 	font-size: 16px;
 }
-li:before {
-	content: "•  ";
-	color: #1da8af;
+
+li span {
+	color: black;
 }
 
 ul {
-    list-style: none;
+	color: #1da8af;
+    list-style: square outside;
     padding:0;
     margin:0;
 }
