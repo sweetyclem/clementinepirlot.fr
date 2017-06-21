@@ -152,13 +152,7 @@ h3 {
 	}
 	#hobbies {
 		margin-left: 50px;
-	}
-	.box-skills {
-		line-height: 30px;
-	   	height: 800px;
-		border: 1px solid rgba(32,188,175, 1);
-		padding: 10px 10px 10px 40px;
-	}
+	}	
 }
 
 @media screen and (min-width: 700px) and (max-width: 899px) {
@@ -191,6 +185,9 @@ h3 {
 	.projectdescription {
 		margin-top: 20px;
 	}
+	.box-skills {
+		margin: 0 20px 25px 20px;
+	}
 }
 
 #index_white_back {
@@ -216,12 +213,11 @@ h3 {
 }
 
 .box-skills {
-	line-height: 40px;
+	line-height: 30px;
+	height: 800px;
 	border: 1px solid rgba(32,188,175, 1);
-	padding: 10px 10px 10px 30px;
-	margin-bottom: 25px;
+	padding: 10px 10px 10px 40px;
 }
-
 
 #me {
 	    margin-right: auto;
