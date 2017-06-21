@@ -88,7 +88,7 @@ main {
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
 	background-color: #1da8af;
-    border-color: #1da8af;
+    border-color: rgba(255,255,255,0.7);
 }
 
 .navbar-default .navbar-toggle {
