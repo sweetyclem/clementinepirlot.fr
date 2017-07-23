@@ -133,9 +133,10 @@ h3 {
     margin-top: 2px;
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 900) {
     #me {
         width: 70%;
+        margin-bottom: 1em;
     }
     .row {
         margin-top: 40px;
@@ -165,7 +166,7 @@ h3 {
     }
 }
 
-@media screen and (max-width: 690px) {
+@media screen and (max-width: 699px) {
     #me {
         width: 50%;
     }
@@ -189,7 +190,7 @@ h3 {
 #index_white_back {
     background-color: rgba(255, 250, 250, 0.8);
     color: black;
-    padding: 20px;
+    padding: 30px;
     text-align: justify;
 }
 
@@ -217,6 +218,8 @@ h3 {
 #me {
     margin-right: auto;
     border-radius: 300px;
+    max-width: 200px;
+    margin-bottom: 1em;
 }
 
 #velo {
