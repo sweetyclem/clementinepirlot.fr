@@ -39,21 +39,16 @@
 <body>
     <!-- Header -->
     <header id="home">
-        <!-- Background Image -->
-        <div class="bg-img" style="background-image: url('../img/lyon.jpg');">
-            <div class="overlay"></div>
-        </div>
-        <!-- /Background Image -->
 
         <!-- Nav -->
-        <nav id="nav" class="navbar nav-transparent">
+        <nav id="nav" class="navbar">
             <div class="container">
 
                 <div class="navbar-header">
                     <!-- Logo -->
                     <ul class="main-nav nav navbar-nav navbar-right">
-                        <li class="active">
-                            <a href="index.html">Home</a>
+                        <li>
+                            <a href="index.html">Accueil</a>
                         </li>
                     </ul>
                     <!-- /Logo -->
@@ -68,25 +63,25 @@
                 <!--  Main navigation  -->
                 <ul class="main-nav nav navbar-nav navbar-right">
                     <li>
-                        <a href="skills.html">Capabilities</a>
+                        <a href="skills.html">Compétences</a>
                     </li>
                     <li>
                         <a href="portfolio.html">Portfolio</a>
                     </li>
                     <li>
-                        <a href="experience.html">Experiences</a>
+                        <a href="experience.html">Expérience</a>
                     </li>
                     <li>
-                        <a href="education.html">Education</a>
+                        <a href="education.html">Formation</a>
                     </li>
                     <li>
-                        <a href="interests.html">Interests</a>
+                        <a href="interests.html">Intérêts</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="contact.html">Contact</a>
                     </li>
                     <li>
-                        <a href="../fr/index.html">French</a>
+                        <a href="../en/index.html">English</a>
                     </li>
                 </ul>
                 <!-- /Main navigation -->
@@ -95,44 +90,35 @@
         </nav>
         <!-- /Nav -->
 
-        <!-- home wrapper -->
-        <div class="home-wrapper">
+        <!-- Contact -->
+        <div id="contact" class="section md-padding">
+
+            <!-- Container -->
             <div class="container">
+
+                <!-- Row -->
                 <div class="row">
 
-                    <!-- home content -->
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="home-content">
-                            <h1 class="white-text">Backend developer</h1>
-                            <p class="white-text">
-                                fter obtaining a development degree in Lyon and programming experience in a big software company, as well as through freelance
-                                work, I am currently at CS school
-                                <a href="https://www.42.us.org/" target="_blank">42</a> in Paris, working as an intern at a real estate startup,
-                                <a href="http://jerevedunemaison.com/" target="_blank">Je Rêve d'une Maison</a>
-                            </p>
-                            <br>
-                            <!-- <p>Forte d'une licence d'anglais et un master de sociologie, pour lequel j'ai choisi d'étudier l'ouverture
-                                sociale et les femmes dans l'informatique, j'ai travaillé dans plusieurs associations autour
-                                des droits des femmes. Coordinatrice du programme Etincelles de l'association Social Builder
-                                de janvier à août 2016, j'ai accompagné les jeunes femmes vers les métiers du numérique.
-                                Après sept mois, la question m'est venue naturellement, pourquoi pas moi&#8239;? J'ai décidé
-                                de devenir développeuse après avoir
-                                <a class="pages" href="https://www.codecademy.com/sweetyclem" target="_blank">découvert</a>
-                                que j'adorais coder et que mon riche parcours ferait ma force et serait un atout dans l'informatique.
-                                <br> Une première expérience dans une grande entreprise, ainsi que plusieurs expériences freelance
-                                m'ont permises de mettre un pied dans le développement, qui s'est poursuivi par un contrat
-                                en CDD. Ayant été admise à l'Ecole 42, j'ai saisi l'opportunité et décidé d'y aller en 2017-2018
-                                afin de compléter mes connaissances en développement backend par du bas niveau (proche de
-                                la machine).
-                            </p> -->
-                        </div>
+                    <!-- Section-header -->
+                    <div class="section-header text-center">
+                        <h2 class="title">Contact</h2>
                     </div>
-                    <!-- /home content -->
+                    <!-- /Section-header -->
+
+                    <!-- contact form -->
+                    <div class="col-md-12  text-center">
+                        <p>Votre message a bien été envoyé</p>
+                    </div>
+                    <!-- /contact form -->
 
                 </div>
+                <!-- /Row -->
+
             </div>
+            <!-- /Container -->
+
         </div>
-        <!-- /home wrapper -->
+        <!-- /Contact -->
 
     </header>
     <!-- /Header -->
@@ -154,6 +140,10 @@
     <script type="text/javascript" src="../js/owl.carousel.min.js"></script>
     <script type="text/javascript" src="../js/jquery.magnific-popup.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
+    <script>
+        var contactform = document.getElementById('contact-form');
+        contactform.setAttribute('action', 'https://formspree.io/' + 'contact' + '@' + 'clementinepirlot' + '.' + 'fr');
+    </script>
 
 </body>
 
