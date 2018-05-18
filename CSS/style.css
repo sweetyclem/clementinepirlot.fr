@@ -502,6 +502,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
         -webkit-transition: 0.2s all;
         transition: 0.2s all;
     }
+    .md-padding {
+        padding-top: 40px;
+        padding-bottom: 120px;
+    }
 }
 
 
