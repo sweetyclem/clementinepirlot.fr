@@ -681,11 +681,12 @@ header {
 .work {
     position: relative;
     padding: 20px;
+    border: solid 1px #868F9B;
 }
 
 .work>img {
   width: 100%;
-margin: 0 auto;
+	margin: 0 auto;
 }
 
 .work .overlay {
