@@ -642,7 +642,7 @@ header {
 }
 
 @media (min-width: 992px) {
-		#about > .container > .row {
+		.row-flex {
 				display: flex;
 		}
 }
