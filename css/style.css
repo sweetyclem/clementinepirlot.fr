@@ -644,6 +644,7 @@ header {
 @media (min-width: 992px) {
 		.row-flex {
 				display: flex;
+				flex-direction: row;
 		}
 		.about-pic {
 				display: flex;
