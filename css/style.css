@@ -648,11 +648,12 @@ header {
     padding: 40px;
     border: 1px solid #EEE;
     margin: 15px auto;
+    display: flex;
+    align-items: center;
 }
 
 .about-pic-wrap {
 		display: flex;
-		align-items: center;
 }
 .about i {
     font-size: 36px;
