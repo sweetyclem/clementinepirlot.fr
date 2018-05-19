@@ -642,8 +642,12 @@ header {
 }
 
 @media (min-width: 992px) {
+		.row-flex {
+				display: flex;
+		}
 		.about-pic {
-				height: 600px;
+				display: flex;
+				align-items: center;
 		}
 }
 
