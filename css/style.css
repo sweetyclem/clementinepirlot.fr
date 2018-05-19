@@ -649,6 +649,11 @@ header {
     border: 1px solid #EEE;
     margin: 15px auto;
 }
+
+.about-pic-wrap {
+		display: flex;
+		align-items: center;
+}
 .about i {
     font-size: 36px;
     color: #6195FF;
