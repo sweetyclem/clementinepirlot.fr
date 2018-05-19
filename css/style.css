@@ -647,7 +647,7 @@ header {
     text-align: center;
     padding: 40px;
     border: 1px solid #EEE;
-    margin: 15px 0px;
+    margin: auto;
 }
 .about i {
     font-size: 36px;
