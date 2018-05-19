@@ -641,6 +641,14 @@ header {
     margin: 15px 0px;
 }
 
+.about-pic {
+    height: auto;
+    position: relative;
+    text-align: center;
+    padding: 40px 20px;
+    border: 1px solid #EEE;
+    margin: 15px 0px;
+}
 .about i {
     font-size: 36px;
     color: #6195FF;
