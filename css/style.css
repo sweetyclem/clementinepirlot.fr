@@ -670,7 +670,7 @@ header {
   margin: 15px 0px;
 }
 
-@media  (min-width: 992px) {
+@media (min-width: 992px) {
   .row-flex {
     display: flex;
     flex-direction: row;
