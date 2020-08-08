@@ -5,7 +5,7 @@ Author: yaminncco
 Colors:
 	Body 		  : #868F9B
 	Headers 	: #10161A
-	Primary 	: #6195FF
+	Primary 	: rgba(18, 157, 175, 1)
 	Dark      : #FCFCFF
 	Grey 		  : #F4F4F4 #FAFAFA #EEE
 
@@ -90,7 +90,7 @@ h5 {
 }
 
 a {
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
   text-decoration: none;
   -webkit-transition: 0.2s opacity;
   transition: 0.2s opacity;
@@ -101,11 +101,11 @@ a:focus {
   text-decoration: none;
   outline: none;
   opacity: 0.8;
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
 }
 
 .main-color {
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
 }
 
 .white-text {
@@ -113,12 +113,12 @@ a:focus {
 }
 
 ::-moz-selection {
-  background-color: #6195ff;
+  background-color: rgba(18, 157, 175, 1);
   color: #fff;
 }
 
 ::selection {
-  background-color: #6195ff;
+  background-color: rgba(18, 157, 175, 1);
   color: #fff;
 }
 
@@ -197,7 +197,7 @@ ol {
   display: block;
   height: 4px;
   width: 40px;
-  background-color: #6195ff;
+  background-color: rgba(18, 157, 175, 1);
   margin-top: 20px;
 }
 
@@ -241,7 +241,7 @@ input[type="date"]:focus,
 input[type="url"]:focus,
 input[type="tel"]:focus,
 textarea:focus {
-  border-color: #6195ff;
+  border-color: rgba(18, 157, 175, 1);
   opacity: 1;
 }
 
@@ -260,7 +260,7 @@ textarea:focus {
 }
 
 .main-btn {
-  background: #6195ff;
+  background: rgba(18, 157, 175, 1);
   color: #fff;
 }
 
@@ -271,8 +271,8 @@ textarea:focus {
 
 .outline-btn {
   background: transparent;
-  color: #6195ff !important;
-  border-color: #6195ff;
+  color: rgba(18, 157, 175, 1) !important;
+  border-color: rgba(18, 157, 175, 1);
 }
 
 .main-btn:hover,
@@ -369,12 +369,12 @@ textarea:focus {
   .main-nav > li > a:focus,
   .main-nav > li.active > a {
     background: transparent;
-    color: #6195ff;
+    color: rgba(18, 157, 175, 1);
   }
   .main-nav > li > a:after {
     content: "";
     display: block;
-    background-color: #6195ff;
+    background-color: rgba(18, 157, 175, 1);
     height: 2px;
     width: 0%;
     -webkit-transition: 0.2s width;
@@ -404,7 +404,7 @@ textarea:focus {
     position: absolute;
     right: -50%;
     top: 0;
-    background-color: #6195ff;
+    background-color: rgba(18, 157, 175, 1);
     width: 200px;
     -webkit-box-shadow: 0px 5px 5px -5px rgba(53, 64, 82, 0.2);
     box-shadow: 0px 5px 5px -5px rgba(53, 64, 82, 0.2);
@@ -497,11 +497,11 @@ textarea:focus {
     transition: 0.2s all;
   }
   .main-nav > li.active {
-    border-left: 6px solid #6195ff;
+    border-left: 6px solid rgba(18, 157, 175, 1);
   }
   .main-nav li a:hover,
   .main-nav li a:focus {
-    background-color: #6195ff;
+    background-color: rgba(18, 157, 175, 1);
     color: #fff;
     opacity: 1;
   }
@@ -701,7 +701,7 @@ header {
 
 .about i {
   font-size: 36px;
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
   margin-bottom: 20px;
 }
 
@@ -806,7 +806,7 @@ header {
   -ms-transform: translateY(100%);
   transform: translateY(100%);
   opacity: 0;
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
   margin-bottom: 5px;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
@@ -835,7 +835,7 @@ header {
   display: inline-block;
   width: 50px;
   height: 50px;
-  background-color: #6195ff;
+  background-color: rgba(18, 157, 175, 1);
   color: #fff;
   line-height: 50px;
   text-align: center;
@@ -863,7 +863,7 @@ header {
   left: 20px;
   text-align: center;
   font-size: 32px;
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
   border-radius: 50%;
 }
 
@@ -904,8 +904,8 @@ header {
   float: left;
   padding: 5px;
   border-radius: 50%;
-  color: #6195ff;
-  border: 1px solid #6195ff;
+  color: rgba(18, 157, 175, 1);
+  border: 1px solid rgba(18, 157, 175, 1);
   margin-right: 5px;
 }
 
@@ -919,7 +919,7 @@ header {
 }
 
 .number i {
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
   font-size: 36px;
   margin-bottom: 20px;
 }
@@ -973,7 +973,7 @@ header {
 }
 
 .pricing:hover .price-title {
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
 }
 
 .pricing .price {
@@ -984,7 +984,7 @@ header {
   text-align: center;
   margin: auto;
   border-radius: 50%;
-  border: 2px solid #6195ff;
+  border: 2px solid rgba(18, 157, 175, 1);
 }
 
 .pricing .price h3 {
@@ -1054,7 +1054,7 @@ header {
 
 .testimonial span {
   font-size: 14px;
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
   text-transform: uppercase;
 }
 
@@ -1136,7 +1136,7 @@ header {
 }
 
 .team:hover .team-content span {
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
 }
 
 .team .team-social {
@@ -1153,7 +1153,7 @@ header {
   line-height: 50px;
   width: 50px;
   text-align: center;
-  background-color: #6195ff;
+  background-color: rgba(18, 157, 175, 1);
   color: #fff;
 }
 
@@ -1186,7 +1186,7 @@ header {
 }
 
 .blog .blog-meta li i {
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
   margin-right: 5px;
 }
 
@@ -1224,12 +1224,12 @@ header {
 
 .blog-tags a:hover {
   color: #fff;
-  background-color: #6195ff;
+  background-color: rgba(18, 157, 175, 1);
 }
 
 .blog-tags a i {
   margin-right: 3px;
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
 }
 
 .blog-tags a:hover i {
@@ -1276,7 +1276,7 @@ header {
   border-radius: 3px;
   margin-left: 5px;
   color: #fff;
-  background-color: #6195ff;
+  background-color: rgba(18, 157, 175, 1);
 }
 
 /* -- blog comments -- */
@@ -1329,11 +1329,11 @@ header {
 
 .blog-comments .media.author {
   background-color: #f4f4f4;
-  border-color: #6195ff;
-  border-bottom: 1px solid #6195ff;
+  border-color: rgba(18, 157, 175, 1);
+  border-bottom: 1px solid rgba(18, 157, 175, 1);
 }
 .blog-comments .media.author > .media-body > .media-heading {
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
 }
 
 .blog-comments .media.author + .media {
@@ -1393,7 +1393,7 @@ header {
   border: none;
   line-height: 40px;
   background-color: transparent;
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
 }
 
 /* -- category sidebar -- */
@@ -1412,11 +1412,11 @@ header {
 
 .widget-category a span {
   float: right;
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
 }
 
 .widget-category a:hover {
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
 }
 
 /* -- tags sidebar -- */
@@ -1432,7 +1432,7 @@ header {
 
 .widget-tags a:hover {
   color: #fff;
-  background-color: #6195ff;
+  background-color: rgba(18, 157, 175, 1);
 }
 
 /* -- posts sidebar -- */
@@ -1455,7 +1455,7 @@ header {
 }
 
 .widget-post a:hover {
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
 }
 
 .widget-post .blog-meta {
@@ -1465,12 +1465,12 @@ header {
 .widget-post .blog-meta li {
   display: inline-block;
   margin-right: 5px;
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
   font-size: 12px;
 }
 
 .widget-post li i {
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
   margin-right: 5px;
 }
 
@@ -1485,7 +1485,7 @@ header {
 
 .contact i {
   font-size: 36px;
-  color: #6195ff;
+  color: rgba(18, 157, 175, 1);
   margin-bottom: 20px;
 }
 
@@ -1542,7 +1542,7 @@ header {
   line-height: 50px;
   text-align: center;
   border-radius: 3px;
-  background-color: #6195ff;
+  background-color: rgba(18, 157, 175, 1);
   color: #fff;
 }
 
@@ -1649,10 +1649,10 @@ header {
 }
 
 .owl-theme .owl-dots .owl-dot:hover span {
-  background: #6195ff;
+  background: rgba(18, 157, 175, 1);
 }
 .owl-theme .owl-dots .owl-dot.active span {
-  background: #6195ff;
+  background: rgba(18, 157, 175, 1);
   width: 20px;
 }
 
@@ -1674,7 +1674,7 @@ header {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  background: #6195ff;
+  background: rgba(18, 157, 175, 1);
   color: #fff;
   padding: 0px;
   width: 50px;
@@ -1694,7 +1694,7 @@ header {
 
 .owl-theme .owl-nav [class*="owl-"]:hover {
   opacity: 0.8;
-  background: #6195ff;
+  background: rgba(18, 157, 175, 1);
 }
 
 /*------------------------------------*\
@@ -1710,7 +1710,7 @@ header {
   height: 50px;
   line-height: 50px;
   text-align: center;
-  background: #6195ff;
+  background: rgba(18, 157, 175, 1);
   border-radius: 3px;
   color: #fff;
   z-index: 9999;
@@ -1752,7 +1752,7 @@ header {
 }
 .preloader span {
   display: inline-block;
-  background-color: #6195ff;
+  background-color: rgba(18, 157, 175, 1);
   width: 25px;
   height: 25px;
   -webkit-animation: 1s preload ease-in-out infinite;
