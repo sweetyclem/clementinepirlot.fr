@@ -177,7 +177,7 @@ ol {
   top: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.8;
+  opacity: 0.5;
   background: #1c1d21;
 }
 
@@ -636,6 +636,12 @@ header {
 }
 .home-content button {
   margin-top: 20px;
+}
+
+.home-content a {
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: #30d1e6;
 }
 
 .header-wrapper h2 {
