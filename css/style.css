@@ -1346,19 +1346,19 @@ header {
   margin: 40px 0px;
 }
 
-.reply-form form .input,
-.reply-form form .input,
+.reply-form form input,
+.reply-form form input,
 .reply-form form textarea {
   margin-bottom: 20px;
 }
 
-.reply-form form .input,
-.reply-form form .input {
+.reply-form form input,
+.reply-form form input {
   width: calc(50% - 10px);
   display: inline-block;
 }
 
-.reply-form form .input:nth-child(2) {
+.reply-form form .input-email {
   margin-left: 15px;
 }
 
@@ -1494,16 +1494,16 @@ header {
   margin-top: 40px;
 }
 
-.contact-form .input {
+.contact-form input, textarea {
   margin-bottom: 20px;
 }
 
-.contact-form .input:nth-child(1),
-.contact-form .input:nth-child(2) {
+.contact-form .input-name,
+.contact-form .input-email {
   width: calc(50% - 10px);
 }
 
-.contact-form .input:nth-child(2) {
+.contact-form .input-email {
   margin-left: 15px;
 }
 
@@ -1598,19 +1598,19 @@ header {
     width: 100%;
   }
 
-  .contact-form .input:nth-child(1),
-  .contact-form .input:nth-child(2) {
+  .contact-form .input-name,
+  .contact-form .input-email {
     width: 100%;
   }
-  .contact-form .input:nth-child(2) {
+  .contact-form .input-email {
     margin-left: 0px;
   }
 
-  .reply-form form .input,
-  .reply-form form .input {
+  .reply-form form input,
+  .reply-form form input {
     width: 100%;
   }
-  .reply-form form .input:nth-child(2) {
+  .reply-form form .input-email {
     margin-left: 0px;
   }
 
@@ -1768,7 +1768,7 @@ header {
   animation-delay: 0s;
 }
 
-.preloader span:nth-child(2) {
+.preloader span-email {
   -webkit-animation-delay: 0.1s;
   animation-delay: 0.1s;
 }
