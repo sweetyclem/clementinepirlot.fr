@@ -1,0 +1,657 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Changer le contenu de la page</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a1651b82-78ab-44a0-a2ec-8d1615f471e2" class="page sans"><header><h1 class="page-title">Changer le contenu de la page</h1></header><div class="page-body"><nav id="4383b966-9ef5-4acf-8780-bdf41b1b3a30" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#cae62b0c-224e-4c2d-8969-ccabc00dff5c">Changer le contenu des titres</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1ba4e976-7b95-4536-8fff-eab7c42e8656">Titre de l&#x27;onglet</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#488ad176-5a5c-4308-8b3c-3ba7427192d7">Titre du header</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#28c934fb-eafe-44b9-b57c-1ea2bd5b5eb4"><strong>Changer le contenu de</strong> la section présentation</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#89a3ee25-9cc8-49d1-b6b8-76c7495c0934">Photo de profil</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#cd688411-844b-453b-bbc6-b53073fb7bf3">Paragraphe de présentation</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f7254497-d90b-45ed-b7e9-254304efb147">Changer le lien</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#fa7b82fa-b23f-4732-acbf-71b26fac34df">Changer le contenu de la section compétences</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f8e5114d-bbb6-4fc4-93c8-bd09c16c5153">Nom des compétences</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e10cc6bb-e8a7-44b1-afc7-74cc316e41a4">Pourcentage de compétence et remplissage de la barre</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#73702a47-2d4b-4a4b-9a7c-43d7971faf22">Changer le contenu de la section expérience</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#514e2cd3-46d1-48d5-b6e5-7e9d759e074a">Date de l&#x27;expérience</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#21c97ffb-a01e-45b8-82e1-b805222d0bb9">Titre du poste</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#389a8d43-629e-4f76-9831-407f0e0559ad">Employeur et ville</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#dcca1f79-2a54-4f52-ac0c-556368b169ca">Changer le lieu de votre carte Google</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9bb242b3-372d-4b4b-b86e-e5bc13c985af">Changer le contenu de la section contact</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d6542355-3227-40a5-829e-f1690557a7fa">Texte placeholder des champs</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#9e59fee3-a163-4073-a588-5eadcb1651fb">Label des champs</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#18eb83f7-261c-4280-8653-bb68a358d0ed">Bouton du formulaire</a></div></nav><h2 id="cae62b0c-224e-4c2d-8969-ccabc00dff5c" class="block-color-purple_background">Changer le contenu des titres</h2><p id="c8374203-ccf9-4610-9ebd-759b9528a758" class="">
+</p><h3 id="1ba4e976-7b95-4536-8fff-eab7c42e8656" class="block-color-yellow_background">Titre de l&#x27;onglet</h3><figure id="6917e276-5f34-42d6-afdd-1d5e66d6e990" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/1.png"><img style="width:1051px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/1.png"/></a></figure><figure id="613a51ce-4c3f-4465-a7ae-40f48e798c68" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/2.png"><img style="width:672px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/2.png"/></a></figure><p id="a12457ea-599d-4ad5-a7ee-0366d3341c16" class="">
+</p><p id="feca2371-5071-40d0-a005-cffa10845aae" class="">
+</p><h3 id="488ad176-5a5c-4308-8b3c-3ba7427192d7" class="block-color-yellow_background">Titre du header</h3><figure id="fc1d0770-5754-46b2-8685-da4f3a0a1bda" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/3.png"><img style="width:1977px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/3.png"/></a></figure><p id="3c6b26a5-cc6a-4302-bd90-bfb1f2821d8d" class="">
+</p><h2 id="28c934fb-eafe-44b9-b57c-1ea2bd5b5eb4" class="block-color-purple_background"><strong>Changer le contenu de</strong> la section présentation</h2><p id="5c2cea6c-c2cf-4762-9161-dd542adb5f6c" class="">
+</p><h3 id="89a3ee25-9cc8-49d1-b6b8-76c7495c0934" class="block-color-yellow_background">Photo de profil</h3><figure id="be61ed45-c6c0-4141-9864-46248a24397a" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/4.png"><img style="width:2744px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/4.png"/></a></figure><p id="d2003430-f829-4fa7-8b79-f5ee2a4e06b2" class="">
+</p><p id="0b7143e9-2e59-46cf-bd5c-9ffe639b31e5" class="">
+</p><h3 id="cd688411-844b-453b-bbc6-b53073fb7bf3" class="block-color-yellow_background">Paragraphe de présentation</h3><figure id="8128fb70-2d2c-497f-97cc-22d525b09546" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/5.png"><img style="width:2744px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/5.png"/></a></figure><p id="3765147a-d2b8-4f89-8e3c-57d5d546acf9" class="">
+</p><p id="31a07b0a-d0d6-41e6-b29a-f60a304663fd" class="">
+</p><h3 id="f7254497-d90b-45ed-b7e9-254304efb147" class="block-color-yellow_background">Changer le lien</h3><figure id="34e947f3-d9b5-4d7f-a4c8-a4b0f332f77c" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/6.png"><img style="width:2744px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/6.png"/></a></figure><p id="73b5751a-212b-438e-9c32-1430a1cd6c54" class="">
+</p><p id="1f6c2d10-953b-4f68-b4cd-c9a942cff01c" class="">
+</p><h2 id="fa7b82fa-b23f-4732-acbf-71b26fac34df" class="block-color-purple_background">Changer le contenu de la section compétences</h2><p id="ae07af73-89dd-4e48-a578-7ee83a2def65" class="">
+</p><h3 id="f8e5114d-bbb6-4fc4-93c8-bd09c16c5153" class="block-color-yellow_background">Nom des compétences</h3><figure id="1442cec0-9879-423b-bfa7-a8fa2847875c" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/7.png"><img style="width:2744px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/7.png"/></a></figure><p id="bd720aa9-3d83-42c1-8672-001a586a6395" class="">
+</p><p id="25b59ab2-73c3-4e15-a56a-c24b82132cfe" class="">
+</p><h3 id="e10cc6bb-e8a7-44b1-afc7-74cc316e41a4" class="block-color-yellow_background">Pourcentage de compétence et remplissage de la barre</h3><figure id="6373ff57-c043-44a5-87ae-44c85c5ea8f5" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/8.png"><img style="width:2744px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/8.png"/></a></figure><p id="e08f4d3a-741b-444c-9ab8-01ec0124a1f6" class="">
+</p><p id="99e51d5f-f3d2-4ef9-8813-d0f43e5d872a" class="">
+</p><h2 id="73702a47-2d4b-4a4b-9a7c-43d7971faf22" class="block-color-purple_background">Changer le contenu de la section expérience</h2><p id="d525a5dc-1805-470f-a35c-1d567c149ba9" class="">
+</p><h3 id="514e2cd3-46d1-48d5-b6e5-7e9d759e074a" class="block-color-yellow_background">Date de l&#x27;expérience</h3><figure id="a7fae6b3-e0dc-4d0c-9c30-37e25eef12e4" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/9.png"><img style="width:2744px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/9.png"/></a></figure><p id="25672176-67ef-409f-b713-e741b48851b8" class="">
+</p><h3 id="21c97ffb-a01e-45b8-82e1-b805222d0bb9" class="block-color-yellow_background">Titre du poste</h3><figure id="88cdf24f-2577-49ec-b87b-cc478b339f7d" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/10.png"><img style="width:2744px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/10.png"/></a></figure><p id="8d68689c-06d8-4d00-98d0-351cadddd148" class="">
+</p><p id="6d12a923-c86c-4d79-a957-29d239ffb40d" class="">
+</p><h3 id="389a8d43-629e-4f76-9831-407f0e0559ad" class="block-color-yellow_background">Employeur et ville</h3><figure id="2f0aefac-703e-44b7-adc6-bcaf37a5a17d" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/11.png"><img style="width:2744px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/11.png"/></a></figure><p id="45484e68-9914-4117-a916-b368408aa3d2" class="">
+</p><p id="bc5fcbea-aeb6-438c-aa30-f85e5b6c7fa7" class="">
+</p><h2 id="dcca1f79-2a54-4f52-ac0c-556368b169ca" class="block-color-purple_background">Changer le lieu de votre carte Google</h2><p id="2b20d887-1909-47c4-892e-da1bd5f0276c" class="">Allez sur <a href="https://maps.google.com">https://maps.google.com</a> et tapez votre ville. Cliquez sur partager:</p><figure id="8490e399-d1b0-4e79-b63d-213d6f374b20" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/12.png"><img style="width:1001px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/12.png"/></a></figure><p id="cd683422-3171-4dce-9144-77c41da4b663" class="">Puis sur intégrer une carte</p><figure id="2db7d4cb-b1ae-4977-889e-d1834987af8a" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/13.png"><img style="width:1001px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/13.png"/></a></figure><p id="705101f7-f4cf-4a95-9f83-f5e9d36484b5" class="">Cliquez sur <code>Copier le contenu Html</code></p><figure id="33e77510-d78a-434e-af9a-955c02428ee4" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/14.png"><img style="width:1001px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/14.png"/></a></figure><p id="4dc2d5e0-4640-4a92-a28e-44af93b07b3f" class="">Dans votre code, remplacez les lignes du <code>iframe</code> par ce que vous avez copié</p><figure id="05c36efe-b317-4aa5-b872-d26181f05597" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/15.png"><img style="width:1001px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/15.png"/></a></figure><p id="def5ab7b-9814-4597-acfa-dfc0c7194314" class="">
+</p><p id="80b10cd2-eff2-44c3-9d5b-ab7d4ec7165b" class="">
+</p><h2 id="9bb242b3-372d-4b4b-b86e-e5bc13c985af" class="block-color-purple_background">Changer le contenu de la section contact</h2><p id="3ec8e636-7b2f-455c-a005-11744ad8b290" class="">
+</p><h3 id="d6542355-3227-40a5-829e-f1690557a7fa" class="block-color-yellow_background">Texte placeholder des champs</h3><figure id="f973b4fd-7c16-4325-9cb7-c0432d1a11f3" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/16.png"><img style="width:2744px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/16.png"/></a></figure><p id="d68a8a92-9570-4aea-b2b0-2a6744976a33" class="">
+</p><p id="9d6d4e56-e856-4de9-8080-c01c2778b7ff" class="">
+</p><h3 id="9e59fee3-a163-4073-a588-5eadcb1651fb" class="block-color-yellow_background">Label des champs</h3><figure id="2cc20b7d-9e0e-4750-9ebb-0aeb4a96dddf" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/17.png"><img style="width:1859px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/17.png"/></a></figure><p id="463231bd-cd3c-48db-b479-86b82c976f86" class="">
+</p><p id="5bd82b1e-a9e0-4f55-852e-aacbab42f93c" class="">
+</p><h3 id="18eb83f7-261c-4280-8653-bb68a358d0ed" class="block-color-yellow_background">Bouton du formulaire</h3><figure id="9d37743a-d63d-494a-a5b9-5a3787a889af" class="image"><a href="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/18.png"><img style="width:2744px" src="Changer%20le%20contenu%20de%20la%20page%20a1651b8278ab44a0a2ec8d1615f471e2/18.png"/></a></figure><p id="c5c9a2af-f719-48a9-9561-9b4627c452d6" class="">
+</p></div></article></body></html>
