@@ -1,0 +1,831 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Pour aller plus loin</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2d868f17-9475-4228-bdcc-edf8ae3644a9" class="page sans"><header><h1 class="page-title">Pour aller plus loin</h1></header><div class="page-body"><nav id="1e0ef738-dab3-4281-b5f6-831ce123036f" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#42dbc43a-3b3d-45a0-a30c-dcc8b822c971">Formulaire de<strong> contact</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#cca92a92-1355-4511-80dc-e07aaf0c809e"><strong>Structure HTML</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ba170b7b-2135-48f8-86a4-685123468151"><strong>Styles CSS</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a801b1d6-4be1-4261-b98b-c88f7afebf2b"><strong>Media queries</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f282843f-4d58-4e20-a258-3bc49dd7e073"><strong>Mettre notre site en ligne</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5bc7b791-920c-45b1-82cb-2009da034f3a"><strong>Changer le contenu de la page</strong></a></div></nav><h2 id="42dbc43a-3b3d-45a0-a30c-dcc8b822c971" class="block-color-purple_background">Formulaire de<strong> contact</strong></h2><p id="d47e6534-6e21-4d38-ac73-c3d9151f39c7" class="">Pour que notre site soit vraiment utilisable il faut un moyen de nous contacter. Un formulaire permet aux gens de nous contacter sans avoir à divulguer notre adresse email.</p><p id="542a9538-7480-4aef-8f6c-cdd4dc9fa82a" class="">
+</p><h2 id="cca92a92-1355-4511-80dc-e07aaf0c809e" class="block-color-yellow_background"><strong>Structure HTML</strong></h2><p id="c6cb4a45-ea54-4bc3-b603-84e0a265fd62" class="">Normalement pour avoir un formulaire de contact sur un site il faut qu&#x27;il soit dynamique, alors que le nôtre on a vu qu&#x27;il était statique, c&#x27;est à dire qu&#x27;il n&#x27;a pas de base de données et que tout le contenu est dans le code. </p><p id="34ef60cf-877d-4fd5-8de5-87a8d6416228" class="">Grâce à l&#x27;hébergeur web Netlify on va pouvoir héberger notre site gratuitement et avoir toute la logique derrière un formulaire de contact sans s&#x27;en préoccuper. </p><p id="ce3d839f-a3d2-4b98-b138-6f72eaef45df" class="">Il faut simplement qu&#x27;on ajoute un attribut <code>data-netlify=&quot;true&quot;</code> à notre formulaire et les robots de Netlify, une fois notre site mis en ligne, vont prendre le relais.</p><p id="3e948eb1-e4b4-46fd-8201-7d70b4362473" class="">
+</p><p id="8c6d5493-3ee9-4b16-90a1-de58b04e5786" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="1a292205-1bf7-4fc1-bf68-128ce6cfe43c" class="numbered-list" start="1"><li>Insérez le formulaire HTML ci-dessous dans <code>index.html</code> après la balise <code>iframe</code> de la carte Google<pre id="b512f0ea-9dfb-4726-93b7-5b287f4f3fb9" class="code"><code>  &lt;form name=&quot;contact&quot; method=&quot;POST&quot; data-netlify=&quot;true&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label&gt;Nom&lt;/label&gt;
+        &lt;input type=&quot;text&quot; name=&quot;name&quot; placeholder=&quot;Votre nom&quot; required /&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label&gt;Email&lt;/label&gt;
+        &lt;input
+          type=&quot;email&quot;
+          name=&quot;email&quot;
+          placeholder=&quot;Votre email&quot;
+          required
+        /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+      &lt;label&gt;Message&lt;/label&gt;
+      &lt;textarea
+        name=&quot;message&quot;
+        placeholder=&quot;Votre message...&quot;
+        required
+      &gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;button class=&quot;btn&quot;&gt;Envoyer&lt;/button&gt;
+  &lt;/form&gt;</code></pre></li></ol><ol id="89f5cccd-ebb4-402d-9a07-f6230ac9364f" class="numbered-list" start="2"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="636049bd-4aa5-4d6e-b2bf-3fc09e8b4faa" class="">
+</p><p id="a7aa5dca-d715-4344-974e-4ec6432d2f56" class="block-color-teal_background">Si un formulaire apparait au bas de la page, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="194ce64f-7ef5-41d9-92e9-ded4495cd95b" class="">
+</p><p id="75d08f7a-d512-45db-8194-ae38719a9a32" class="">
+</p><h3 id="ba170b7b-2135-48f8-86a4-685123468151" class="block-color-yellow_background"><strong>Styles CSS</strong></h3><p id="dc2720dd-8d45-4c75-b697-dee05e2247d4" class="">
+</p><pre id="02508771-3c18-4761-9594-8df1c7d6fdf2" class="code"><code>/* CONTACT
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 70px auto;
+  width: 60%;
+}
+
+iframe {
+  margin-top: 30px;
+  margin-bottom: 30px;
+	width: 100%;
+}
+
+form {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #d9d9d9;
+  flex-grow: 1;
+}
+
+.form-group:first-of-type {
+  margin-right: 30px;
+}
+
+label {
+  font-size: 16px;
+  color: #999999;
+  padding: 5px;
+}
+
+input {
+  width: 100%;
+  color: #555555;
+  border: none;
+  height: 40px;
+  padding: 5px;
+  margin-top: 5px;
+  font-size: 18px;
+  font-family: Montserrat;
+}
+
+textarea {
+  border: none;
+  min-height: 110px;
+  color: #555555;
+  width: 100%;
+  padding: 5px;
+  margin-top: 10px;
+  font-family: Montserrat;
+  font-size: 18px;
+}
+
+::placeholder {
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 0 20px;
+  min-width: 130px;
+  height: 50px;
+  background-color: rgba(18, 157, 175, 1);
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  color: white;
+}</code></pre><p id="c13d10b9-72e0-40ec-9672-0cd8e009e8e8" class="">
+</p><p id="5ff801b4-f8fc-48ea-91a5-6a86592c1692" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="aa9d75ab-25ff-4e87-9f9f-af12453709b9" class="numbered-list" start="1"><li>Insérez le code CSS ci-dessus dans <code>styles.css</code></li></ol><ol id="5920721a-746b-4b58-9030-35909fe7d2df" class="numbered-list" start="2"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="1b55baf0-d9d9-4426-beb3-7ff813db01d1" class="">
+</p><p id="28bb4005-2ac3-4084-bb57-4d0ed066a9a7" class="block-color-teal_background">Si le formulaire a maintenant un design, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>. Notre formulaire ne va pas fonctionner ici puisque c&#x27;est Netlify qui le fait fonctionner, il faudra déployer notre site d&#x27;abord.</p><p id="0c0fe13f-f1e8-4fc4-9f54-9299f9bc8d53" class="">
+</p><h3 id="a801b1d6-4be1-4261-b98b-c88f7afebf2b" class="block-color-yellow_background"><strong>Media queries</strong></h3><p id="06ca9ed4-9623-4bef-9bad-e5d6811ade14" class="">Avec ce style, notre site rendra bien sur une page large mais pas sur les petits écrans qui n&#x27;auront pas la place.</p><p id="0f7a4c8e-dde0-48b6-a54f-f17c683091e6" class="">Pour que nos styles puissent changer en fonction de la taille de l&#x27;écran, en CSS on utilise ce qu&#x27;on appelle des <code>media queries</code> qui nous permettent d&#x27;appliquer un style seulement sur certaines tailles d&#x27;écrans. On va ajouter une <code>media query</code> pour les écrans de moins de 900 pixels et une autre pour les écrans de moins de 600 pixels qui va passer la timeline d&#x27;un seul côté  :</p><pre id="3a42b567-c160-4aa5-85fc-98eebf26b22b" class="code"><code>/* MEDIA QUERIES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+@media screen and (max-width: 900px) {
+  h1 {
+    padding: 10px;
+  }
+
+  .about {
+    width: 100%;
+    padding: 0;
+    margin: 70px auto;
+  }
+
+  .about p {
+    padding: 0 15px;
+  }
+
+  .skills-content {
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  .timeline .bubble {
+    width: 250px;
+  }
+
+  .timeline ul li:nth-child(even) .bubble {
+    left: -289px;
+    /*250+45-6*/
+  }
+
+	.contact {
+	  margin: 30px;
+	  width: unset;
+	}
+}
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 46px;
+  }
+
+  .progress-value,
+  .progress-badge {
+    font-size: 12px;
+  }
+
+  .timeline ul li {
+    margin-left: 20px;
+  }
+
+  .timeline .bubble {
+    width: calc(100vw - 91px);
+  }
+
+  .timeline ul li:nth-child(even) .bubble {
+    left: 45px;
+  }
+
+  .timeline ul li:nth-child(even) .bubble::before {
+    left: -15px;
+    border-width: 8px 16px 8px 0;
+    border-color: transparent rgba(18, 157, 175, 0.8) transparent transparent;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .form-group:first-of-type {
+    margin-right: 0;
+  }
+}</code></pre><p id="a4e6cef4-a50d-4e1f-9188-00f4ba1cd84f" class="">
+</p><p id="6000cd6a-8ea2-4532-b4a1-1c1b54b23b22" class="">Et pour que notre site détecte la taille de l&#x27;écran il faut ajouter une instruction meta dans la balise <code>head</code> de notre html</p><pre id="69a092d5-d6b1-43e7-8aa3-863ed819a035" class="code"><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, minimum-scale=1&quot;&gt;</code></pre><p id="58880de2-97dd-4303-aee2-9d8e72320a9f" class="">
+</p><p id="032bbf53-3cb4-41d5-b240-2fad48e3390d" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="8deb1d91-7f85-4e1d-a57f-4e2c7c1d8e10" class="numbered-list" start="1"><li>Ajoutez le CSS ci-dessus à la fin du fichier <code>styles.css</code></li></ol><ol id="bfb6d6bf-7113-451c-b2e3-ddcc4484bab2" class="numbered-list" start="2"><li>Dans la balise <code>head</code> de <code>index.html</code> ajouter la balise meta ci-dessus</li></ol><ol id="44dbddb6-66d2-4bd1-a30e-393f275d51f5" class="numbered-list" start="3"><li>Dans le menu <code>View</code> puis <code>Appearance</code> cliquez sur <code>Toggle preview</code> et redimensionnez la fenêtre pour qu&#x27;elle soit petite (vous pouvez cacher la prévisualisation après)</li></ol><p id="ed9e56c2-8e84-4cc8-bbed-bd1dae853a96" class="">
+</p><p id="1aa299e5-15b3-460b-97ba-9e217559defa" class="block-color-teal_background">Si votre timeline est d&#x27;un seul côté et que les champs nom et email du formulaire sont sur toute la ligne sur un petit écran revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="13e00e91-85aa-4581-851d-4424554a2f4c" class="">
+</p><p id="6facfc2b-d5aa-43af-8381-20569f3c5300" class="">
+</p><p id="f85df853-5b0f-43cb-8aea-d1fa1eadbded" class="">
+</p><h2 id="f282843f-4d58-4e20-a258-3bc49dd7e073" class="block-color-purple_background"><strong>Mettre notre site en ligne</strong></h2><p id="30b1cf98-1021-4802-90df-32aa47a499ed" class="">Notre site est maintenant complet, nous allons pouvoir le mettre en ligne.</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="09369e06-a9e3-4e8b-8f9e-20ba62c8b2fe"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%">À nouveau ici tout est public, codesandbox, github et bien sûr le site déployé avec netlify sont visibles par tout le monde donc on ne mettra pas d&#x27;informations confidentielles ou personnelles.</div></figure><p id="c272aa78-6cf7-46b1-be85-ef1789e3f3c1" class="">
+</p><p id="dad4efdb-a1ad-48bd-a64c-87336b1f2a87" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="209930fb-895f-42ea-9e51-916a4380d85d" class="numbered-list" start="1"><li>Suivez les instructions détaillées sur ce lien (le lien est aussi dans le booklet Horizon Numérique).<figure id="df0f25c2-25a0-4dbb-ad81-0e3b41202020" class="link-to-page"><a href="Pour%20aller%20plus%20loin%202d868f1794754228bdccedf8ae3644a9/Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020.html">Exporter et déployer son site</a></figure></li></ol><p id="2b75ad1f-388d-411d-9071-092a18b83926" class="">
+</p><p id="885475e9-f366-4d82-a809-0d3aba6f5e5f" class="block-color-teal_background">Quand votre site est déployé sur Netlify, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="5954cca5-e873-42ef-8213-309b0874d4ca" class="">
+</p><p id="3739c3ed-8fc4-45c7-aef2-d55aa2ea9e67" class="">
+</p><h2 id="5bc7b791-920c-45b1-82cb-2009da034f3a" class="block-color-purple_background"><strong>Changer le contenu de la page</strong></h2><p id="06589417-e284-4910-b55b-9eaf9aaf43c3" class="">
+</p><p id="3088f31e-adf5-4f76-9194-00fb7bb1a12e" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="37cb6ab4-3820-493f-86f5-aaf06ad92dbb" class="numbered-list" start="1"><li>Suivez les instructions détaillées sur ce lien (le lien est aussi dans le booklet).<figure id="58f7e295-142d-49d4-832c-0963cdbacaaa" class="link-to-page"><a href="Pour%20aller%20plus%20loin%202d868f1794754228bdccedf8ae3644a9/Changer%20le%20contenu%20de%20la%20page%2058f7e295142d49d4832c0963cdbacaaa.html">Changer le contenu de la page</a></figure></li></ol><p id="73c18368-d1c4-4853-8e5b-9cd2624c2b99" class="">
+</p><p id="afb5cce7-75f3-41b8-841e-794000837e2e" class="block-color-teal_background">Lorsque vous avez changé tout le contenu, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p></div></article></body></html>

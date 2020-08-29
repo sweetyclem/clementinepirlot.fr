@@ -1,0 +1,1047 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Exporter et déployer son site</title>
+	<style>
+		/* webkit printing magic: print all background colors */
+		html {
+			-webkit-print-color-adjust: exact;
+		}
+
+		* {
+			box-sizing: border-box;
+			-webkit-print-color-adjust: exact;
+		}
+
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		@media only screen {
+			body {
+				margin: 2em auto;
+				max-width: 900px;
+				color: rgb(55, 53, 47);
+			}
+		}
+
+		body {
+			line-height: 1.5;
+			white-space: pre-wrap;
+		}
+
+		a,
+		a.visited {
+			color: inherit;
+			text-decoration: underline;
+		}
+
+		.pdf-relative-link-path {
+			font-size: 80%;
+			color: #444;
+		}
+
+		h1,
+		h2,
+		h3 {
+			letter-spacing: -0.01em;
+			line-height: 1.2;
+			font-weight: 600;
+			margin-bottom: 0;
+		}
+
+		.page-title {
+			font-size: 2.5rem;
+			font-weight: 700;
+			margin-top: 0;
+			margin-bottom: 0.75em;
+		}
+
+		h1 {
+			font-size: 1.875rem;
+			margin-top: 1.875rem;
+		}
+
+		h2 {
+			font-size: 1.5rem;
+			margin-top: 1.5rem;
+		}
+
+		h3 {
+			font-size: 1.25rem;
+			margin-top: 1.25rem;
+		}
+
+		.source {
+			border: 1px solid #ddd;
+			border-radius: 3px;
+			padding: 1.5em;
+			word-break: break-all;
+		}
+
+		.callout {
+			border-radius: 3px;
+			padding: 1rem;
+		}
+
+		figure {
+			margin: 1.25em 0;
+			page-break-inside: avoid;
+		}
+
+		figcaption {
+			opacity: 0.5;
+			font-size: 85%;
+			margin-top: 0.5em;
+		}
+
+		mark {
+			background-color: transparent;
+		}
+
+		.indented {
+			padding-left: 1.5em;
+		}
+
+		hr {
+			background: transparent;
+			display: block;
+			width: 100%;
+			height: 1px;
+			visibility: visible;
+			border: none;
+			border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+		}
+
+		img {
+			max-width: 100%;
+		}
+
+		@media only print {
+			img {
+				max-height: 100vh;
+				object-fit: contain;
+			}
+		}
+
+		@page {
+			margin: 1in;
+		}
+
+		.collection-content {
+			font-size: 0.875rem;
+		}
+
+		.column-list {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.column {
+			padding: 0 1em;
+		}
+
+		.column:first-child {
+			padding-left: 0;
+		}
+
+		.column:last-child {
+			padding-right: 0;
+		}
+
+		.table_of_contents-item {
+			display: block;
+			font-size: 0.875rem;
+			line-height: 1.3;
+			padding: 0.125rem;
+		}
+
+		.table_of_contents-indent-1 {
+			margin-left: 1.5rem;
+		}
+
+		.table_of_contents-indent-2 {
+			margin-left: 3rem;
+		}
+
+		.table_of_contents-indent-3 {
+			margin-left: 4.5rem;
+		}
+
+		.table_of_contents-link {
+			text-decoration: none;
+			opacity: 0.7;
+			border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+		}
+
+		table,
+		th,
+		td {
+			border: 1px solid rgba(55, 53, 47, 0.09);
+			border-collapse: collapse;
+		}
+
+		table {
+			border-left: none;
+			border-right: none;
+		}
+
+		th,
+		td {
+			font-weight: normal;
+			padding: 0.25em 0.5em;
+			line-height: 1.5;
+			min-height: 1.5em;
+			text-align: left;
+		}
+
+		th {
+			color: rgba(55, 53, 47, 0.6);
+		}
+
+		ol,
+		ul {
+			margin: 0;
+			margin-block-start: 0.6em;
+			margin-block-end: 0.6em;
+		}
+
+		li>ol:first-child,
+		li>ul:first-child {
+			margin-block-start: 0.6em;
+		}
+
+		ul>li {
+			list-style: disc;
+		}
+
+		ul.to-do-list {
+			text-indent: -1.7em;
+		}
+
+		ul.to-do-list>li {
+			list-style: none;
+		}
+
+		.to-do-children-checked {
+			text-decoration: line-through;
+			opacity: 0.375;
+		}
+
+		ul.toggle>li {
+			list-style: none;
+		}
+
+		ul {
+			padding-inline-start: 1.7em;
+		}
+
+		ul>li {
+			padding-left: 0.1em;
+		}
+
+		ol {
+			padding-inline-start: 1.6em;
+		}
+
+		ol>li {
+			padding-left: 0.2em;
+		}
+
+		.mono ol {
+			padding-inline-start: 2em;
+		}
+
+		.mono ol>li {
+			text-indent: -0.4em;
+		}
+
+		.toggle {
+			padding-inline-start: 0em;
+			list-style-type: none;
+		}
+
+		/* Indent toggle children */
+		.toggle>li>details {
+			padding-left: 1.7em;
+		}
+
+		.toggle>li>details>summary {
+			margin-left: -1.1em;
+		}
+
+		.selected-value {
+			display: inline-block;
+			padding: 0 0.5em;
+			background: rgba(206, 205, 202, 0.5);
+			border-radius: 3px;
+			margin-right: 0.5em;
+			margin-top: 0.3em;
+			margin-bottom: 0.3em;
+			white-space: nowrap;
+		}
+
+		.collection-title {
+			display: inline-block;
+			margin-right: 1em;
+		}
+
+		time {
+			opacity: 0.5;
+		}
+
+		.icon {
+			display: inline-block;
+			max-width: 1.2em;
+			max-height: 1.2em;
+			text-decoration: none;
+			vertical-align: text-bottom;
+			margin-right: 0.5em;
+		}
+
+		img.icon {
+			border-radius: 3px;
+		}
+
+		.user-icon {
+			width: 1.5em;
+			height: 1.5em;
+			border-radius: 100%;
+			margin-right: 0.5rem;
+		}
+
+		.user-icon-inner {
+			font-size: 0.8em;
+		}
+
+		.text-icon {
+			border: 1px solid #000;
+			text-align: center;
+		}
+
+		.page-cover-image {
+			display: block;
+			object-fit: cover;
+			width: 100%;
+			height: 30vh;
+		}
+
+		.page-header-icon {
+			font-size: 3rem;
+			margin-bottom: 1rem;
+		}
+
+		.page-header-icon-with-cover {
+			margin-top: -0.72em;
+			margin-left: 0.07em;
+		}
+
+		.page-header-icon img {
+			border-radius: 3px;
+		}
+
+		.link-to-page {
+			margin: 1em 0;
+			padding: 0;
+			border: none;
+			font-weight: 500;
+		}
+
+		p>.user {
+			opacity: 0.5;
+		}
+
+		td>.user,
+		td>time {
+			white-space: nowrap;
+		}
+
+		input[type="checkbox"] {
+			transform: scale(1.5);
+			margin-right: 0.6em;
+			vertical-align: middle;
+		}
+
+		p {
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
+		}
+
+		.image {
+			border: none;
+			margin: 1.5em 0;
+			padding: 0;
+			border-radius: 0;
+			text-align: center;
+		}
+
+		.code,
+		code {
+			background: rgba(135, 131, 120, 0.15);
+			border-radius: 3px;
+			padding: 0.2em 0.4em;
+			border-radius: 3px;
+			font-size: 85%;
+			tab-size: 2;
+		}
+
+		code {
+			color: #eb5757;
+		}
+
+		.code {
+			padding: 1.5em 1em;
+		}
+
+		.code-wrap {
+			white-space: pre-wrap;
+			word-break: break-all;
+		}
+
+		.code>code {
+			background: none;
+			padding: 0;
+			font-size: 100%;
+			color: inherit;
+		}
+
+		blockquote {
+			font-size: 1.25em;
+			margin: 1em 0;
+			padding-left: 1em;
+			border-left: 3px solid rgb(55, 53, 47);
+		}
+
+		.bookmark {
+			text-decoration: none;
+			max-height: 8em;
+			padding: 0;
+			display: flex;
+			width: 100%;
+			align-items: stretch;
+		}
+
+		.bookmark-title {
+			font-size: 0.85em;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			height: 1.75em;
+			white-space: nowrap;
+		}
+
+		.bookmark-text {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.bookmark-info {
+			flex: 4 1 180px;
+			padding: 12px 14px 14px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.bookmark-image {
+			width: 33%;
+			flex: 1 1 180px;
+			display: block;
+			position: relative;
+			object-fit: cover;
+			border-radius: 1px;
+		}
+
+		.bookmark-description {
+			color: rgba(55, 53, 47, 0.6);
+			font-size: 0.75em;
+			overflow: hidden;
+			max-height: 4.5em;
+			word-break: break-word;
+		}
+
+		.bookmark-href {
+			font-size: 0.75em;
+			margin-top: 0.25em;
+		}
+
+		.sans {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+		}
+
+		.code {
+			font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+		}
+
+		.serif {
+			font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif;
+		}
+
+		.mono {
+			font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+		}
+
+		.pdf .sans {
+			font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR';
+		}
+
+		.pdf .code {
+			font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR';
+		}
+
+		.pdf .serif {
+			font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR';
+		}
+
+		.pdf .mono {
+			font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR';
+		}
+
+		.highlight-default {}
+
+		.highlight-gray {
+			color: rgb(155, 154, 151);
+		}
+
+		.highlight-brown {
+			color: rgb(100, 71, 58);
+		}
+
+		.highlight-orange {
+			color: rgb(217, 115, 13);
+		}
+
+		.highlight-yellow {
+			color: rgb(223, 171, 1);
+		}
+
+		.highlight-teal {
+			color: rgb(15, 123, 108);
+		}
+
+		.highlight-blue {
+			color: rgb(11, 110, 153);
+		}
+
+		.highlight-purple {
+			color: rgb(105, 64, 165);
+		}
+
+		.highlight-pink {
+			color: rgb(173, 26, 114);
+		}
+
+		.highlight-red {
+			color: rgb(224, 62, 62);
+		}
+
+		.highlight-gray_background {
+			background: rgb(235, 236, 237);
+		}
+
+		.highlight-brown_background {
+			background: rgb(233, 229, 227);
+		}
+
+		.highlight-orange_background {
+			background: rgb(250, 235, 221);
+		}
+
+		.highlight-yellow_background {
+			background: rgb(251, 243, 219);
+		}
+
+		.highlight-teal_background {
+			background: rgb(221, 237, 234);
+		}
+
+		.highlight-blue_background {
+			background: rgb(221, 235, 241);
+		}
+
+		.highlight-purple_background {
+			background: rgb(234, 228, 242);
+		}
+
+		.highlight-pink_background {
+			background: rgb(244, 223, 235);
+		}
+
+		.highlight-red_background {
+			background: rgb(251, 228, 228);
+		}
+
+		.block-color-default {
+			color: inherit;
+			fill: inherit;
+		}
+
+		.block-color-gray {
+			color: rgba(55, 53, 47, 0.6);
+			fill: rgba(55, 53, 47, 0.6);
+		}
+
+		.block-color-brown {
+			color: rgb(100, 71, 58);
+			fill: rgb(100, 71, 58);
+		}
+
+		.block-color-orange {
+			color: rgb(217, 115, 13);
+			fill: rgb(217, 115, 13);
+		}
+
+		.block-color-yellow {
+			color: rgb(223, 171, 1);
+			fill: rgb(223, 171, 1);
+		}
+
+		.block-color-teal {
+			color: rgb(15, 123, 108);
+			fill: rgb(15, 123, 108);
+		}
+
+		.block-color-blue {
+			color: rgb(11, 110, 153);
+			fill: rgb(11, 110, 153);
+		}
+
+		.block-color-purple {
+			color: rgb(105, 64, 165);
+			fill: rgb(105, 64, 165);
+		}
+
+		.block-color-pink {
+			color: rgb(173, 26, 114);
+			fill: rgb(173, 26, 114);
+		}
+
+		.block-color-red {
+			color: rgb(224, 62, 62);
+			fill: rgb(224, 62, 62);
+		}
+
+		.block-color-gray_background {
+			background: rgb(235, 236, 237);
+		}
+
+		.block-color-brown_background {
+			background: rgb(233, 229, 227);
+		}
+
+		.block-color-orange_background {
+			background: rgb(250, 235, 221);
+		}
+
+		.block-color-yellow_background {
+			background: rgb(251, 243, 219);
+		}
+
+		.block-color-teal_background {
+			background: rgb(221, 237, 234);
+		}
+
+		.block-color-blue_background {
+			background: rgb(221, 235, 241);
+		}
+
+		.block-color-purple_background {
+			background: rgb(234, 228, 242);
+		}
+
+		.block-color-pink_background {
+			background: rgb(244, 223, 235);
+		}
+
+		.block-color-red_background {
+			background: rgb(251, 228, 228);
+		}
+
+		.select-value-color-default {
+			background-color: rgba(206, 205, 202, 0.5);
+		}
+
+		.select-value-color-gray {
+			background-color: rgba(155, 154, 151, 0.4);
+		}
+
+		.select-value-color-brown {
+			background-color: rgba(140, 46, 0, 0.2);
+		}
+
+		.select-value-color-orange {
+			background-color: rgba(245, 93, 0, 0.2);
+		}
+
+		.select-value-color-yellow {
+			background-color: rgba(233, 168, 0, 0.2);
+		}
+
+		.select-value-color-green {
+			background-color: rgba(0, 135, 107, 0.2);
+		}
+
+		.select-value-color-blue {
+			background-color: rgba(0, 120, 223, 0.2);
+		}
+
+		.select-value-color-purple {
+			background-color: rgba(103, 36, 222, 0.2);
+		}
+
+		.select-value-color-pink {
+			background-color: rgba(221, 0, 129, 0.2);
+		}
+
+		.select-value-color-red {
+			background-color: rgba(255, 0, 26, 0.2);
+		}
+
+		.checkbox {
+			display: inline-flex;
+			vertical-align: text-bottom;
+			width: 16;
+			height: 16;
+			background-size: 16px;
+			margin-left: 2px;
+			margin-right: 5px;
+		}
+
+		.checkbox-on {
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+		}
+
+		.checkbox-off {
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+		}
+	</style>
+</head>
+
+<body>
+	<article id="df0f25c2-25a0-4dbb-ad81-0e3b41202020" class="page sans">
+		<header>
+			<h1 class="page-title">Exporter et déployer son site</h1>
+		</header>
+		<div class="page-body">
+			<nav id="bc016025-ca07-42ca-817b-f164d6627575" class="block-color-gray table_of_contents">
+				<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link"
+						href="#0c14ec71-bbfd-49e0-9c5a-76620ffbad0c">Exporter sur Github</a></div>
+				<div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link"
+						href="#85d041f6-de09-4e43-b01d-af3f6306c8e1">Créer un compte Github</a></div>
+				<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link"
+						href="#cef2c72e-edb7-4d66-9963-c3a8607891ce">Déployer sur Netlify</a></div>
+				<div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link"
+						href="#d2c1d8b3-85fb-4637-90be-848feb02c69e">Configurer le formulaire de contact</a></div>
+			</nav>
+			<p id="3da46d56-46bb-46c1-8610-7dce30868f48" class="">
+			</p>
+			<h2 id="0c14ec71-bbfd-49e0-9c5a-76620ffbad0c" class="block-color-purple_background">Exporter sur Github</h2>
+			<p id="c737667e-e5c2-4480-8882-ccd60a0b112e" class="">Ayant démarré sous forme de plateforme collaborative
+				pour développeurs, GitHub est désormais le plus grand espace de stockage de travaux collaboratifs dans
+				le monde. C&#x27;est une sorte de Google Drive ou Dropbox pour le code. Et surtout, avoir notre code sur
+				cette plateforme nous permet de déployer notre site sur Netlify en quelques clics mais aussi de mettre à
+				jour notre site dès que nous changeons le code.</p>
+			<p id="eaa3de18-1a57-43b2-948a-29f312e816fe" class="">
+			</p>
+			<h3 id="85d041f6-de09-4e43-b01d-af3f6306c8e1" class="block-color-yellow_background">Créer un compte Github
+			</h3>
+			<p id="1584fc9f-1189-4c7a-8571-63d7a65f45fd" class="">Créez un compte github, en suivant ces instructions <a
+					href="https://fr.wikihow.com/cr%C3%A9er-un-compte-sur-GitHub">https://fr.wikihow.com/cr%C3%A9er-un-compte-sur-GitHub</a>
+			</p>
+			<figure id="d8101f43-8b19-4a27-9be5-30a3416f59af"><a
+					href="https://fr.wikihow.com/cr%C3%A9er-un-compte-sur-GitHub" class="bookmark source">
+					<div class="bookmark-info">
+						<div class="bookmark-text">
+							<div class="bookmark-title">Comment créer un compte sur GitHub</div>
+							<div class="bookmark-description">Apprenez à ouvrir un compte personnel gratuit sur GitHub.
+								Un compte gratuit vous offre un accès illimité aux repositories (type de dossier) de
+								logiciels publics et privés ainsi que la possibilité de collaborer avec un maximum de
+								3...</div>
+						</div>
+						<div class="bookmark-href"><img src="https://fr.wikihow.com/favicon.ico"
+								class="icon bookmark-icon" />https://fr.wikihow.com/cr%C3%A9er-un-compte-sur-GitHub
+						</div>
+					</div><img src="https://www.wikihow.com/images/5/5c/Create-an-Account-on-GitHub-Step-8.jpg"
+						class="bookmark-image" />
+				</a></figure>
+			<p id="e9e6ff83-56b7-454f-8802-88cf498215c4" class="">
+			</p>
+			<p id="fd2bbc4f-4880-4bba-9150-eb3240182425" class="">Dans votre codesanbox, cliquez sur Le 4ème onglet à
+				gauche</p>
+			<figure id="32754a6d-817a-40a4-8b72-59ed79f607fa" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_8.21.54_AM.png"><img
+						style="width:1168px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_8.21.54_AM.png" /></a>
+			</figure>
+			<p id="6eabf75b-098f-47d0-af5f-5e59d8e7c94a" class="">Entrer un nom pour votre dossier qui sera sauvegardé
+				sur Github et cliquer <code>Create Repository</code></p>
+			<figure id="0c5b6992-52d8-4fd0-8bc0-1933ff1e8b53" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_8.21.57_AM.png"><img
+						style="width:1168px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_8.21.57_AM.png" /></a>
+			</figure>
+			<p id="9400d104-a6ae-4d8d-9761-502eea0071cd" class="">La page peut parfois se coincer, dans ce cas là vous
+				pouvez rafraichir la page et retourner dans l&#x27;onglet Github et vous verrez un bouton
+				<code>Link Sandbox</code></p>
+			<figure id="18ada682-f94f-4f5d-8186-b95a6d7e7ade" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_8.30.17_AM.png"><img
+						style="width:1084px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_8.30.17_AM.png" /></a>
+			</figure>
+			<p id="57dc003f-326f-415a-8deb-2fcd55ba467d" class="">Cliquer sur ce bouton vous donnera cette interface :
+			</p>
+			<figure id="d5b7de1c-ae7f-4272-8cb5-f3faaf7ebc57" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_8.51.52_AM.png"><img
+						style="width:1194px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_8.51.52_AM.png" /></a>
+			</figure>
+			<p id="16b1f403-70a2-42aa-8779-314d3aa795cb" class="">
+			</p>
+			<p id="ca368e1c-cc29-4e44-8d4a-6a7248b1b254" class="">Il y a un bug sur CodeSandbox et la première fois que
+				Github est lié à notre code, ça va corrompre l&#x27;image. Donc on va supprimer les 2 images corrompues
+				<code>header.jpg</code> er <code>profile.jpg</code>:</p>
+			<figure id="12198810-53be-4636-b714-7b2795751b0d" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_8.57.48_AM.png"><img
+						style="width:1194px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_8.57.48_AM.png" /></a>
+			</figure>
+			<p id="a53aa796-177c-4c39-9e58-039d83e85452" class="">Il faut qu&#x27;on synchronise ça avec Github
+				maintenant, avant de les remettre sinon codesandbox pensera qu&#x27;on a pas fait de changement. Donc on
+				va dans l&#x27;onglet Github à gauche, on remplit une description du changement qu&#x27;on a fait et on
+				clique <code>Commit changes</code>:</p>
+			<figure id="e91074de-37c3-4622-8dc0-b94a6af3feee" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.39.46_PM.png"><img
+						style="width:1860px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.39.46_PM.png" /></a>
+			</figure>
+			<p id="b3218279-7fcb-4803-87be-a6c0b03e07b6" class="">
+			</p>
+			<p id="e36529cf-d6ac-43c1-a93d-5e3e97491f82" class="">Maintenant on peut les uploader à nouveau. C&#x27;est
+				le bon moment de les remplacer par une image de vous et par une autre image de header si vous préférez
+				(<a href="https://graphiste.com/blog/image-gratuite-libre-de-droit">banques d&#x27;images gratuites:
+					https://graphiste.com/blog/image-gratuite-libre-de-droit</a>).</p>
+			<p id="67176d66-bf18-4427-8091-8c57c095570f" class="">Pour les uploader on va cliquer sur la flèche vers le
+				haut et charger nos deux images:</p>
+			<figure id="ad796f49-81eb-4bb2-befc-f6a5e8d856a4" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.17.19_PM.png"><img
+						style="width:1406px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.17.19_PM.png" /></a>
+			</figure>
+			<p id="62e480c5-4a9b-4391-ab8e-fc190cb48697" class="">On va synchroniser avec Github à nouveau:</p>
+			<figure id="4781a1e6-0c63-4177-8587-4815b50442d1" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.20.12_PM.png"><img
+						style="width:1406px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.20.12_PM.png" /></a>
+			</figure>
+			<p id="e53bf18e-f95d-43fe-9e59-bbc58a49bfd2" class="">
+			</p>
+			<p id="7805f4c8-ca12-4ec6-bac7-9f55ca40d734" class="">Et maintenant on va aller sur le site Github et
+				cliquer sur notre image:</p>
+			<figure id="5c50d249-0247-4e36-a975-b09b144dee3d" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.23.33_PM.png"><img
+						style="width:2062px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.23.33_PM.png" /></a>
+			</figure>
+			<p id="343ad882-b4d7-42c8-b75c-a2400a1867ea" class="">Ça va nous donner une url qu&#x27;on va copier</p>
+			<figure id="8cf15eea-7cb9-48f3-b41e-42d9d444eba6" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.23.39_PM.png"><img
+						style="width:2062px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.23.39_PM.png" /></a>
+			</figure>
+			<p id="68d11ad3-4077-4796-b5c4-ab265fa9abdc" class="">Et dans notre codesandbox à la place on va utiliser le
+				lien vers l&#x27;image, comme ça ça fonctionnera partout. Dans le fichier <code>styles.css</code> on va
+				remplacer <code>header.jpg</code> </p>
+			<figure id="461c57e4-8e4e-4342-897c-f0a5906b3e08" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.24.32_PM.png"><img
+						style="width:1996px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.24.32_PM.png" /></a>
+			</figure>
+			<p id="7a88f120-fa28-469a-9b0d-8799a3fd8046" class="">Et pareil pour notre image de profil</p>
+			<figure id="9d75a065-5441-43d0-8474-1d8c8d97aabd" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.35.26_PM.png"><img
+						style="width:1860px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.35.26_PM.png" /></a>
+			</figure>
+			<p id="582bbcc9-99f7-4ca1-a397-f7d1a73ae037" class="">Cette fois on remplace dans le fichier
+				<code>index.html</code> dans notre balise <code>img</code></p>
+			<figure id="7cc93254-b1f7-44cb-80b9-3ddb48d0e6ac" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.29.15_PM.png"><img
+						style="width:1996px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.29.15_PM.png" /></a>
+			</figure>
+			<p id="7117de9d-0cdf-4dab-867e-4a1035d9b406" class="">
+			</p>
+			<p id="a9ec8b68-3364-479e-93d7-65ed8b563b6a" class="">On va synchroniser ça avec Github en retournant dans
+				l&#x27;onglet Github. On entre une courte description du changement qu&#x27;on a fait et on clique
+				<code>Commit Changes</code></p>
+			<figure id="7c524147-e097-482a-9f94-67bae6f282b3" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.30.10_PM.png"><img
+						style="width:1178px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-15_at_3.30.10_PM.png" /></a>
+			</figure>
+			<p id="8c896a80-2a93-432d-b825-59aad8e539ee" class="">
+			</p>
+			<p id="8e9ef589-d34f-4e3f-84ba-eb9c3d43918a" class="">
+			</p>
+			<h2 id="cef2c72e-edb7-4d66-9963-c3a8607891ce" class="block-color-purple_background">Déployer sur Netlify
+			</h2>
+			<p id="1e339172-bf55-4fb5-9015-57ef5f87e1f2" class="">Maintenant on peut aller sur <a
+					href="https://app.netlify.com/signup">https://app.netlify.com/signup</a>, choisir Github et cliquer
+				sur <code>Authorize</code></p>
+			<figure id="fb5a4755-0b28-41e5-b4db-8dbc1817224c" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_8.28.57_AM.png"><img
+						style="width:1534px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_8.28.57_AM.png" /></a>
+			</figure>
+			<p id="b6ec3f41-9010-4f6e-901e-081cedecd441" class="">On peut fermer la popup qui s&#x27;affiche et cliquer
+				<code>New site from Git</code></p>
+			<figure id="1f4a14a6-181d-4279-ae30-5793ccc63cd9" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.09.13_AM.png"><img
+						style="width:2468px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.09.13_AM.png" /></a>
+			</figure>
+			<p id="fbe7c2b0-70e1-4708-92f8-331b26760ee4" class="">On va choisir Github</p>
+			<figure id="3ef34239-2ee4-4b00-ac58-8355889403e9" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.10.09_AM.png"><img
+						style="width:2468px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.10.09_AM.png" /></a>
+			</figure>
+			<p id="61e01e76-571f-4ab7-b59f-863a84edbc9e" class="">On va à nouveau cliquer sur <code>Authorize</code></p>
+			<p id="810bfe42-731e-443f-b142-278ccee58b30" class="">
+			</p>
+			<figure id="eec1f8a6-a046-4741-9231-0008837c7de2" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.12.26_AM.png"><img
+						style="width:1056px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.12.26_AM.png" /></a>
+			</figure>
+			<p id="847f5372-e77d-4e38-8578-2fb5d2e2c70e" class="">On va cliquer sur
+				<code>Configure Netlify on Github</code></p>
+			<figure id="0dd46a52-378d-4985-86f5-9c055f148502" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.15.21_AM.png"><img
+						style="width:1492px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.15.21_AM.png" /></a>
+			</figure>
+			<p id="85d34f55-9a65-4f6f-94d4-39d7e39241f6" class="">Et on va juste cliquer <code>Install</code></p>
+			<figure id="4f1e3da4-7759-46b5-97e5-0ebf71ee40c2" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.40.36_AM.png"><img
+						style="width:1080px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.40.36_AM.png" /></a>
+			</figure>
+			<p id="05c8a177-8b0d-430c-b58f-ba87156fc0b1" class="">Et ensuite cliquer sur le dossier qu&#x27;on vient de
+				lier</p>
+			<figure id="5ec693d8-a840-4418-8fec-b7f48d3e00fc" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.18.18_AM.png"><img
+						style="width:1492px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.18.18_AM.png" /></a>
+			</figure>
+			<p id="2c40ff2f-0138-4ac6-855f-8b909a9cf694" class="">Et sur la page suivante on va juste cliquer
+				<code>Deploy Site</code></p>
+			<figure id="2b136f14-6d90-44fc-9b64-514a03b7710f" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/create_new_site.png"><img
+						style="width:1404px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/create_new_site.png" /></a>
+			</figure>
+			<p id="878a66fc-b16f-4d6d-94cd-a2c7fbcb3728" class="">Et voilà! Notre page est sur le web. Son adresse est
+				en vert ici</p>
+			<figure id="89cb79e6-dae2-4888-aa17-226d3979d93f" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.51.02_AM.png"><img
+						style="width:1530px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.51.02_AM.png" /></a>
+			</figure>
+			<p id="a60c4edd-7e2e-4147-8707-9b5ab428574d" class="">Le nom généré est un peu bizarre mais on peut le
+				changer facilement! On va cliquer sur <code>Site settings</code></p>
+			<figure id="7cf0e43f-a366-4432-9013-65bb173452f6" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.52.16_AM.png"><img
+						style="width:1530px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.52.16_AM.png" /></a>
+			</figure>
+			<p id="96c3f5f5-e3f8-42be-a430-bd7d268e4c16" class="">Et ensuite sur <code>Change site name</code></p>
+			<figure id="eb323b49-98dc-4d2d-b26a-252e254bc35f" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.52.28_AM.png"><img
+						style="width:1662px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.52.28_AM.png" /></a>
+			</figure>
+			<p id="62a32291-b134-4322-b8f4-b3030e2f4017" class="">On va mettre le nom qu&#x27;on veut, par exemple notre
+				prénom et nom (ça vous dira si le nom est déjà pris)</p>
+			<figure id="b4bbd803-b9ed-4ad0-ab18-df7e6c65d2ae" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.53.03_AM.png"><img
+						style="width:1858px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_9.53.03_AM.png" /></a>
+			</figure>
+			<p id="e0bfbf59-8281-4ae4-acb5-8c376a4bbdd1" class="">Et maintenant l&#x27;adresse de notre site est super
+				jolie! On peut partager ça facilement.</p>
+			<figure id="bfb1e44c-3d88-43ea-b9a3-6fd29e575741" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_10.44.13_AM.png"><img
+						style="width:1734px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-03_at_10.44.13_AM.png" /></a>
+			</figure>
+			<p id="8e4e3419-8039-4738-84a5-0fff47b07aa9" class="">
+			</p>
+			<figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex"
+				id="932e63b6-dacd-4a4a-a5f6-fefd1d3415de">
+				<div style="font-size:1.5em"><span class="icon">💡</span></div>
+				<div style="width:100%">Dès qu&#x27;on fera des changements dans notre code sur CodeSandbox, on pourra
+					retourner dans l&#x27;onglet Github et synchroniser à nouveau. Notre site Netlify sera mis à jour
+					automatiquement (ça peut prendre quelques minutes).</div>
+			</figure>
+			<p id="5a7acdf1-7d1e-44d6-bfeb-176a90aab8e5" class="">
+			</p>
+			<p id="8d1dbf34-d9b7-4c6e-bfa4-ffe61d187c60" class="">
+			</p>
+			<h2 id="d2c1d8b3-85fb-4637-90be-848feb02c69e" class="block-color-purple_background">Configurer le formulaire
+				de contact</h2>
+			<p id="79b9cc8f-4895-481e-8b74-a7a376a33acd" class="">Il faut qu&#x27;on soumette une première fois notre
+				formulaire avant de pouvoir voir les paramètres des formulaires. Donc on va d&#x27;abord naviguer sur
+				notre site et remplir le formulaire.</p>
+			<p id="872f0465-d397-4a2f-a295-8afd04ccf98c" class="">
+			</p>
+			<p id="5f7976b3-2203-4192-8ca2-d15d73f7c4f6" class="">Ensuite dans les paramètres de notre site, on va
+				naviguer sur l&#x27;onglet <code>Forms</code></p>
+			<figure id="05a2e632-9dea-468e-853c-8ab5eb26b180" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-07_at_5.19.26_PM.png"><img
+						style="width:1386px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-07_at_5.19.26_PM.png" /></a>
+			</figure>
+			<p id="11c13119-38eb-4c5e-87b1-6fba22bfa90e" class="">On va cliquer sur <code>Add notification</code> puis
+				<code>Email notification</code></p>
+			<figure id="26a1b20f-6938-4152-9467-025d3a891522" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-07_at_5.24.42_PM.png"><img
+						style="width:1387px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-07_at_5.24.42_PM.png" /></a>
+			</figure>
+			<p id="03e264ee-eb68-47ba-87ef-5b3523d99162" class="">On va remplir son adresse email et cliquer
+				<code>Save</code></p>
+			<figure id="24e92511-332e-431a-976c-7581083b868f" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-07_at_5.19.35_PM.png"><img
+						style="width:1387px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-07_at_5.19.35_PM.png" /></a>
+			</figure>
+			<p id="fcc8dc82-984a-4017-9656-b5d0b6194926" class="">Voilà maintenant à chaque fois que quelqu&#x27;un
+				utilise notre formulaire, on va recevoir un email avec le contenu du message et on pourra même répondre
+				directement à l&#x27;email.</p>
+			<p id="32956042-9509-4029-9974-243508348277" class="">
+			</p>
+			<p id="097720ab-eff3-4de3-a98e-5fbf71ff8a02" class="">Toutes les soumission de notre formulaire sont aussi
+				visibles depuis Netlify. Dans la barre de navigation en haut on va cliquer sur <code>Forms</code> et
+				ensuite notre formulaire contact</p>
+			<figure id="a55914a3-5015-4927-9445-6e6ee89c7b54" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-07_at_5.20.03_PM.png"><img
+						style="width:1387px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-07_at_5.20.03_PM.png" /></a>
+			</figure>
+			<p id="3e281642-1afa-411a-b7b1-c87c719d7088" class="">Chaque soumission sera visible ici et on peut voir
+				tout le texte:</p>
+			<p id="0500ff9c-6f8a-4553-b2de-6b1c0f5409cd" class="">
+			</p>
+			<figure id="e6c34a4a-9a3d-4ee5-aa41-fc670beedb53" class="image"><a
+					href="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-07_at_5.20.13_PM.png"><img
+						style="width:1387px"
+						src="Exporter%20et%20de%CC%81ployer%20son%20site%20df0f25c225a04dbbad810e3b41202020/Screen_Shot_2020-08-07_at_5.20.13_PM.png" /></a>
+			</figure>
+		</div>
+	</article>
+</body>
+
+</html>
