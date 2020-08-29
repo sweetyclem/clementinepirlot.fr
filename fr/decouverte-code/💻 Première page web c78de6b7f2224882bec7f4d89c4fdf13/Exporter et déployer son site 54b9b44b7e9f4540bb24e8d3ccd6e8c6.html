@@ -1,0 +1,641 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Exporter et déployer son site</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="54b9b44b-7e9f-4540-bb24-e8d3ccd6e8c6" class="page sans"><header><h1 class="page-title">Exporter et déployer son site</h1></header><div class="page-body"><p id="b25310aa-c4eb-4e3b-a260-60c6678e37b1" class="">Pas à pas pour mettre en ligne notre page facilement et gratuitement.</p><h1 id="286d416f-170b-45a9-b691-fe093853df2c" class="">Exporter sur Github</h1><p id="5e980412-ca26-4953-bcd4-6dcaaaa299b9" class="">
+</p><p id="36907f01-a149-41da-acd9-35b7be903d62" class="">Créez un compte github, en suivant ces instructions <a href="https://fr.wikihow.com/cr%C3%A9er-un-compte-sur-GitHub">https://fr.wikihow.com/cr%C3%A9er-un-compte-sur-GitHub</a></p><figure id="8ed190a7-a2c3-4c6c-8191-5dd280efc14a"><a href="https://fr.wikihow.com/cr%C3%A9er-un-compte-sur-GitHub" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Comment créer un compte sur GitHub</div><div class="bookmark-description">Apprenez à ouvrir un compte personnel gratuit sur GitHub. Un compte gratuit vous offre un accès illimité aux repositories (type de dossier) de logiciels publics et privés ainsi que la possibilité de collaborer avec un maximum de 3...</div></div><div class="bookmark-href"><img src="https://fr.wikihow.com/favicon.ico" class="icon bookmark-icon"/>https://fr.wikihow.com/cr%C3%A9er-un-compte-sur-GitHub</div></div><img src="https://www.wikihow.com/images/5/5c/Create-an-Account-on-GitHub-Step-8.jpg" class="bookmark-image"/></a></figure><p id="d01db88b-192d-47f7-9804-eec785153f15" class="">
+</p><p id="6804509c-aaff-4e5e-a14f-1db9d42f853e" class="">Dans votre codesanbox, cliquez sur Le 4ème onglet à gauche</p><figure id="e97db06c-8434-45d6-8e8d-c07c3a0e3d69" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_8.21.54_AM.png"><img style="width:1168px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_8.21.54_AM.png"/></a></figure><p id="109b2f19-562f-4a22-a9a5-39465bce274f" class="">Entrer un nom pour votre dossier qui sera sauvegardé sur Github et cliquer <code>Create Repository</code></p><figure id="8ac89b3f-49f6-4492-94c7-52a89b5d1364" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_8.21.57_AM.png"><img style="width:1168px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_8.21.57_AM.png"/></a></figure><p id="b8edbd94-8fc3-45ed-a6ad-d84cd10195ef" class="">La page peut parfois se coincer, dans ce cas là vous pouvez rafraichir la page et retourner dans l&#x27;onglet Github et vous verrez un bouton <code>Link Sandbox</code></p><figure id="e541f8ba-777c-414f-b781-d08ef060f90d" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_8.30.17_AM.png"><img style="width:1084px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_8.30.17_AM.png"/></a></figure><p id="25eae6bf-b2f0-4a05-a1a4-9650837ee422" class="">Cliquer sur ce bouton vous donnera cette interface :</p><figure id="5f9522cf-7a4b-4b86-ae2f-93d53509dde6" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_8.51.52_AM.png"><img style="width:1194px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_8.51.52_AM.png"/></a></figure><p id="12be5731-1519-414b-85e1-40594d2f0222" class="">
+</p><p id="5d03c187-17f4-4645-9587-98a9bbb011cf" class="">Il y a un bug sur CodeSandbox et la première fois que Github est lié à notre code, ça va corrompre l&#x27;image. Donc on va supprimer les 2 images corrompues <code>header.jpg</code> er <code>profile.jpg</code>:</p><figure id="20f08a27-4598-4b76-b18f-1bddd6c86ab0" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_8.57.48_AM.png"><img style="width:1194px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_8.57.48_AM.png"/></a></figure><p id="81ddb0b9-e629-48b4-b55a-59caf4c2dbf2" class="">Il faut qu&#x27;on synchronise ça avec Github maintenant, avant de les remettre sinon codesandbox pensera qu&#x27;on a pas fait de changement. Donc on va dans l&#x27;onglet Github à gauche, on remplit une description du changement qu&#x27;on a fait et on clique <code>Commit changes</code>:</p><figure id="eb082596-7d14-4586-8fc4-0ac5563b4f5a" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.39.46_PM.png"><img style="width:1860px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.39.46_PM.png"/></a></figure><p id="847d929c-7dbc-4b5f-a2b7-a171f02739f0" class="">
+</p><p id="c8e7b21f-3c33-4577-95f2-a1c5bc197983" class="">Maintenant on peut les uploader à nouveau. C&#x27;est le bon moment de les remplacer par une image de vous et par une autre image de header si vous préférez (<a href="https://graphiste.com/blog/image-gratuite-libre-de-droit">banques d&#x27;images gratuites: https://graphiste.com/blog/image-gratuite-libre-de-droit</a>).</p><p id="f53fbfdd-79dd-46da-8a54-e38c78705f81" class="">Pour les uploader on va cliquer sur la flèche vers le haut et charger nos deux images:</p><figure id="401e89a5-e7e4-4927-bc59-b19a8d52adb7" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.17.19_PM.png"><img style="width:1406px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.17.19_PM.png"/></a></figure><p id="13cb35bf-4f0a-4384-a912-79b8b34ac406" class="">On va synchroniser avec Github à nouveau:</p><figure id="34581a78-2bd4-4cbf-902b-802a05cc2433" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.20.12_PM.png"><img style="width:1406px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.20.12_PM.png"/></a></figure><p id="4ee1d92e-46d5-4ef4-82f8-1c0675f0e85c" class="">
+</p><p id="2c2dbcd5-9518-4135-8e88-f1b91166e6ab" class="">Et maintenant on va aller sur le site Github et cliquer sur notre image:</p><figure id="300a503a-660e-4f7d-937e-056f95cb3980" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.23.33_PM.png"><img style="width:2062px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.23.33_PM.png"/></a></figure><p id="bdb13631-1bf4-4b4f-ade0-f6b90db3cde6" class="">Ça va nous donner une url qu&#x27;on va copier</p><figure id="ce470d7b-85db-4c88-a4aa-973894054f11" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.23.39_PM.png"><img style="width:2062px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.23.39_PM.png"/></a></figure><p id="0d522a03-1431-43e2-a1d0-e3b550354b8d" class="">Et dans notre codesandbox à la place on va utiliser le lien vers l&#x27;image, comme ça ça fonctionnera partout. Dans le fichier <code>styles.css</code> on va remplacer <code>header.jpg</code> </p><figure id="3d3e7465-7c35-4163-8a0c-a6d69134228e" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.24.32_PM.png"><img style="width:1996px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.24.32_PM.png"/></a></figure><p id="3ff13fcf-4025-4298-81ed-209732c31633" class="">Et pareil pour notre image de profil</p><figure id="517ed49f-8106-4028-b152-8e9f48a56f6e" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.35.26_PM.png"><img style="width:1860px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.35.26_PM.png"/></a></figure><p id="028725e7-3192-4a34-bfd5-067011618da1" class="">Cette fois on remplace dans le fichier <code>index.html</code> dans notre balise <code>img</code></p><figure id="b70ebd41-7885-4800-9bda-633c28a471cf" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.29.15_PM.png"><img style="width:1996px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.29.15_PM.png"/></a></figure><p id="447f6206-4f05-4cb7-b2bd-b676c68b5632" class="">
+</p><p id="b1895b60-7c2b-4656-ae21-18a61c07d570" class="">On va synchroniser ça avec Github en retournant dans l&#x27;onglet Github. On entre une courte description du changement qu&#x27;on a fait et on clique <code>Commit Changes</code></p><figure id="5c4ead1d-6e3d-498c-9e9f-e74b501cee38" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.30.10_PM.png"><img style="width:1178px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-15_at_3.30.10_PM.png"/></a></figure><p id="72e3f28d-493e-49b6-93a2-b158bdabfc5f" class="">
+</p><h1 id="46404075-159e-4bfd-9bc4-d5e9726171fc" class="">Déployer sur Netlify</h1><p id="7fccb2b1-9e09-47eb-9dfb-74aa3562d48d" class="">Maintenant on peut aller sur <a href="https://app.netlify.com/signup">https://app.netlify.com/signup</a>, choisir Github et cliquer sur <code>Authorize</code></p><figure id="30e75993-4592-482b-9480-c13dd8ef3266" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_8.28.57_AM.png"><img style="width:1534px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_8.28.57_AM.png"/></a></figure><p id="7284649b-acff-48d3-9d6c-e45dddbfbddb" class="">On peut fermer la popup qui s&#x27;affiche et cliquer <code>New site from Git</code></p><figure id="5c345d4a-0fd3-45e1-b9e8-5d84a68ff77b" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.09.13_AM.png"><img style="width:2468px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.09.13_AM.png"/></a></figure><p id="35ab53f4-507a-42f8-a126-19b2a4d9f8cf" class="">On va choisir Github</p><figure id="d2600cdb-6339-4ac4-b7ef-49a7134c7403" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.10.09_AM.png"><img style="width:2468px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.10.09_AM.png"/></a></figure><p id="f38e7a29-baae-409f-aed7-0e1bf8c663d2" class="">On va à nouveau cliquer sur <code>Authorize</code></p><p id="ae853a30-faee-47a1-b070-380979b453d0" class="">
+</p><figure id="147fcb7e-3068-4731-b5d4-13158559ce43" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.12.26_AM.png"><img style="width:1056px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.12.26_AM.png"/></a></figure><p id="5b37cf8e-681b-4071-acfe-7ba6269a5663" class="">On va cliquer sur <code>Configure Netlify on Github</code></p><figure id="b7f3f87c-456d-43d6-9018-e0e7f010a048" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.15.21_AM.png"><img style="width:1492px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.15.21_AM.png"/></a></figure><p id="b5a7ff78-7d08-4c83-9aef-514f415cd65e" class="">Et on va juste cliquer <code>Install</code></p><figure id="2a3ae91c-6dbb-4778-92c1-a35b41aa89b6" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.40.36_AM.png"><img style="width:1080px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.40.36_AM.png"/></a></figure><p id="84935057-2a13-4ce0-815d-80dcde86a210" class="">Et ensuite cliquer sur le dossier qu&#x27;on vient de lier</p><figure id="3de6f607-75f8-4ea2-afe5-80f50486397a" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.18.18_AM.png"><img style="width:1492px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.18.18_AM.png"/></a></figure><p id="80413aa9-4bf8-4536-9a79-2b4c9a89f5f6" class="">Et sur la page suivante on va juste cliquer <code>Deploy Site</code></p><figure id="e34c0a94-9ef6-4eff-9dfc-39a277cfe2e9" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/create_new_site.png"><img style="width:1404px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/create_new_site.png"/></a></figure><p id="5d1fb89c-1da2-4b87-98c8-e317738dfb8d" class="">Et voilà! Notre page est sur le web. Son adresse est en vert ici</p><figure id="6913dd50-3704-4a7e-aed2-8a5f64a1c2c5" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.51.02_AM.png"><img style="width:1530px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.51.02_AM.png"/></a></figure><p id="6ac93821-5efa-4bfd-b1fd-b1e6ada1fa39" class="">Le nom généré est un peu bizarre mais on peut le changer facilement! On va cliquer sur <code>Site settings</code></p><figure id="9be2d5e2-5fd4-45cf-b735-974cc33ff24c" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.52.16_AM.png"><img style="width:1530px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.52.16_AM.png"/></a></figure><p id="efb0ddfa-f6b4-409b-9466-46599b049fa0" class="">Et ensuite sur <code>Change site name</code></p><figure id="e77b1449-31d4-4d2f-92b0-e9a6165a14aa" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.52.28_AM.png"><img style="width:1662px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.52.28_AM.png"/></a></figure><p id="94b30034-32a0-4ffd-b81d-6c96fc45846a" class="">On va mettre le nom qu&#x27;on veut, par exemple notre prénom et nom (ça vous dira si le nom est déjà pris)</p><figure id="4656cee6-9c58-4e0d-b07f-4e2f0505a819" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.53.03_AM.png"><img style="width:1858px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_9.53.03_AM.png"/></a></figure><p id="4dd05b4f-98ab-4541-b1bc-739fe227a322" class="">Et maintenant l&#x27;adresse de notre site est super jolie! On peut partager ça facilement.</p><figure id="a88644c9-dcf9-48c5-8143-c17848358729" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_10.44.13_AM.png"><img style="width:1734px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-03_at_10.44.13_AM.png"/></a></figure><p id="01833f44-03e9-4d11-8c25-f7af4556de21" class="">
+</p><figure class="block-color-blue_background callout" style="white-space:pre-wrap;display:flex" id="4b2c554d-5bdc-423f-9b2f-d66938f997b9"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Dès qu&#x27;on fera des changements dans notre code sur CodeSandbox, on pourra retourner dans l&#x27;onglet Github et synchroniser à nouveau et notre site Netlify sera mis à jour automatiquement (ça peut prendre quelques minutes).</div></figure><p id="f1186022-8976-49be-b603-0594f1e1620a" class="">
+</p><p id="e5a51aec-3c9b-44d7-9d5e-f800a4af319e" class="">
+</p><h1 id="385710d6-fcc3-40af-ac2e-e985cb234711" class="">Configurer le formulaire de contact</h1><p id="7bacbbf8-7940-46aa-9fc5-6b44cd4a7858" class="">Il faut qu&#x27;on soumette une première fois notre formulaire avant de pouvoir voir les paramètres des formulaires. Donc on va d&#x27;abord naviguer sur notre site et remplir le formulaire.</p><p id="38982997-7493-488f-81a1-81b72dca0ddb" class="">
+</p><p id="76db58d7-fd0d-4316-abd7-d5cd8124b20b" class="">Ensuite dans les paramètres de notre site, on va naviguer sur l&#x27;onglet <code>Forms</code></p><figure id="51de7d8c-fa6a-467a-9b17-ac296700b57c" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-07_at_5.19.26_PM.png"><img style="width:1386px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-07_at_5.19.26_PM.png"/></a></figure><p id="f7b1a2a9-c1b0-471c-91bc-59d907155818" class="">On va cliquer sur <code>Add notification</code> puis <code>Email notification</code></p><figure id="9c9ceed8-405c-4cfa-af00-5b0178ba2d95" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-07_at_5.24.42_PM.png"><img style="width:1387px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-07_at_5.24.42_PM.png"/></a></figure><p id="25a58b7a-f4bf-42de-b6bf-f0f67e2d2f90" class="">On va remplir son adresse email et cliquer <code>Save</code></p><figure id="229d2b6a-29b9-4b15-bf84-63b1fe03cc12" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-07_at_5.19.35_PM.png"><img style="width:1387px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-07_at_5.19.35_PM.png"/></a></figure><p id="e379c222-37f4-48ec-ab81-fa60518cb60e" class="">Voilà maintenant à chaque fois que quelqu&#x27;un utilise notre formulaire, on va recevoir un email avec le contenu du message et on pourra même répondre directement à l&#x27;email.</p><p id="cac1004b-1461-4aaa-9b5e-8dea64fd3486" class="">
+</p><p id="c164b97b-6aae-4249-bcd7-fee3b70ab189" class="">Toutes les soumission de notre formulaire sont aussi visibles depuis Netlify. Dans la barre de navigation en haut on va cliquer sur <code>Forms</code> et ensuite notre formulaire contact</p><figure id="5354f288-365d-4c52-b7f2-a357720e3949" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-07_at_5.20.03_PM.png"><img style="width:1387px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-07_at_5.20.03_PM.png"/></a></figure><p id="09eb3e86-6d7f-40e3-9cd9-40edb4bb64f5" class="">Chaque soumission sera visible ici et on peut voir tout le texte:</p><p id="8191f48a-e44c-4d0d-aa84-bfc385a56136" class="">
+</p><figure id="8632738b-31ae-4c9f-947e-e489418835c3" class="image"><a href="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-07_at_5.20.13_PM.png"><img style="width:1387px" src="Exporter%20et%20de%CC%81ployer%20son%20site%2054b9b44b7e9f4540bb24e8d3ccd6e8c6/Screen_Shot_2020-08-07_at_5.20.13_PM.png"/></a></figure></div></article></body></html>
