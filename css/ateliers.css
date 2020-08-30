@@ -1,0 +1,19 @@
+.code > code {
+	font-size: 15px !important;
+}
+
+figure.image {
+    text-align: left !important;
+}
+
+nav {
+    color: unset !important;
+}
+
+.table_of_contents-link {
+    font-size: 16px !important;
+}
+
+p, li {
+    font-size: 18px !important;
+}
