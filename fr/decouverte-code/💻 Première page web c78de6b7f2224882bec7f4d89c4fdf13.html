@@ -1,1016 +1,1016 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>💻 Première page web</title><style>
-	/* webkit printing magic: print all background colors */
-	html {
-		-webkit-print-color-adjust: exact;
-	}
-	* {
-		box-sizing: border-box;
-		-webkit-print-color-adjust: exact;
-	}
-	
-	html,
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
 	body {
-		margin: 0;
-		padding: 0;
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
 	}
-	@media only screen {
-		body {
-			margin: 2em auto;
-			max-width: 900px;
-			color: rgb(55, 53, 47);
-		}
-	}
-	
-	body {
-		line-height: 1.5;
-		white-space: pre-wrap;
-	}
-	
-	a,
-	a.visited {
-		color: inherit;
-		text-decoration: underline;
-	}
-	
-	.pdf-relative-link-path {
-		font-size: 80%;
-		color: #444;
-	}
-	
-	h1,
-	h2,
-	h3 {
-		letter-spacing: -0.01em;
-		line-height: 1.2;
-		font-weight: 600;
-		margin-bottom: 0;
-	}
-	
-	.page-title {
-		font-size: 2.5rem;
-		font-weight: 700;
-		margin-top: 0;
-		margin-bottom: 0.75em;
-	}
-	
-	h1 {
-		font-size: 1.875rem;
-		margin-top: 1.875rem;
-	}
-	
-	h2 {
-		font-size: 1.5rem;
-		margin-top: 1.5rem;
-	}
-	
-	h3 {
-		font-size: 1.25rem;
-		margin-top: 1.25rem;
-	}
-	
-	.source {
-		border: 1px solid #ddd;
-		border-radius: 3px;
-		padding: 1.5em;
-		word-break: break-all;
-	}
-	
-	.callout {
-		border-radius: 3px;
-		padding: 1rem;
-	}
-	
-	figure {
-		margin: 1.25em 0;
-		page-break-inside: avoid;
-	}
-	
-	figcaption {
-		opacity: 0.5;
-		font-size: 85%;
-		margin-top: 0.5em;
-	}
-	
-	mark {
-		background-color: transparent;
-	}
-	
-	.indented {
-		padding-left: 1.5em;
-	}
-	
-	hr {
-		background: transparent;
-		display: block;
-		width: 100%;
-		height: 1px;
-		visibility: visible;
-		border: none;
-		border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-	}
-	
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
 	img {
-		max-width: 100%;
-	}
-	
-	@media only print {
-		img {
-			max-height: 100vh;
-			object-fit: contain;
-		}
-	}
-	
-	@page {
-		margin: 1in;
-	}
-	
-	.collection-content {
-		font-size: 0.875rem;
-	}
-	
-	.column-list {
-		display: flex;
-		justify-content: space-between;
-	}
-	
-	.column {
-		padding: 0 1em;
-	}
-	
-	.column:first-child {
-		padding-left: 0;
-	}
-	
-	.column:last-child {
-		padding-right: 0;
-	}
-	
-	.table_of_contents-item {
-		display: block;
-		font-size: 0.875rem;
-		line-height: 1.3;
-		padding: 0.125rem;
-	}
-	
-	.table_of_contents-indent-1 {
-		margin-left: 1.5rem;
-	}
-	
-	.table_of_contents-indent-2 {
-		margin-left: 3rem;
-	}
-	
-	.table_of_contents-indent-3 {
-		margin-left: 4.5rem;
-	}
-	
-	.table_of_contents-link {
-		text-decoration: none;
-		opacity: 0.7;
-		border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-	}
-	
-	table,
-	th,
-	td {
-		border: 1px solid rgba(55, 53, 47, 0.09);
-		border-collapse: collapse;
-	}
-	
-	table {
-		border-left: none;
-		border-right: none;
-	}
-	
-	th,
-	td {
-		font-weight: normal;
-		padding: 0.25em 0.5em;
-		line-height: 1.5;
-		min-height: 1.5em;
-		text-align: left;
-	}
-	
-	th {
-		color: rgba(55, 53, 47, 0.6);
-	}
-	
-	ol,
-	ul {
-		margin: 0;
-		margin-block-start: 0.6em;
-		margin-block-end: 0.6em;
-	}
-	
-	li > ol:first-child,
-	li > ul:first-child {
-		margin-block-start: 0.6em;
-	}
-	
-	ul > li {
-		list-style: disc;
-	}
-	
-	ul.to-do-list {
-		text-indent: -1.7em;
-	}
-	
-	ul.to-do-list > li {
-		list-style: none;
-	}
-	
-	.to-do-children-checked {
-		text-decoration: line-through;
-		opacity: 0.375;
-	}
-	
-	ul.toggle > li {
-		list-style: none;
-	}
-	
-	ul {
-		padding-inline-start: 1.7em;
-	}
-	
-	ul > li {
-		padding-left: 0.1em;
-	}
-	
-	ol {
-		padding-inline-start: 1.6em;
-	}
-	
-	ol > li {
-		padding-left: 0.2em;
-	}
-	
-	.mono ol {
-		padding-inline-start: 2em;
-	}
-	
-	.mono ol > li {
-		text-indent: -0.4em;
-	}
-	
-	.toggle {
-		padding-inline-start: 0em;
-		list-style-type: none;
-	}
-	
-	/* Indent toggle children */
-	.toggle > li > details {
-		padding-left: 1.7em;
-	}
-	
-	.toggle > li > details > summary {
-		margin-left: -1.1em;
-	}
-	
-	.selected-value {
-		display: inline-block;
-		padding: 0 0.5em;
-		background: rgba(206, 205, 202, 0.5);
-		border-radius: 3px;
-		margin-right: 0.5em;
-		margin-top: 0.3em;
-		margin-bottom: 0.3em;
-		white-space: nowrap;
-	}
-	
-	.collection-title {
-		display: inline-block;
-		margin-right: 1em;
-	}
-	
-	time {
-		opacity: 0.5;
-	}
-	
-	.icon {
-		display: inline-block;
-		max-width: 1.2em;
-		max-height: 1.2em;
-		text-decoration: none;
-		vertical-align: text-bottom;
-		margin-right: 0.5em;
-	}
-	
-	img.icon {
-		border-radius: 3px;
-	}
-	
-	.user-icon {
-		width: 1.5em;
-		height: 1.5em;
-		border-radius: 100%;
-		margin-right: 0.5rem;
-	}
-	
-	.user-icon-inner {
-		font-size: 0.8em;
-	}
-	
-	.text-icon {
-		border: 1px solid #000;
-		text-align: center;
-	}
-	
-	.page-cover-image {
-		display: block;
-		object-fit: cover;
-		width: 100%;
-		height: 30vh;
-	}
-	
-	.page-header-icon {
-		font-size: 3rem;
-		margin-bottom: 1rem;
-	}
-	
-	.page-header-icon-with-cover {
-		margin-top: -0.72em;
-		margin-left: 0.07em;
-	}
-	
-	.page-header-icon img {
-		border-radius: 3px;
-	}
-	
-	.link-to-page {
-		margin: 1em 0;
-		padding: 0;
-		border: none;
-		font-weight: 500;
-	}
-	
-	p > .user {
-		opacity: 0.5;
-	}
-	
-	td > .user,
-	td > time {
-		white-space: nowrap;
-	}
-	
-	input[type="checkbox"] {
-		transform: scale(1.5);
-		margin-right: 0.6em;
-		vertical-align: middle;
-	}
-	
-	p {
-		margin-top: 0.5em;
-		margin-bottom: 0.5em;
-	}
-	
-	.image {
-		border: none;
-		margin: 1.5em 0;
-		padding: 0;
-		border-radius: 0;
-		text-align: center;
-	}
-	
-	.code,
-	code {
-		background: rgba(135, 131, 120, 0.15);
-		border-radius: 3px;
-		padding: 0.2em 0.4em;
-		border-radius: 3px;
-		font-size: 85%;
-		tab-size: 2;
-	}
-	
-	code {
-		color: #eb5757;
-	}
-	
-	.code {
-		padding: 1.5em 1em;
-	}
-	
-	.code-wrap {
-		white-space: pre-wrap;
-		word-break: break-all;
-	}
-	
-	.code > code {
-		background: none;
-		padding: 0;
-		font-size: 100%;
-		color: inherit;
-	}
-	
-	blockquote {
-		font-size: 1.25em;
-		margin: 1em 0;
-		padding-left: 1em;
-		border-left: 3px solid rgb(55, 53, 47);
-	}
-	
-	.bookmark {
-		text-decoration: none;
-		max-height: 8em;
-		padding: 0;
-		display: flex;
-		width: 100%;
-		align-items: stretch;
-	}
-	
-	.bookmark-title {
-		font-size: 0.85em;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		height: 1.75em;
-		white-space: nowrap;
-	}
-	
-	.bookmark-text {
-		display: flex;
-		flex-direction: column;
-	}
-	
-	.bookmark-info {
-		flex: 4 1 180px;
-		padding: 12px 14px 14px;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-	
-	.bookmark-image {
-		width: 33%;
-		flex: 1 1 180px;
-		display: block;
-		position: relative;
-		object-fit: cover;
-		border-radius: 1px;
-	}
-	
-	.bookmark-description {
-		color: rgba(55, 53, 47, 0.6);
-		font-size: 0.75em;
-		overflow: hidden;
-		max-height: 4.5em;
-		word-break: break-word;
-	}
-	
-	.bookmark-href {
-		font-size: 0.75em;
-		margin-top: 0.25em;
-	}
-	
-	.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-	.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
-	.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
-	.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-	.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
-	
-	.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
-	
-	.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
-	
-	.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
-	
-	.highlight-default {
-	}
-	.highlight-gray {
-		color: rgb(155,154,151);
-	}
-	.highlight-brown {
-		color: rgb(100,71,58);
-	}
-	.highlight-orange {
-		color: rgb(217,115,13);
-	}
-	.highlight-yellow {
-		color: rgb(223,171,1);
-	}
-	.highlight-teal {
-		color: rgb(15,123,108);
-	}
-	.highlight-blue {
-		color: rgb(11,110,153);
-	}
-	.highlight-purple {
-		color: rgb(105,64,165);
-	}
-	.highlight-pink {
-		color: rgb(173,26,114);
-	}
-	.highlight-red {
-		color: rgb(224,62,62);
-	}
-	.highlight-gray_background {
-		background: rgb(235,236,237);
-	}
-	.highlight-brown_background {
-		background: rgb(233,229,227);
-	}
-	.highlight-orange_background {
-		background: rgb(250,235,221);
-	}
-	.highlight-yellow_background {
-		background: rgb(251,243,219);
-	}
-	.highlight-teal_background {
-		background: rgb(221,237,234);
-	}
-	.highlight-blue_background {
-		background: rgb(221,235,241);
-	}
-	.highlight-purple_background {
-		background: rgb(234,228,242);
-	}
-	.highlight-pink_background {
-		background: rgb(244,223,235);
-	}
-	.highlight-red_background {
-		background: rgb(251,228,228);
-	}
-	.block-color-default {
-		color: inherit;
-		fill: inherit;
-	}
-	.block-color-gray {
-		color: rgba(55, 53, 47, 0.6);
-		fill: rgba(55, 53, 47, 0.6);
-	}
-	.block-color-brown {
-		color: rgb(100,71,58);
-		fill: rgb(100,71,58);
-	}
-	.block-color-orange {
-		color: rgb(217,115,13);
-		fill: rgb(217,115,13);
-	}
-	.block-color-yellow {
-		color: rgb(223,171,1);
-		fill: rgb(223,171,1);
-	}
-	.block-color-teal {
-		color: rgb(15,123,108);
-		fill: rgb(15,123,108);
-	}
-	.block-color-blue {
-		color: rgb(11,110,153);
-		fill: rgb(11,110,153);
-	}
-	.block-color-purple {
-		color: rgb(105,64,165);
-		fill: rgb(105,64,165);
-	}
-	.block-color-pink {
-		color: rgb(173,26,114);
-		fill: rgb(173,26,114);
-	}
-	.block-color-red {
-		color: rgb(224,62,62);
-		fill: rgb(224,62,62);
-	}
-	.block-color-gray_background {
-		background: rgb(235,236,237);
-	}
-	.block-color-brown_background {
-		background: rgb(233,229,227);
-	}
-	.block-color-orange_background {
-		background: rgb(250,235,221);
-	}
-	.block-color-yellow_background {
-		background: rgb(251,243,219);
-	}
-	.block-color-teal_background {
-		background: rgb(221,237,234);
-	}
-	.block-color-blue_background {
-		background: rgb(221,235,241);
-	}
-	.block-color-purple_background {
-		background: rgb(234,228,242);
-	}
-	.block-color-pink_background {
-		background: rgb(244,223,235);
-	}
-	.block-color-red_background {
-		background: rgb(251,228,228);
-	}
-	.select-value-color-default { background-color: rgba(206,205,202,0.5); }
-	.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
-	.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
-	.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
-	.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
-	.select-value-color-green { background-color: rgba(0,135,107,0.2); }
-	.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
-	.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
-	.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
-	.select-value-color-red { background-color: rgba(255,0,26,0.2); }
-	
-	.checkbox {
-		display: inline-flex;
-		vertical-align: text-bottom;
-		width: 16;
-		height: 16;
-		background-size: 16px;
-		margin-left: 2px;
-		margin-right: 5px;
-	}
-	
-	.checkbox-on {
-		background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-	}
-	
-	.checkbox-off {
-		background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-	}
-		
-	</style></head><body><article id="d9602fef-7d23-4999-a01e-a2a8446523c5" class="page sans"><header><h1 class="page-title">💻 <strong>Première page web</strong></h1></header><div class="page-body"><nav id="e5eee6d8-c227-46ab-839e-c53ecc73b512" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12dc70b1-d060-49de-bd54-8dfc40b1ec70">INTRODUCTION</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5a885bf2-3e08-4506-b446-b89eed167684"><mark class="highlight-purple_background"><strong>Présentation de la formatrice</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#961a4341-de21-4e20-a978-c9e2846caf8e"><mark class="highlight-purple_background"><strong>Les bases du web</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a4b85dc1-8a25-48eb-8703-b4ffdd05e963">ATELIER</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d3f6c3f2-8360-43bf-b49c-b54b4e8b4894"><mark class="highlight-purple_background"><strong>Objectif</strong></mark></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#38484fd3-62fb-42cf-8a6d-e3e00fbf05d0">Ressources</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#070fc6fc-84df-4d62-92fb-3463448cfcba">Mise en place de l&#x27;environnement de travail</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#158c1b40-74ca-4b3e-9cc0-895f01d306e1"><strong>Bases de la page</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#3bb72d2f-4ba4-4158-b169-965e15b42b6b"><strong>&lt;head&gt;&lt;/head&gt;</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#4dba27ec-aeb7-4740-ae11-8d7019e06e90"><strong>&lt;body&gt;&lt;/body&gt;</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5957b64d-ba80-40f9-ba34-b644f454bbf3"><strong>Header avec image</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#8daebd14-237f-4a7a-b03a-46f5df7f6926"><strong>Image de fond</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#fd7cfadd-f984-49da-8382-23edd5845c9d"><strong>Titre h1</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#15bc89d2-2685-437c-a4c0-1f14cbff4c11"><strong>Styles généraux</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a68bdd36-e530-4bc2-948c-44ac4a11f163"><strong>Section Présentation</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#499abf46-e411-4c0c-9494-bc67ed6689c0"><strong>Structure HTML</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#30cfeeec-74f6-445f-9f90-2e8797869930"><strong>Styles CSS</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a16b46bb-b7ad-4b5c-955a-96e0e9cc223b"><strong>Section Compétences</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#b92bb23b-5356-4c55-b5dd-e33ca402f5cd"><strong>Structure HTML</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#57cc1e99-d441-43d4-836c-f7e5640f2dfe"><strong>Styles CSS</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#a91eec21-3c10-4006-86ba-c2ed4738cfb9"><strong>Ajout de compétences</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a078af9e-4793-49a1-a809-323d3ea817f6">Effet parallax</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e5580f65-bedf-4891-841f-7601fb9dd14b"><strong>Section expérience</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#666798e7-36e7-47e4-9454-21ef65d93202"><strong>Structure HTML</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#7cbe437a-2737-4139-972b-90bae03e8b90"><strong>Styles CSS</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#959c8f85-17f5-4c6b-a687-1971c3985689">Carte Google</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e7d4587d-5244-4d6a-bba2-7519e90db193">Pour aller plus loin</a></div></nav><h1 id="12dc70b1-d060-49de-bd54-8dfc40b1ec70" class="">INTRODUCTION</h1><h2 id="5a885bf2-3e08-4506-b446-b89eed167684" class="block-color-purple_background"><mark class="highlight-purple_background"><strong>Présentation de la formatrice</strong></mark></h2><figure id="c864dc88-b7aa-4894-a577-ff6ebcf7d68d"><a href="https://www.linkedin.com/in/clementine-pirlot/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Clémentine Pirlot - Software Developer - HiMama | LinkedIn</div><div class="bookmark-description">View Clémentine Pirlot&#x27;s profile on LinkedIn, the world&#x27;s largest professional community. Clémentine has 9 jobs listed on their profile. See the complete profile on LinkedIn and discover Clémentine&#x27;s connections and jobs at similar companies.</div></div><div class="bookmark-href"><img src="https://static-exp1.licdn.com/scds/common/u/images/logos/favicons/v1/favicon.ico" class="icon bookmark-icon"/>https://www.linkedin.com/in/clementine-pirlot/</div></div><img src="https://media-exp1.licdn.com/dms/image/C5603AQHBjejt7pIxWg/profile-displayphoto-shrink_200_200/0?e=1603929600&amp;v=beta&amp;t=OnKGJS5I6EP-KQVVFuZmyA1hqE026z9a8ELHX3zinJg" class="bookmark-image"/></a></figure><h2 id="961a4341-de21-4e20-a978-c9e2846caf8e" class="block-color-purple_background"><mark class="highlight-purple_background"><strong>Les bases du web</strong></mark></h2><figure id="c78de6b7-f222-4882-bec7-f4d89c4fdf13"><div class="source"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/initiation-html-horizon-numerique.pdf">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f909c70a-c7d3-4334-b347-dae336cf78d4/initiation-html-horizon-numerique.pdf</a></div></figure><h1 id="a4b85dc1-8a25-48eb-8703-b4ffdd05e963" class="">ATELIER</h1><h2 id="d3f6c3f2-8360-43bf-b49c-b54b4e8b4894" class="block-color-purple_background"><mark class="highlight-purple_background"><strong>Objectif</strong></mark></h2><p id="e9ced2b6-7abc-4578-a987-158f69542c5d" class="">Nous allons créer une page de présentation type CV. Notre site sera statique, c&#x27;est à dire que tout le contenu sera dans le code. Par opposition, un site dynamique est un site où le contenu n&#x27;est pas connu à l&#x27;avance et qui utilise souvent une base de donnée.</p><p id="c271f5dc-147c-42cf-afa0-2f8d5621d6af" class="">
-	</p><h2 id="38484fd3-62fb-42cf-8a6d-e3e00fbf05d0" class="block-color-purple_background">Ressources</h2><p id="45c49492-9f9f-46b1-96e4-0e140c0fa444" class=""><strong>Exemples</strong></p><p id="38a3dfd5-0508-48b9-a66c-df7b2d87f2b1" class="">Fanny: <a href="https://m64dw.csb.app/">https://m64dw.csb.app/</a></p><p id="79896e82-7e35-4e89-995d-c49fd09434c1" class="">Clémentine: <a href="https://clementine-pirlot.netlify.app/">https://clementine-pirlot.netlify.app/</a> </p><p id="2313021d-9de0-467e-8c64-438014dca82a" class="">
-	</p><p id="3e1a4c6b-581f-4e54-8474-dd561f8c4a3d" class=""><strong>Code complet</strong></p><p id="fb27f2e1-5458-4728-a8f4-3b4324ef70fa" class="">Fanny: <a href="https://codesandbox.io/s/decouverte-code-complet-fanny-m64dw">https://codesandbox.io/s/decouverte-code-complet-fanny-m64dw</a></p><p id="279bb50f-8f29-49f4-9812-5955c4a23f23" class="">Clementine: <a href="https://codesandbox.io/s/decouverte-code-complet-clementine-wlvxd?from-embed">https://codesandbox.io/s/decouverte-code-complet-clementine-wlvxd</a></p><p id="7269a419-443c-4bf7-be64-28d27fe27340" class="">
-	</p><p id="c866f51d-3316-464e-a2b0-a53277ade8c6" class=""><strong>Code début</strong> </p><p id="1121d6fa-e4d9-4048-a025-19675c824551" class=""><a href="https://codesandbox.io/s/decouverte-code-debut-3uk0n">https://codesandbox.io/s/decouverte-code-debut-3uk0n</a></p><p id="a2888913-3d39-4970-bd9d-d4befa1efe78" class="">
-	</p><p id="eeed0a57-c9b8-470d-a29e-e14f61ad03b7" class="">Langages utilisés : </p><ul id="668459a8-280a-4da4-9d18-acb3718e9240" class="bulleted-list"><li>HTML pour le contenu</li></ul><ul id="95714a4d-84f6-44d7-abb3-506e6b04653a" class="bulleted-list"><li>CSS pour la mise en forme</li></ul><p id="f34a8116-880a-4aa2-adb3-00a6baa5ac42" class="">
-	</p><h2 id="070fc6fc-84df-4d62-92fb-3463448cfcba" class="block-color-purple_background">Mise en place de l&#x27;environnement de travail</h2><ol id="dff80034-3c2c-4631-94ed-00b7748122ae" class="numbered-list" start="1"><li>cliquez sur le lien <a href="https://codesandbox.io/s/decouverte-code-debut-3uk0n">https://codesandbox.io/s/decouverte-code-debut-3uk0n</a></li></ol><ol id="3f02df5b-f32b-4447-80b0-0269eb5c5a0e" class="numbered-list" start="2"><li>cliquez sur le bouton <code>fork</code> pour créer une copie sur laquelle vous allez travailler<figure id="e444106e-ab1e-46a1-9b44-13b5ccfe99b7" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.38.25.png"><img style="width:1092px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.38.25.png"/></a></figure></li></ol><ol id="564adab6-c2f6-4201-9367-305079ef0159" class="numbered-list" start="3"><li>renommez ce fichier en écrivant votre nom à la place de DEBUT<figure id="f26ba4f3-2e93-4811-bf29-f8ac59d11d1a" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.36.54.png"><img style="width:1222px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.36.54.png"/></a></figure></li></ol><ol id="7f2eeb9d-349c-4303-a112-7caae51b956c" class="numbered-list" start="4"><li>cliquez sur le bouton <em>Open in new windo</em>w pour prévisualiser votre page dans un onglet de votre navigateur<figure id="0554706e-eb48-415d-bd0d-f2654c6f2d4d" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.45.53.png"><img style="width:942px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.45.53.png"/></a></figure></li></ol><ol id="4822d852-f0a0-4a06-9b16-7da4f7db43ea" class="numbered-list" start="5"><li>cliquez sur l&#x27;icône play pour cacher ou afficher la prévisualisation afin de faire de la place à votre fenêtre de code<figure id="a9e14621-f0ba-45f4-9a10-b2e16924c5d0" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/imageedit_2_4479235644.jpg"><img style="width:569px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/imageedit_2_4479235644.jpg"/></a></figure></li></ol><ol id="aafaccb5-0942-4d8c-85c7-a30ada98884c" class="numbered-list" start="6"><li>cliquez sur l&#x27;icône <em>fichiers </em>pour faire encore plus de place à votre fenêtre de code<figure id="5d478369-b072-468b-8063-06675e545c16" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.55.31.png"><img style="width:424px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.55.31.png"/></a></figure><p id="2433eb12-ed25-41af-84ef-c4c5efb625ff" class="">
-	</p></li></ol><p id="83d4d464-aefd-4932-830b-b661d4f4347c" class="">
-	</p><p id="686b6a5b-40b7-4f07-aa7f-bd23a6cd049d" class="">À ce stade, vous devez avoir :</p><ul id="1546033b-d4fb-463e-a6eb-5895f6f88501" class="bulleted-list"><li>un onglet de votre navigateur pour la fenêtre de code</li></ul><ul id="f456e35d-9185-46a4-8f22-472989c37338" class="bulleted-list"><li>un onglet de votre navigateur pour la prévisualisation de votre page </li></ul><p id="a3f6cb51-c60a-4a05-91ba-d32bcabca8d3" class="">
-	</p><p id="bc7cd78e-ef77-4fcc-87de-8b02ed2d6982" class="block-color-teal_background">Si vous avez ces deux éléments, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="686d68f6-4116-47f1-87ab-3bd0a4b61c98" class="">
-	</p><h2 id="158c1b40-74ca-4b3e-9cc0-895f01d306e1" class="block-color-purple_background"><strong>Bases de la page</strong></h2><p id="56970cc7-ffef-4c4f-894f-9b1db04befac" class="">Toutes les pages web comportent au minimum les balises suivantes :</p><pre id="6f2cc0a0-d473-46f7-9815-8f66c75d7e20" class="code"><code>&lt;!DOCTYPE html&gt;
-	&lt;html&gt;
-	  &lt;head&gt;
-	  &lt;/head&gt;
-	  &lt;body&gt;
-	  &lt;/body&gt;
-	&lt;/html&gt;</code></pre><p id="c21715bc-d6bd-4ff2-a22a-86cb9d96ddc1" class="">Une balise est en général composée d&#x27;une <strong>balise ouvrante</strong> et d&#x27;une <strong>balise fermante</strong>.</p><p id="ad064435-d43c-49a2-826f-97d9971ddf5c" class="">Les balises sont imbriquées : <strong>dernière balise ouverte = première balise fermée</strong></p><p id="471ea23a-89b6-4ee0-9fdf-54d28764c43a" class="">
-	</p><h3 id="3bb72d2f-4ba4-4158-b169-965e15b42b6b" class="block-color-yellow_background"><strong>&lt;head&gt;&lt;/head&gt;</strong></h3><p id="15a3d7cf-c250-4afa-9dd0-488d3fc39095" class="">La balise <code>head</code> ne contient rien qui est visible sur la page, elle sert à <strong>passer des informations meta au navigateur</strong> : encodage des caractères, chargement de fichiers externes, titre du document, etc.
-	</p><p id="c69a3d78-883d-4fbb-91d4-631a1991a07d" class="">Dans le code HTML, il s&#x27;écrit à l&#x27;intérieur de la balise <code>head</code> :</p><pre id="78cd48fe-036b-4da9-a5ad-3877fd45999f" class="code"><code>&lt;head&gt;<strong>
-		</strong>&lt;title&gt;Site de Clémentine Pirlot&lt;/title&gt;
-	&lt;/head&gt;</code></pre><p id="82adfcfb-82a1-4c04-a996-d6d0a2589823" class="">Le titre du document s’affiche dans l&#x27;onglet de la barre supérieure du navigateur.</p><figure id="0c2c8919-dd85-4ebd-a9cf-0f220747e230" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled.png"><img style="width:869px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled.png"/></a></figure><p id="d684efeb-954c-4a4e-bc29-bee21dcc8390" class="">
-	</p><p id="8e36cfd7-1232-45b3-a40d-d2a42db6987d" class=""><strong>ASTUCE
-	</strong>Si vous commencez à taper le nom de la balise (sans chevron) que vous souhaitez insérer, CodeSandbox ouvre une liste de propositions. Il suffit alors de sélectionner votre balise.</p><p id="e0d00243-b190-4ad0-925c-101f97d411e8" class="">
-	</p><p id="411d839c-c7af-4bee-80c7-dd33131fe20b" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="21aaa4f8-8cab-465b-8a51-160ad612523f" class="numbered-list" start="1"><li>Ajoutez la balise <code>title</code> à l&#x27;intérieur de la balise <code>head</code> </li></ol><ol id="fde3ab88-ea17-4fb8-bfa4-de89c5a2fab2" class="numbered-list" start="2"><li>Entre la balise ouvrante et la balise fermante, écrivez &quot;Site de <em>Prénom Nom</em>&quot; (remplacez <em>Prénom Nom </em>par votre prénom et votre nom)</li></ol><ol id="df6370b4-d42d-467f-9feb-a45107af0051" class="numbered-list" start="3"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="13fb2d22-6a50-4644-bf5d-86a7cee047e1" class="block-color-teal_background">Si le titre de l&#x27;onglet affiche bien le nouveau titre, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="69666d9f-472b-4f24-b794-44fdafbb637d" class="">
-	</p><h3 id="4dba27ec-aeb7-4740-ae11-8d7019e06e90" class="block-color-yellow_background"><strong>&lt;body&gt;&lt;/body&gt;</strong></h3><p id="b7da700f-4488-4b80-98ae-29dad802a2a7" class="">C&#x27;est dans la balise <code><mark class="highlight-gray_background">body</mark></code> que l&#x27;on insère le <strong>contenu qui sera visible dans le navigateur : </strong>textes, images, liens,…</p><p id="6dcfade2-fda0-435f-8f8a-de68f7027c5f" class="">
-	</p><h2 id="5957b64d-ba80-40f9-ba34-b644f454bbf3" class="block-color-purple_background"><strong>Header avec image</strong></h2><p id="98c26623-2db9-4f4d-843b-0001ae17e1cc" class="">Notre header va être constitué d&#x27;une image de fond et d&#x27;un titre. Pour des questions de référencement et d&#x27;accessibilité (par exemple pour les personnes mal voyantes) la structure doit utiliser des balises qui ont du sens pour les robots. Nous allons donc créer une zone d&#x27;en-tête grâce à la balise <code>header</code> puis insérer une balise <code>h1</code> pour le titre principal de la page.</p><pre id="37dd9060-cafb-4969-a48e-4349ee2ff655" class="code"><code>&lt;header&gt;
-	  &lt;h1&gt;Clémentine Pirlot&lt;/h1&gt;
-	&lt;/header&gt;</code></pre><p id="4a582112-94f7-4454-9fcc-b0ac9149dfcd" class="">
-	</p><p id="dbe8f1ba-7d1e-4a0f-bb9a-b3e378ea0349" class="">Une fois la structure HTML créée, on va mettre en forme le header grâce aux styles CSS.</p><p id="25dbfb86-dcc1-4d7c-aa48-e1253cccb39d" class="">
-	</p><h3 id="8daebd14-237f-4a7a-b03a-46f5df7f6926" class="block-color-yellow_background"><strong>Image de fond</strong></h3><p id="b721ac7d-4570-42eb-9e44-a47ad22443c8" class="">Dans le dossier du projet, vous avez une image appelée <code>header.jpg</code>. C&#x27;est cette image qui va servir de fond à notre zone header.</p><p id="66c79c26-61c0-4c3a-a04f-3120dd3276f5" class="">Vous avez également, dans le dossier du projet, un fichier nommé <code>styles.css</code>. C&#x27;est dans ce fichier que l&#x27;on va ajouter les styles pour la mise en forme de notre page.</p><p id="4745256d-315e-416e-ad90-c75bdc1a1af6" class="">Pour que le fichier <code>index.html</code> sache où il doit prendre les styles, il faudra le relier au fichier <code>styles.css</code> grâce à la balise <code>link</code>.</p><p id="6a2b282c-e048-4539-834d-2973ebaca41b" class="">
-	</p><p id="64f588bf-8fe2-4f3e-8986-a20e20e1d7ce" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="4110dde9-a985-465e-a89b-f2a782d6d9ce" class="numbered-list" start="1"><li>Ajoutez le code HTML suivant dans votre fichier <code>index.html</code> et modifiez le prénom et le nom<pre id="d254356a-7749-4d14-87fc-2c63f12df449" class="code"><code>&lt;header&gt;
-	  &lt;h1&gt;Clémentine Pirlot&lt;/h1&gt;
-	&lt;/header&gt;</code></pre></li></ol><ol id="ae7cd527-c43a-4db6-83a5-422ea18e4a49" class="numbered-list" start="2"><li>Double-cliquez sur le fichier <code>styles.css</code> présent dans le dossier de votre projet</li></ol><ol id="d33ccd05-ec8d-4ee0-931c-157621f7daf3" class="numbered-list" start="3"><li>Copiez le code suivant dans <code>styles.css</code><pre id="f3787bc1-0e1f-4f49-90b8-04444a25d807" class="code"><code>header {
-	  background-image: url(&quot;header.jpg&quot;);
-	  background-size: cover;
-	  height: 550px;
-	}</code></pre><p id="77e03ef2-6316-4363-b509-8f3157875f79" class="">Ce bout de code permet de cibler la balise <code>header</code>, et lui appliquer une image de fond, qui couvre toute la place disponible, ainsi qu&#x27;une hauteur de 550px.</p></li></ol><ol id="d20e8fd4-79a3-4754-8d5b-5d811f9ab970" class="numbered-list" start="4"><li>Revenez dans le fichier <code>index.html</code> et insérez la balise <code>link</code> dans la partie <code>head</code> (sous <code>title</code>), pour relier le fichier <code>styles.css</code> <pre id="65d4884c-51e1-4fc9-b541-146dbe936a77" class="code"><code>&lt;head&gt;<strong>
-		</strong>&lt;title&gt;Site de Clémentine Pirlot&lt;/title&gt;
-		&lt;link href=&quot;./styles.css&quot; rel=&quot;stylesheet&quot; /&gt;
-	&lt;/head&gt;</code></pre></li></ol><ol id="8e4b604a-fc5d-48c2-951f-bba0eeef8240" class="numbered-list" start="5"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="35103561-21dc-4f0b-8f0b-0a0afd96a1b5" class="block-color-teal_background">Si votre page affiche bien l&#x27;image de fond, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="63efc2d2-ef77-4f76-80b0-d4fe2b4036e7" class="">
-	</p><p id="61c390c3-a7ee-43f0-aac3-07125a240e8c" class="">
-	</p><h3 id="fd7cfadd-f984-49da-8382-23edd5845c9d" class="block-color-yellow_background"><strong>Titre h1</strong></h3><p id="4a74c33b-f94f-4c74-a454-53ef7bf5bd96" class="">Il s&#x27;agit maintenant d&#x27;appliquer des styles propres au titre h1 :</p><ul id="8c332f43-81b3-48ee-abcb-26902ddc3cb5" class="bulleted-list"><li>une taille de typo grâce à la propriété <code>font-size</code></li></ul><ul id="612e3066-68a3-482b-8553-44d1937a5f0b" class="bulleted-list"><li>une couleur de typo grâce à la propriété <code>color</code></li></ul><p id="65f0e411-8a93-4bfa-a065-2b3352e38112" class="">
-	</p><p id="f319db8b-2fc9-4e51-bbac-e9ec27c02b05" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="e437b931-4cf2-48ca-b187-e591eec626fd" class="numbered-list" start="1"><li>Dans le fichier <code>styles.css</code>, ciblez la balise <code>h1</code> pour lui appliquer une taille et une couleur de typo <pre id="6266bb79-20c7-4217-8bbc-51ab4d86332e" class="code"><code>h1 {
-	  font-size: 56px;
-	  color: white;
-	}</code></pre></li></ol><ol id="b9145318-57c9-4816-82ec-7342fbdc070e" class="numbered-list" start="2"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="6007f868-1892-45a3-8af0-f9b5d2cca0c7" class="block-color-teal_background">Si votre titre est blanc et plus gros, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="13299c11-e5cb-4a18-85ae-ab0596827481" class="">
-	</p><p id="376c4daf-77b5-43ce-9a7a-fab912b8e865" class="">Pour que l&#x27;image soit plus jolie et le titre plus lisible, on va appliquer un filtre gris par dessus.</p><p id="abd34763-84ac-40bc-b0e5-8c0a400a2f1e" class="">Puis on positionnera notre titre au centre du header.</p><p id="ce26f299-5894-43fa-b8c2-163f8d98b580" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="7d96a94b-9dd5-4d42-83a3-3f10485a3e11" class="numbered-list" start="1"><li>Dans votre fichier <code>styles.css</code>, modifiez l&#x27;apparence de l&#x27;image en remplaçant <code>background-image: url(&quot;header.jpg&quot;);</code> par le code suivant<pre id="b7a5c18a-6a77-4cb8-8c4d-721bce0a3bda" class="code"><code>background: linear-gradient(
-		  0deg,
-		  rgba(44, 44, 44, 0.6),
-		  rgba(44, 44, 44, 0.6)
-		),
-		url(&quot;header.jpg&quot;);</code></pre></li></ol><ol id="f1aa2883-ec89-415d-a8cd-be7b0f851e4f" class="numbered-list" start="2"><li>Centrez le titre dans le header en appliquant les propriétés suivantes à la balise <code>header</code><pre id="792dbd21-72a8-43e9-97f2-294a8542da96" class="code"><code>display: flex;
-	align-items: center;
-	justify-content: center;</code></pre></li></ol><ol id="63679cf6-9d48-4469-a647-07174b644fe1" class="numbered-list" start="3"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="e81e7fa8-8f9a-4d83-91b2-19a797b41f25" class="block-color-teal_background">Si un filtre gris est apparu sur l&#x27;image et que le titre est centré dans le header, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="2377a338-4e33-46ff-84ec-586e9fc0b5c2" class="">
-	</p><h3 id="15bc89d2-2685-437c-a4c0-1f14cbff4c11" class="block-color-yellow_background"><strong>Styles généraux</strong></h3><p id="1c2c5fbf-3372-46ac-b1a6-79e86fe93176" class="">En CSS, les balises situées à l&#x27;intérieur d&#x27;une autre héritent des propriétés de la balise supérieure. Ainsi, en appliquant une typo à <code>body</code>, le titre <code>h1</code> héritera de cette même typo.</p><p id="08ecf4b9-f011-4ed6-93ee-7980ba1ebd21" class="">Une fois la typo modifiée, on va <strong>supprimer les marges </strong>de la balise <code>body</code> pour que l&#x27;image soit bien collée aux bords de la fenêtre du navigateur.</p><p id="18ab593e-8654-462e-9e3e-c5967556ae63" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="c1119d83-f5c9-4985-8151-a1d87402964b" class="numbered-list" start="1"><li>Dans le fichier <code>index.html</code>, utilisez la balise <code>link</code> dans la partie <code>head</code> (sous <code>title</code>) pour charger la typo Montserrat depuis la bibliothèque Google Fonts<pre id="64723403-f889-4fdf-8618-4f6866acca03" class="code"><code>&lt;head&gt;<strong>
-		</strong>&lt;title&gt;Site de Clémentine Pirlot&lt;/title&gt;
-		&lt;link href=&quot;https://fonts.googleapis.com/css?family=Montserrat&quot; rel=&quot;stylesheet&quot;/&gt;
-		&lt;link href=&quot;./styles.css&quot; rel=&quot;stylesheet&quot; /&gt;
-	&lt;/head&gt;
-	</code></pre></li></ol><ol id="9722b38f-c509-4682-9573-2bb739c3287d" class="numbered-list" start="2"><li>Dans le fichier <code>styles.css</code>, ciblez la balise <code>body</code> pour lui appliquer la famille de typo Montserrat, puis supprimez les marges grâce à la propriété <code>margin</code>.<pre id="ed51aa0a-5fb3-4775-ad55-81f8c4d7aad0" class="code"><code>body {
-	  font-family: Montserrat;
-		margin: 0;
-	}</code></pre></li></ol><ol id="9d6974d2-a8f6-4187-a8d0-53f283511250" class="numbered-list" start="3"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="2c0fbc12-8bdd-4df9-933f-3e07ed7f8c3e" class="block-color-teal_background">Si l&#x27;image de fond est bien collée aux bords de votre fenêtre et que votre titre est bien écrit avec une typo baton, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="428553dc-ec93-415e-8221-41f3cf66b308" class="">
-	</p><p id="70c10931-58df-4c36-8a0f-cfb4924d4863" class="">Si votre nom a un accent, ça va afficher des caractères bizarres, que vous avez peut être déjà vus avant. C&#x27;est simplement que le navigateur ne sait pas qu&#x27;il faut utiliser un encodage pour ces caractères spéciaux. Donc pour lui dire de décoder les accents, on va ajouter une instruction dans la balise <code>head</code> :</p><pre id="3045d050-7049-437f-8577-395e21b31b1a" class="code"><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre><h2 id="a68bdd36-e530-4bc2-948c-44ac4a11f163" class="block-color-purple_background"><strong>Section Présentation</strong></h2><p id="4b817b19-41ad-4756-8411-575fb4c11cc4" class="">
-	</p><h3 id="499abf46-e411-4c0c-9494-bc67ed6689c0" class="block-color-yellow_background"><strong>Structure HTML</strong></h3><p id="5e60418a-975d-4249-9bf5-c95c299d5b6e" class="">On peut maintenant ajouter un paragraphe de présentation qui en dit plus sur nous. </p><p id="c6169088-d002-4bfb-963c-477e8bdaee25" class="">À la suite du bloc <code>header</code>, nous allons créer un nouveau bloc avec la balise <code>section</code>.</p><p id="9db8f46d-4df3-498e-88f8-0265e2d6f0a4" class="">À l&#x27;intérieur de cette balise <code>section</code>, nous allons insérer :</p><ul id="f54289d8-b51c-40e6-bffd-742f02878705" class="bulleted-list"><li>une photo de profile avec la balise <code>img</code></li></ul><ul id="656de7d5-7203-4499-876a-db972e162596" class="bulleted-list"><li>un titre <code>h2</code></li></ul><ul id="d6743602-5338-4eea-b42b-6471bfa178d4" class="bulleted-list"><li>un paragraphe<code>p</code> avec notre texte de présentation</li></ul><ul id="93010c67-70a9-47b8-a925-54979c6ac433" class="bulleted-list"><li>un lien <code>a</code> vers une page de profile LinkedIn</li></ul><p id="3764a473-77e7-4cc7-be75-3e43ee91b6ce" class="">
-	</p><p id="0dc76ad2-d478-4018-997b-3b6521279a7d" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="fda47a52-c5cf-4a22-8f3d-b5f255b0276d" class="numbered-list" start="1"><li>Dans votre fichier <code>index.html</code>, à la suite de la balise fermante <code>&lt;/header&gt;</code>, insérez une balise <code>section</code><pre id="999ec66f-4ff5-4870-8574-4086034d9e3b" class="code"><code>&lt;section&gt;
-	
-	&lt;/section&gt;</code></pre></li></ol><ol id="767ac745-62bd-4740-b364-5a06fe8412d5" class="numbered-list" start="2"><li>À l&#x27;intérieur de la balise <code>section</code>, intégrez une image en utilisant le code suivant<pre id="af9f4f25-d0a2-4b33-b31a-acb7dfadd81f" class="code"><code>&lt;img src=&quot;images/profile.jpg&quot; alt=&quot;Photo de Clementine&quot; /&gt;</code></pre><p id="4b64b748-8b0e-4001-b68e-2249fc51c313" class="">Note : vous pouvez intégrer une photo de votre ordinateur en cliquant sur le dossier <em>&quot;images&quot;</em> puis sur le bouton <em>&quot;upload Files&quot;</em> pour l&#x27;ajouter dans le dossier image de votre projet.</p><figure id="b437075e-6d7a-4b17-800f-19a666a15126" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-21_a_16.22.20.png"><img style="width:632px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-21_a_16.22.20.png"/></a></figure><p id="e436b76a-5179-467f-ae2c-bd8121fb459e" class=""><strong>Attention</strong> : le nom de votre image dans votre code doit être exactement le même que dans votre dossier <em>&quot;images&quot;</em> , et il ne faut pas d&#x27;espace dans le nom.
-	Par exemple, si votre image s&#x27;appelle <code>ma-photo.jpg</code>, votre code HTML sera</p><pre id="1d32f212-8ee7-4663-9614-545a6f4fd7fb" class="code code-wrap"><code>&lt;img src=&quot;images/ma-photo.jpg&quot; alt=&quot;Photo de ...&quot; /&gt;</code></pre></li></ol><ol id="2d4c48fd-d41c-4041-b035-43e8bed8034b" class="numbered-list" start="3"><li>Sous la balise fermante <code>img</code>, ajoutez une balise <code>h2</code>, pour insérer un titre de deuxième niveau <pre id="219454bb-6824-4688-b1b9-45245cc8a810" class="code"><code>&lt;h2&gt;Présentation&lt;/h2&gt;</code></pre></li></ol><ol id="9283f926-baf4-495b-8e26-5c38fc29a533" class="numbered-list" start="4"><li>Sous la balise fermante <code>h2</code>, ajoutez une balise <code>p</code>, pour insérer un paragraphe <pre id="29dd3b13-89ca-4821-b765-83ce7f5244c8" class="code code-wrap"><code>&lt;p&gt;
-	  Bonjour, je suis Clémentine Pirlot une développeuse française à Toronto!
-	  Après des études d&#x27;informatique au Greta de Lyon et à l&#x27;Ecole 42, ainsi que des expériences professionelles dans des grandes et petites
-	  entreprises, je suis actuellement développeuse fullstack chez HiMama,
-	  une startup de l&#x27;edtech à Toronto, au Canada.
-	&lt;/p&gt;</code></pre><p id="69987ad9-99a7-4d53-8ae5-e8e424691efb" class="">Note : la balise <code>br</code> permet d&#x27;insérer un saut de ligne à l&#x27;endroit où on la place, comme si on appuyait sur la touche <code>entrée</code> de notre clavier. <code>br</code> ne suis pas la structure balise ouvrante-balise fermante ; on dit qu&#x27;elle est orpheline.</p></li></ol><ol id="b581acdb-db38-472f-b1fc-66ec87ffad05" class="numbered-list" start="5"><li>Pour faire un lien vers un profile LinkedIn, remplacer <em>&quot;développeuse&quot;</em> par le code suivant<pre id="1292cdaf-b8d3-4142-b6ab-aebf0fc5261b" class="code code-wrap"><code>&lt;a href=&quot;https://www.linkedin.com/in/clementine-pirlot/&quot; target=&quot;_blank&quot;&gt;développeuse&lt;/a&gt;</code></pre></li></ol><ol id="fb4aaa39-612a-4f28-be2f-6ade35a2e6a9" class="numbered-list" start="6"><li>Afin d&#x27;identifier précisément cette section et lui donner des styles différents des autres sections que nous ajouterons ensuite, ajoutez-lui une classe <code>about</code>, dans la balise ouvrante <code>section</code><pre id="c320f63b-aa27-4310-8057-c60958a0855c" class="code"><code>&lt;section class=&quot;about&quot;&gt;</code></pre></li></ol><ol id="16229a95-272f-40a7-a538-0b75c7042499" class="numbered-list" start="7"><li>Vérifiez que le code de votre bloc présentation ressemble à :<pre id="1983e43b-3964-400e-9b18-7c6ce58e394f" class="code code-wrap"><code>&lt;section class=&quot;about&quot;&gt;
-	  &lt;img src=&quot;images/profile.jpg&quot; alt=&quot;Photo de Clementine&quot; /&gt;
-	  &lt;h2&gt;Présentation&lt;/h2&gt;
-	  &lt;p&gt;
-		Bonjour, je suis Clémentine Pirlot une
-		&lt;a href=&quot;https://www.linkedin.com/in/clementine-pirlot/&quot; target=&quot;_blank&quot;
-		  &gt;développeuse&lt;/a
-		&gt;
-		française à Toronto! Après des études d&#x27;informatique au Greta de Lyon et
-		à l&#x27;Ecole 42, ainsi que des expériences professionelles dans des grandes
-		et petites entreprises, je suis actuellement développeuse fullstack chez
-		HiMama, une startup de l&#x27;edtech à Toronto, au Canada.
-	  &lt;/p&gt;
-	&lt;/section&gt;</code></pre></li></ol><ol id="4c8a2796-3422-49ab-a6c7-90458a9a10b5" class="numbered-list" start="8"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="93ba3047-41d9-494a-8b11-7bfb5ffe41fc" class="block-color-teal_background">Si votre image, le titre et le paragraphe s&#x27;affichent, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="86a3a7b7-d2af-42cb-bd7d-5c773ff7192c" class="">
-	</p><h3 id="30cfeeec-74f6-445f-9f90-2e8797869930" class="block-color-yellow_background"><strong>Styles CSS</strong></h3><p id="d9099195-a30b-4993-8fad-a7343c5ea6ac" class="">Il faut maintenant mettre en forme ce bloc, en ajoutant des styles dans le fichier <code>styles.css</code></p><p id="cb60fdca-ba27-402d-b110-915e9f5f4875" class="">
-	</p><p id="9d483296-6782-40f1-8708-c7726ca19d42" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="1cdaaac3-864c-4b66-8c0e-3cc3af811cc8" class="numbered-list" start="1"><li>Ajoutez le code suivant pour centrer et redimensionner le bloc<pre id="d9225227-eac3-4c40-9bf8-218b281448de" class="code code-wrap"><code>.about {
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
-	  justify-content: center;
-	  text-align: center;
-	  width: 70%;
-	  margin: 70px auto;
-	  padding: 20px;
-	  padding-top: 0;
-	  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
-	}</code></pre><p id="dff8ba7d-56b7-4c61-9df3-927b9ca51d2b" class="">
-	</p></li></ol><ol id="aec3fde1-a2f0-47e3-ac8b-763479dd1672" class="numbered-list" start="2"><li>Ajoutez le code suivant pour cibler l&#x27;image de la section <code>.about</code> et :<ul id="eb1c1e8c-b96f-4707-b7e1-e8de6d836ef8" class="bulleted-list"><li>créer une image arrondie</li></ul><ul id="e6d2950d-ebbc-4457-abf4-3967e27d190d" class="bulleted-list"><li>modifier sa taille</li></ul><ul id="22d7e80e-d544-437a-b2a0-74e7864f2870" class="bulleted-list"><li>réduire la marge en haut</li></ul><pre id="585c2495-bf66-4df9-bbb8-440ebaa4dd51" class="code code-wrap"><code>.about img {
-	  border-radius: 50%;
-	  width: 150px;
-	  margin-top: -30px;
-	}</code></pre></li></ol><ol id="81b01cbc-f295-4ae0-96e0-d2fca600a583" class="numbered-list" start="3"><li>Ciblez la balise <code>h2</code> pour lui appliquer une taille de typo et modifier ses marges<pre id="de1d8b6e-4401-4dde-95ab-524534a2c4ab" class="code code-wrap"><code>h2 {
-	  font-size: 24px;
-	  margin-top: 30px;
-	  margin-bottom: 15px;
-	}</code></pre></li></ol><ol id="c7e94a06-e648-4f5e-ac43-6c51761cc724" class="numbered-list" start="4"><li>Ciblez la balise <code>a</code> pour changer la couleur du lien et supprimer son soulignement<pre id="f3f72438-5d24-458d-9b1d-5ec8404f8c8d" class="code code-wrap"><code>a {
-	  color: #129daf;
-	  text-decoration: none;
-	}</code></pre></li></ol><p id="d854e441-15e3-4a73-b9a6-b4b34c216fff" class="">
-	</p><h2 id="a16b46bb-b7ad-4b5c-955a-96e0e9cc223b" class="block-color-purple_background"><strong>Section Compétences</strong></h2><p id="3a022f12-e195-401d-8ee0-4daa2c3ee12d" class="">
-	</p><h3 id="b92bb23b-5356-4c55-b5dd-e33ca402f5cd" class="block-color-yellow_background"><strong>Structure HTML</strong></h3><p id="6c3787ba-4b60-480a-afad-6a236389c00e" class="">Nous allons maintenant ajouter une nouvelle section pour présenter nos compétences. Cette section sera composée de :</p><ul id="e3f8fade-f8a5-48af-a6ad-b0d44c49203a" class="bulleted-list"><li>un titre <code>h2</code></li></ul><ul id="5dd2a350-4e74-47e2-bf37-484d590885cb" class="bulleted-list"><li>un conteneur général (<code>.skills-content</code>) contenant toutes les compétences</li></ul><ul id="f4f9d4e6-d366-4e0b-a5e8-6c4fb647e538" class="bulleted-list"><li>des lignes (<code>.skills-row</code>) contenant chacune deux colonnes (<code>.skills-column</code>) permettant d&#x27;afficher deux compétences</li></ul><figure id="ee43c640-d72a-49cf-8f2e-691536585523" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-24_a_17.19.34.png"><img style="width:910px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-24_a_17.19.34.png"/></a></figure><p id="6eab8f5c-2981-49f5-a47a-94a400708346" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="aecd0e1a-40b1-49ed-b4f4-4b932e7f0a56" class="numbered-list" start="1"><li>Dans votre fichier <code>index.html</code>, à la suite de la balise fermante <code>&lt;/section&gt;</code>, insérez une nouvelle balise <code>section</code> et donnez-lui la classe <code>.skills</code> pour la différencier de la section précédente (<code>.about</code>)<pre id="1b077a4a-57aa-4655-bba3-eaa53897252c" class="code"><code>&lt;section class=&quot;skills&quot;&gt;
-	
-	&lt;/section&gt;</code></pre></li></ol><ol id="91e0e402-2228-4bf1-8676-ee93e328520a" class="numbered-list" start="2"><li>À l&#x27;intérieur de cette nouvelle balise <code>section</code>, insérez un titre <code>h2</code><pre id="b370b05a-951d-4772-8a1c-35e1c6c5ffa5" class="code"><code>&lt;section class=&quot;skills&quot;&gt;
-		&lt;h2&gt;Compétences&lt;/h2&gt;
-	&lt;/section&gt;</code></pre></li></ol><ol id="e09c2158-f748-46a7-bfbc-d65ec11628e0" class="numbered-list" start="3"><li>Après le titre <code>h2</code>, ajoutez le conteneur général des compétences, avec à l&#x27;intérieur,  une ligne contenant deux colonnes<pre id="440228c8-c4e2-4eb0-84f2-082e4d1702c1" class="code"><code>&lt;section class=&quot;skills&quot;&gt;
-	  &lt;h2&gt;Compétences&lt;/h2&gt;
-	  &lt;div class=&quot;skills-content&quot;&gt;
-			&lt;div class=&quot;skills-row&quot;&gt;
-		  &lt;div class=&quot;skills-column&quot;&gt;
-				&lt;/div&gt;
-				&lt;!-- Fin .skills-column --&gt;
-				&lt;div class=&quot;skills-column&quot;&gt;
-				&lt;/div&gt;
-				&lt;!-- Fin .skills-column --&gt;
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d9602fef-7d23-4999-a01e-a2a8446523c5" class="page sans"><header><h1 class="page-title">💻 <strong>Première page web</strong></h1></header><div class="page-body"><nav id="e5eee6d8-c227-46ab-839e-c53ecc73b512" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#12dc70b1-d060-49de-bd54-8dfc40b1ec70">INTRODUCTION</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5a885bf2-3e08-4506-b446-b89eed167684"><strong>Présentation de la formatrice</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#961a4341-de21-4e20-a978-c9e2846caf8e"><strong>Les bases du web</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a4b85dc1-8a25-48eb-8703-b4ffdd05e963">ATELIER</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#d3f6c3f2-8360-43bf-b49c-b54b4e8b4894"><strong>Objectif</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#38484fd3-62fb-42cf-8a6d-e3e00fbf05d0"><strong>Ressources</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#070fc6fc-84df-4d62-92fb-3463448cfcba"><strong>Mise en place de l&#x27;environnement de travail</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#158c1b40-74ca-4b3e-9cc0-895f01d306e1"><strong>Bases de la page</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#3bb72d2f-4ba4-4158-b169-965e15b42b6b"><strong>&lt;head&gt;&lt;/head&gt;</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#4dba27ec-aeb7-4740-ae11-8d7019e06e90"><strong>&lt;body&gt;&lt;/body&gt;</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5957b64d-ba80-40f9-ba34-b644f454bbf3"><strong>Header avec image</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#8daebd14-237f-4a7a-b03a-46f5df7f6926"><strong>Image de fond</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#fd7cfadd-f984-49da-8382-23edd5845c9d"><strong>Titre h1</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#15bc89d2-2685-437c-a4c0-1f14cbff4c11"><strong>Styles généraux</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a68bdd36-e530-4bc2-948c-44ac4a11f163"><strong>Section Présentation</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#499abf46-e411-4c0c-9494-bc67ed6689c0"><strong>Structure HTML</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#30cfeeec-74f6-445f-9f90-2e8797869930"><strong>Styles CSS</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a16b46bb-b7ad-4b5c-955a-96e0e9cc223b"><strong>Section Compétences</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#b92bb23b-5356-4c55-b5dd-e33ca402f5cd"><strong>Structure HTML</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#57cc1e99-d441-43d4-836c-f7e5640f2dfe"><strong>Styles CSS</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#a91eec21-3c10-4006-86ba-c2ed4738cfb9"><strong>Ajout de compétences</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#a078af9e-4793-49a1-a809-323d3ea817f6"><strong>Effet parallax</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e5580f65-bedf-4891-841f-7601fb9dd14b"><strong>Section expérience</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#666798e7-36e7-47e4-9454-21ef65d93202"><strong>Structure HTML</strong></a></div><div class="table_of_contents-item table_of_contents-indent-2"><a class="table_of_contents-link" href="#7cbe437a-2737-4139-972b-90bae03e8b90"><strong>Styles CSS</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#959c8f85-17f5-4c6b-a687-1971c3985689"><strong>Carte Google</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e7d4587d-5244-4d6a-bba2-7519e90db193"><strong>Pour aller plus loin</strong></a></div></nav><h1 id="12dc70b1-d060-49de-bd54-8dfc40b1ec70" class="">INTRODUCTION</h1><h2 id="5a885bf2-3e08-4506-b446-b89eed167684" class="block-color-purple_background"><mark class="highlight-purple_background"><strong>Présentation de la formatrice</strong></mark></h2><figure id="c864dc88-b7aa-4894-a577-ff6ebcf7d68d"><a href="https://www.linkedin.com/in/clementine-pirlot/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Clémentine Pirlot - Software Developer - HiMama | LinkedIn</div><div class="bookmark-description">View Clémentine Pirlot&#x27;s profile on LinkedIn, the world&#x27;s largest professional community. Clémentine has 9 jobs listed on their profile. See the complete profile on LinkedIn and discover Clémentine&#x27;s connections and jobs at similar companies.</div></div><div class="bookmark-href"><img src="https://static-exp1.licdn.com/scds/common/u/images/logos/favicons/v1/favicon.ico" class="icon bookmark-icon"/>https://www.linkedin.com/in/clementine-pirlot/</div></div><img src="https://media-exp1.licdn.com/dms/image/C5603AQHBjejt7pIxWg/profile-displayphoto-shrink_200_200/0?e=1603929600&amp;v=beta&amp;t=OnKGJS5I6EP-KQVVFuZmyA1hqE026z9a8ELHX3zinJg" class="bookmark-image"/></a></figure><h2 id="961a4341-de21-4e20-a978-c9e2846caf8e" class="block-color-purple_background"><mark class="highlight-purple_background"><strong>Les bases du web</strong></mark></h2><figure id="c78de6b7-f222-4882-bec7-f4d89c4fdf13"><div class="source"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/initiation-html-horizon-numerique.pdf">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f909c70a-c7d3-4334-b347-dae336cf78d4/initiation-html-horizon-numerique.pdf</a></div></figure><h1 id="a4b85dc1-8a25-48eb-8703-b4ffdd05e963" class="">ATELIER</h1><h2 id="d3f6c3f2-8360-43bf-b49c-b54b4e8b4894" class="block-color-purple_background"><mark class="highlight-purple_background"><strong>Objectif</strong></mark></h2><p id="e9ced2b6-7abc-4578-a987-158f69542c5d" class="">Nous allons créer une page de présentation type CV. Notre site sera statique, c&#x27;est à dire que tout le contenu sera dans le code. Par opposition, un site dynamique est un site où le contenu n&#x27;est pas connu à l&#x27;avance et qui utilise souvent une base de donnée.</p><p id="c271f5dc-147c-42cf-afa0-2f8d5621d6af" class="">
+</p><h2 id="38484fd3-62fb-42cf-8a6d-e3e00fbf05d0" class="block-color-purple_background">Ressources</h2><p id="45c49492-9f9f-46b1-96e4-0e140c0fa444" class=""><strong>Exemples</strong></p><p id="38a3dfd5-0508-48b9-a66c-df7b2d87f2b1" class="">Fanny: <a href="https://m64dw.csb.app/">https://m64dw.csb.app/</a></p><p id="79896e82-7e35-4e89-995d-c49fd09434c1" class="">Clémentine: <a href="https://clementine-pirlot.netlify.app/">https://clementine-pirlot.netlify.app/</a> </p><p id="2313021d-9de0-467e-8c64-438014dca82a" class="">
+</p><p id="3e1a4c6b-581f-4e54-8474-dd561f8c4a3d" class=""><strong>Code complet</strong></p><p id="fb27f2e1-5458-4728-a8f4-3b4324ef70fa" class="">Fanny: <a href="https://codesandbox.io/s/decouverte-code-complet-fanny-m64dw">https://codesandbox.io/s/decouverte-code-complet-fanny-m64dw</a></p><p id="279bb50f-8f29-49f4-9812-5955c4a23f23" class="">Clementine: <a href="https://codesandbox.io/s/decouverte-code-complet-clementine-wlvxd?from-embed">https://codesandbox.io/s/decouverte-code-complet-clementine-wlvxd</a></p><p id="7269a419-443c-4bf7-be64-28d27fe27340" class="">
+</p><p id="c866f51d-3316-464e-a2b0-a53277ade8c6" class=""><strong>Code début</strong> </p><p id="1121d6fa-e4d9-4048-a025-19675c824551" class=""><a href="https://codesandbox.io/s/decouverte-code-debut-3uk0n">https://codesandbox.io/s/decouverte-code-debut-3uk0n</a></p><p id="a2888913-3d39-4970-bd9d-d4befa1efe78" class="">
+</p><p id="eeed0a57-c9b8-470d-a29e-e14f61ad03b7" class="">Langages utilisés : </p><ul id="668459a8-280a-4da4-9d18-acb3718e9240" class="bulleted-list"><li>HTML pour le contenu</li></ul><ul id="95714a4d-84f6-44d7-abb3-506e6b04653a" class="bulleted-list"><li>CSS pour la mise en forme</li></ul><p id="f34a8116-880a-4aa2-adb3-00a6baa5ac42" class="">
+</p><h2 id="070fc6fc-84df-4d62-92fb-3463448cfcba" class="block-color-purple_background">Mise en place de l&#x27;environnement de travail</h2><ol id="dff80034-3c2c-4631-94ed-00b7748122ae" class="numbered-list" start="1"><li>cliquez sur le lien <a href="https://codesandbox.io/s/decouverte-code-debut-3uk0n">https://codesandbox.io/s/decouverte-code-debut-3uk0n</a></li></ol><ol id="3f02df5b-f32b-4447-80b0-0269eb5c5a0e" class="numbered-list" start="2"><li>cliquez sur le bouton <code>fork</code> pour créer une copie sur laquelle vous allez travailler<figure id="e444106e-ab1e-46a1-9b44-13b5ccfe99b7" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.38.25.png"><img style="width:1092px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.38.25.png"/></a></figure></li></ol><ol id="564adab6-c2f6-4201-9367-305079ef0159" class="numbered-list" start="3"><li>renommez ce fichier en écrivant votre nom à la place de DEBUT<figure id="f26ba4f3-2e93-4811-bf29-f8ac59d11d1a" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.36.54.png"><img style="width:1222px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.36.54.png"/></a></figure></li></ol><ol id="7f2eeb9d-349c-4303-a112-7caae51b956c" class="numbered-list" start="4"><li>cliquez sur le bouton <em>Open in new windo</em>w pour prévisualiser votre page dans un onglet de votre navigateur<figure id="0554706e-eb48-415d-bd0d-f2654c6f2d4d" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.45.53.png"><img style="width:942px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.45.53.png"/></a></figure></li></ol><ol id="4822d852-f0a0-4a06-9b16-7da4f7db43ea" class="numbered-list" start="5"><li>cliquez sur l&#x27;icône play pour cacher ou afficher la prévisualisation afin de faire de la place à votre fenêtre de code<figure id="a9e14621-f0ba-45f4-9a10-b2e16924c5d0" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/imageedit_2_4479235644.jpg"><img style="width:569px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/imageedit_2_4479235644.jpg"/></a></figure></li></ol><ol id="aafaccb5-0942-4d8c-85c7-a30ada98884c" class="numbered-list" start="6"><li>cliquez sur l&#x27;icône <em>fichiers </em>pour faire encore plus de place à votre fenêtre de code<figure id="5d478369-b072-468b-8063-06675e545c16" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.55.31.png"><img style="width:424px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-20_a_12.55.31.png"/></a></figure><p id="2433eb12-ed25-41af-84ef-c4c5efb625ff" class="">
+</p></li></ol><p id="83d4d464-aefd-4932-830b-b661d4f4347c" class="">
+</p><p id="686b6a5b-40b7-4f07-aa7f-bd23a6cd049d" class="">À ce stade, vous devez avoir :</p><ul id="1546033b-d4fb-463e-a6eb-5895f6f88501" class="bulleted-list"><li>un onglet de votre navigateur pour la fenêtre de code</li></ul><ul id="f456e35d-9185-46a4-8f22-472989c37338" class="bulleted-list"><li>un onglet de votre navigateur pour la prévisualisation de votre page </li></ul><p id="a3f6cb51-c60a-4a05-91ba-d32bcabca8d3" class="">
+</p><p id="bc7cd78e-ef77-4fcc-87de-8b02ed2d6982" class="block-color-teal_background">Si vous avez ces deux éléments, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="686d68f6-4116-47f1-87ab-3bd0a4b61c98" class="">
+</p><h2 id="158c1b40-74ca-4b3e-9cc0-895f01d306e1" class="block-color-purple_background"><strong>Bases de la page</strong></h2><p id="56970cc7-ffef-4c4f-894f-9b1db04befac" class="">Toutes les pages web comportent au minimum les balises suivantes :</p><pre id="6f2cc0a0-d473-46f7-9815-8f66c75d7e20" class="code"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre><p id="c21715bc-d6bd-4ff2-a22a-86cb9d96ddc1" class="">Une balise est en général composée d&#x27;une <strong>balise ouvrante</strong> et d&#x27;une <strong>balise fermante</strong>.</p><p id="ad064435-d43c-49a2-826f-97d9971ddf5c" class="">Les balises sont imbriquées : <strong>dernière balise ouverte = première balise fermée</strong></p><p id="471ea23a-89b6-4ee0-9fdf-54d28764c43a" class="">
+</p><h3 id="3bb72d2f-4ba4-4158-b169-965e15b42b6b" class="block-color-yellow_background"><strong>&lt;head&gt;&lt;/head&gt;</strong></h3><p id="15a3d7cf-c250-4afa-9dd0-488d3fc39095" class="">La balise <code>head</code> ne contient rien qui est visible sur la page, elle sert à <strong>passer des informations meta au navigateur</strong> : encodage des caractères, chargement de fichiers externes, titre du document, etc.
+</p><p id="c69a3d78-883d-4fbb-91d4-631a1991a07d" class="">Dans le code HTML, il s&#x27;écrit à l&#x27;intérieur de la balise <code>head</code> :</p><pre id="78cd48fe-036b-4da9-a5ad-3877fd45999f" class="code"><code>&lt;head&gt;<strong>
+	</strong>&lt;title&gt;Site de Clémentine Pirlot&lt;/title&gt;
+&lt;/head&gt;</code></pre><p id="82adfcfb-82a1-4c04-a996-d6d0a2589823" class="">Le titre du document s’affiche dans l&#x27;onglet de la barre supérieure du navigateur.</p><figure id="0c2c8919-dd85-4ebd-a9cf-0f220747e230" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled.png"><img style="width:869px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled.png"/></a></figure><p id="d684efeb-954c-4a4e-bc29-bee21dcc8390" class="">
+</p><p id="8e36cfd7-1232-45b3-a40d-d2a42db6987d" class=""><strong>ASTUCE
+</strong>Si vous commencez à taper le nom de la balise (sans chevron) que vous souhaitez insérer, CodeSandbox ouvre une liste de propositions. Il suffit alors de sélectionner votre balise.</p><p id="e0d00243-b190-4ad0-925c-101f97d411e8" class="">
+</p><p id="411d839c-c7af-4bee-80c7-dd33131fe20b" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="21aaa4f8-8cab-465b-8a51-160ad612523f" class="numbered-list" start="1"><li>Ajoutez la balise <code>title</code> à l&#x27;intérieur de la balise <code>head</code> </li></ol><ol id="fde3ab88-ea17-4fb8-bfa4-de89c5a2fab2" class="numbered-list" start="2"><li>Entre la balise ouvrante et la balise fermante, écrivez &quot;Site de <em>Prénom Nom</em>&quot; (remplacez <em>Prénom Nom </em>par votre prénom et votre nom)</li></ol><ol id="df6370b4-d42d-467f-9feb-a45107af0051" class="numbered-list" start="3"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="13fb2d22-6a50-4644-bf5d-86a7cee047e1" class="block-color-teal_background">Si le titre de l&#x27;onglet affiche bien le nouveau titre, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="69666d9f-472b-4f24-b794-44fdafbb637d" class="">
+</p><h3 id="4dba27ec-aeb7-4740-ae11-8d7019e06e90" class="block-color-yellow_background"><strong>&lt;body&gt;&lt;/body&gt;</strong></h3><p id="b7da700f-4488-4b80-98ae-29dad802a2a7" class="">C&#x27;est dans la balise <code><mark class="highlight-gray_background">body</mark></code> que l&#x27;on insère le <strong>contenu qui sera visible dans le navigateur : </strong>textes, images, liens,…</p><p id="6dcfade2-fda0-435f-8f8a-de68f7027c5f" class="">
+</p><h2 id="5957b64d-ba80-40f9-ba34-b644f454bbf3" class="block-color-purple_background"><strong>Header avec image</strong></h2><p id="98c26623-2db9-4f4d-843b-0001ae17e1cc" class="">Notre header va être constitué d&#x27;une image de fond et d&#x27;un titre. Pour des questions de référencement et d&#x27;accessibilité (par exemple pour les personnes mal voyantes) la structure doit utiliser des balises qui ont du sens pour les robots. Nous allons donc créer une zone d&#x27;en-tête grâce à la balise <code>header</code> puis insérer une balise <code>h1</code> pour le titre principal de la page.</p><pre id="37dd9060-cafb-4969-a48e-4349ee2ff655" class="code"><code>&lt;header&gt;
+  &lt;h1&gt;Clémentine Pirlot&lt;/h1&gt;
+&lt;/header&gt;</code></pre><p id="4a582112-94f7-4454-9fcc-b0ac9149dfcd" class="">
+</p><p id="dbe8f1ba-7d1e-4a0f-bb9a-b3e378ea0349" class="">Une fois la structure HTML créée, on va mettre en forme le header grâce aux styles CSS.</p><p id="25dbfb86-dcc1-4d7c-aa48-e1253cccb39d" class="">
+</p><h3 id="8daebd14-237f-4a7a-b03a-46f5df7f6926" class="block-color-yellow_background"><strong>Image de fond</strong></h3><p id="b721ac7d-4570-42eb-9e44-a47ad22443c8" class="">Dans le dossier du projet, vous avez une image appelée <code>header.jpg</code>. C&#x27;est cette image qui va servir de fond à notre zone header.</p><p id="66c79c26-61c0-4c3a-a04f-3120dd3276f5" class="">Vous avez également, dans le dossier du projet, un fichier nommé <code>styles.css</code>. C&#x27;est dans ce fichier que l&#x27;on va ajouter les styles pour la mise en forme de notre page.</p><p id="4745256d-315e-416e-ad90-c75bdc1a1af6" class="">Pour que le fichier <code>index.html</code> sache où il doit prendre les styles, il faudra le relier au fichier <code>styles.css</code> grâce à la balise <code>link</code>.</p><p id="6a2b282c-e048-4539-834d-2973ebaca41b" class="">
+</p><p id="64f588bf-8fe2-4f3e-8986-a20e20e1d7ce" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="4110dde9-a985-465e-a89b-f2a782d6d9ce" class="numbered-list" start="1"><li>Ajoutez le code HTML suivant dans votre fichier <code>index.html</code> et modifiez le prénom et le nom<pre id="d254356a-7749-4d14-87fc-2c63f12df449" class="code"><code>&lt;header&gt;
+  &lt;h1&gt;Clémentine Pirlot&lt;/h1&gt;
+&lt;/header&gt;</code></pre></li></ol><ol id="ae7cd527-c43a-4db6-83a5-422ea18e4a49" class="numbered-list" start="2"><li>Double-cliquez sur le fichier <code>styles.css</code> présent dans le dossier de votre projet</li></ol><ol id="d33ccd05-ec8d-4ee0-931c-157621f7daf3" class="numbered-list" start="3"><li>Copiez le code suivant dans <code>styles.css</code><pre id="f3787bc1-0e1f-4f49-90b8-04444a25d807" class="code"><code>header {
+  background-image: url(&quot;header.jpg&quot;);
+  background-size: cover;
+  height: 550px;
+}</code></pre><p id="77e03ef2-6316-4363-b509-8f3157875f79" class="">Ce bout de code permet de cibler la balise <code>header</code>, et lui appliquer une image de fond, qui couvre toute la place disponible, ainsi qu&#x27;une hauteur de 550px.</p></li></ol><ol id="d20e8fd4-79a3-4754-8d5b-5d811f9ab970" class="numbered-list" start="4"><li>Revenez dans le fichier <code>index.html</code> et insérez la balise <code>link</code> dans la partie <code>head</code> (sous <code>title</code>), pour relier le fichier <code>styles.css</code> <pre id="65d4884c-51e1-4fc9-b541-146dbe936a77" class="code"><code>&lt;head&gt;<strong>
+	</strong>&lt;title&gt;Site de Clémentine Pirlot&lt;/title&gt;
+	&lt;link href=&quot;./styles.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;/head&gt;</code></pre></li></ol><ol id="8e4b604a-fc5d-48c2-951f-bba0eeef8240" class="numbered-list" start="5"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="35103561-21dc-4f0b-8f0b-0a0afd96a1b5" class="block-color-teal_background">Si votre page affiche bien l&#x27;image de fond, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="63efc2d2-ef77-4f76-80b0-d4fe2b4036e7" class="">
+</p><p id="61c390c3-a7ee-43f0-aac3-07125a240e8c" class="">
+</p><h3 id="fd7cfadd-f984-49da-8382-23edd5845c9d" class="block-color-yellow_background"><strong>Titre h1</strong></h3><p id="4a74c33b-f94f-4c74-a454-53ef7bf5bd96" class="">Il s&#x27;agit maintenant d&#x27;appliquer des styles propres au titre h1 :</p><ul id="8c332f43-81b3-48ee-abcb-26902ddc3cb5" class="bulleted-list"><li>une taille de typo grâce à la propriété <code>font-size</code></li></ul><ul id="612e3066-68a3-482b-8553-44d1937a5f0b" class="bulleted-list"><li>une couleur de typo grâce à la propriété <code>color</code></li></ul><p id="65f0e411-8a93-4bfa-a065-2b3352e38112" class="">
+</p><p id="f319db8b-2fc9-4e51-bbac-e9ec27c02b05" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="e437b931-4cf2-48ca-b187-e591eec626fd" class="numbered-list" start="1"><li>Dans le fichier <code>styles.css</code>, ciblez la balise <code>h1</code> pour lui appliquer une taille et une couleur de typo <pre id="6266bb79-20c7-4217-8bbc-51ab4d86332e" class="code"><code>h1 {
+  font-size: 56px;
+  color: white;
+}</code></pre></li></ol><ol id="b9145318-57c9-4816-82ec-7342fbdc070e" class="numbered-list" start="2"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="6007f868-1892-45a3-8af0-f9b5d2cca0c7" class="block-color-teal_background">Si votre titre est blanc et plus gros, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="13299c11-e5cb-4a18-85ae-ab0596827481" class="">
+</p><p id="376c4daf-77b5-43ce-9a7a-fab912b8e865" class="">Pour que l&#x27;image soit plus jolie et le titre plus lisible, on va appliquer un filtre gris par dessus.</p><p id="abd34763-84ac-40bc-b0e5-8c0a400a2f1e" class="">Puis on positionnera notre titre au centre du header.</p><p id="ce26f299-5894-43fa-b8c2-163f8d98b580" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="7d96a94b-9dd5-4d42-83a3-3f10485a3e11" class="numbered-list" start="1"><li>Dans votre fichier <code>styles.css</code>, modifiez l&#x27;apparence de l&#x27;image en remplaçant <code>background-image: url(&quot;header.jpg&quot;);</code> par le code suivant<pre id="b7a5c18a-6a77-4cb8-8c4d-721bce0a3bda" class="code"><code>background: linear-gradient(
+      0deg,
+      rgba(44, 44, 44, 0.6),
+      rgba(44, 44, 44, 0.6)
+    ),
+    url(&quot;header.jpg&quot;);</code></pre></li></ol><ol id="f1aa2883-ec89-415d-a8cd-be7b0f851e4f" class="numbered-list" start="2"><li>Centrez le titre dans le header en appliquant les propriétés suivantes à la balise <code>header</code><pre id="792dbd21-72a8-43e9-97f2-294a8542da96" class="code"><code>display: flex;
+align-items: center;
+justify-content: center;</code></pre></li></ol><ol id="63679cf6-9d48-4469-a647-07174b644fe1" class="numbered-list" start="3"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="e81e7fa8-8f9a-4d83-91b2-19a797b41f25" class="block-color-teal_background">Si un filtre gris est apparu sur l&#x27;image et que le titre est centré dans le header, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="2377a338-4e33-46ff-84ec-586e9fc0b5c2" class="">
+</p><h3 id="15bc89d2-2685-437c-a4c0-1f14cbff4c11" class="block-color-yellow_background"><strong>Styles généraux</strong></h3><p id="1c2c5fbf-3372-46ac-b1a6-79e86fe93176" class="">En CSS, les balises situées à l&#x27;intérieur d&#x27;une autre héritent des propriétés de la balise supérieure. Ainsi, en appliquant une typo à <code>body</code>, le titre <code>h1</code> héritera de cette même typo.</p><p id="08ecf4b9-f011-4ed6-93ee-7980ba1ebd21" class="">Une fois la typo modifiée, on va <strong>supprimer les marges </strong>de la balise <code>body</code> pour que l&#x27;image soit bien collée aux bords de la fenêtre du navigateur.</p><p id="18ab593e-8654-462e-9e3e-c5967556ae63" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="c1119d83-f5c9-4985-8151-a1d87402964b" class="numbered-list" start="1"><li>Dans le fichier <code>index.html</code>, utilisez la balise <code>link</code> dans la partie <code>head</code> (sous <code>title</code>) pour charger la typo Montserrat depuis la bibliothèque Google Fonts<pre id="64723403-f889-4fdf-8618-4f6866acca03" class="code"><code>&lt;head&gt;<strong>
+	</strong>&lt;title&gt;Site de Clémentine Pirlot&lt;/title&gt;
+	&lt;link href=&quot;https://fonts.googleapis.com/css?family=Montserrat&quot; rel=&quot;stylesheet&quot;/&gt;
+	&lt;link href=&quot;./styles.css&quot; rel=&quot;stylesheet&quot; /&gt;
+&lt;/head&gt;
+</code></pre></li></ol><ol id="9722b38f-c509-4682-9573-2bb739c3287d" class="numbered-list" start="2"><li>Dans le fichier <code>styles.css</code>, ciblez la balise <code>body</code> pour lui appliquer la famille de typo Montserrat, puis supprimez les marges grâce à la propriété <code>margin</code>.<pre id="ed51aa0a-5fb3-4775-ad55-81f8c4d7aad0" class="code"><code>body {
+  font-family: Montserrat;
+	margin: 0;
+}</code></pre></li></ol><ol id="9d6974d2-a8f6-4187-a8d0-53f283511250" class="numbered-list" start="3"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="2c0fbc12-8bdd-4df9-933f-3e07ed7f8c3e" class="block-color-teal_background">Si l&#x27;image de fond est bien collée aux bords de votre fenêtre et que votre titre est bien écrit avec une typo baton, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="428553dc-ec93-415e-8221-41f3cf66b308" class="">
+</p><p id="70c10931-58df-4c36-8a0f-cfb4924d4863" class="">Si votre nom a un accent, ça va afficher des caractères bizarres, que vous avez peut être déjà vus avant. C&#x27;est simplement que le navigateur ne sait pas qu&#x27;il faut utiliser un encodage pour ces caractères spéciaux. Donc pour lui dire de décoder les accents, on va ajouter une instruction dans la balise <code>head</code> :</p><pre id="3045d050-7049-437f-8577-395e21b31b1a" class="code"><code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code></pre><h2 id="a68bdd36-e530-4bc2-948c-44ac4a11f163" class="block-color-purple_background"><strong>Section Présentation</strong></h2><p id="4b817b19-41ad-4756-8411-575fb4c11cc4" class="">
+</p><h3 id="499abf46-e411-4c0c-9494-bc67ed6689c0" class="block-color-yellow_background"><strong>Structure HTML</strong></h3><p id="5e60418a-975d-4249-9bf5-c95c299d5b6e" class="">On peut maintenant ajouter un paragraphe de présentation qui en dit plus sur nous. </p><p id="c6169088-d002-4bfb-963c-477e8bdaee25" class="">À la suite du bloc <code>header</code>, nous allons créer un nouveau bloc avec la balise <code>section</code>.</p><p id="9db8f46d-4df3-498e-88f8-0265e2d6f0a4" class="">À l&#x27;intérieur de cette balise <code>section</code>, nous allons insérer :</p><ul id="f54289d8-b51c-40e6-bffd-742f02878705" class="bulleted-list"><li>une photo de profile avec la balise <code>img</code></li></ul><ul id="656de7d5-7203-4499-876a-db972e162596" class="bulleted-list"><li>un titre <code>h2</code></li></ul><ul id="d6743602-5338-4eea-b42b-6471bfa178d4" class="bulleted-list"><li>un paragraphe<code>p</code> avec notre texte de présentation</li></ul><ul id="93010c67-70a9-47b8-a925-54979c6ac433" class="bulleted-list"><li>un lien <code>a</code> vers une page de profile LinkedIn</li></ul><p id="3764a473-77e7-4cc7-be75-3e43ee91b6ce" class="">
+</p><p id="0dc76ad2-d478-4018-997b-3b6521279a7d" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="fda47a52-c5cf-4a22-8f3d-b5f255b0276d" class="numbered-list" start="1"><li>Dans votre fichier <code>index.html</code>, à la suite de la balise fermante <code>&lt;/header&gt;</code>, insérez une balise <code>section</code><pre id="999ec66f-4ff5-4870-8574-4086034d9e3b" class="code"><code>&lt;section&gt;
+
+&lt;/section&gt;</code></pre></li></ol><ol id="767ac745-62bd-4740-b364-5a06fe8412d5" class="numbered-list" start="2"><li>À l&#x27;intérieur de la balise <code>section</code>, intégrez une image en utilisant le code suivant<pre id="af9f4f25-d0a2-4b33-b31a-acb7dfadd81f" class="code"><code>&lt;img src=&quot;images/profile.jpg&quot; alt=&quot;Photo de Clementine&quot; /&gt;</code></pre><p id="4b64b748-8b0e-4001-b68e-2249fc51c313" class="">Note : vous pouvez intégrer une photo de votre ordinateur en cliquant sur le dossier <em>&quot;images&quot;</em> puis sur le bouton <em>&quot;upload Files&quot;</em> pour l&#x27;ajouter dans le dossier image de votre projet.</p><figure id="b437075e-6d7a-4b17-800f-19a666a15126" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-21_a_16.22.20.png"><img style="width:632px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-21_a_16.22.20.png"/></a></figure><p id="e436b76a-5179-467f-ae2c-bd8121fb459e" class=""><strong>Attention</strong> : le nom de votre image dans votre code doit être exactement le même que dans votre dossier <em>&quot;images&quot;</em> , et il ne faut pas d&#x27;espace dans le nom.
+Par exemple, si votre image s&#x27;appelle <code>ma-photo.jpg</code>, votre code HTML sera</p><pre id="1d32f212-8ee7-4663-9614-545a6f4fd7fb" class="code code-wrap"><code>&lt;img src=&quot;images/ma-photo.jpg&quot; alt=&quot;Photo de ...&quot; /&gt;</code></pre></li></ol><ol id="2d4c48fd-d41c-4041-b035-43e8bed8034b" class="numbered-list" start="3"><li>Sous la balise fermante <code>img</code>, ajoutez une balise <code>h2</code>, pour insérer un titre de deuxième niveau <pre id="219454bb-6824-4688-b1b9-45245cc8a810" class="code"><code>&lt;h2&gt;Présentation&lt;/h2&gt;</code></pre></li></ol><ol id="9283f926-baf4-495b-8e26-5c38fc29a533" class="numbered-list" start="4"><li>Sous la balise fermante <code>h2</code>, ajoutez une balise <code>p</code>, pour insérer un paragraphe <pre id="29dd3b13-89ca-4821-b765-83ce7f5244c8" class="code code-wrap"><code>&lt;p&gt;
+  Bonjour, je suis Clémentine Pirlot une développeuse française à Toronto!
+  Après des études d&#x27;informatique au Greta de Lyon et à l&#x27;Ecole 42, ainsi que des expériences professionelles dans des grandes et petites
+  entreprises, je suis actuellement développeuse fullstack chez HiMama,
+  une startup de l&#x27;edtech à Toronto, au Canada.
+&lt;/p&gt;</code></pre><p id="69987ad9-99a7-4d53-8ae5-e8e424691efb" class="">Note : la balise <code>br</code> permet d&#x27;insérer un saut de ligne à l&#x27;endroit où on la place, comme si on appuyait sur la touche <code>entrée</code> de notre clavier. <code>br</code> ne suis pas la structure balise ouvrante-balise fermante ; on dit qu&#x27;elle est orpheline.</p></li></ol><ol id="b581acdb-db38-472f-b1fc-66ec87ffad05" class="numbered-list" start="5"><li>Pour faire un lien vers un profile LinkedIn, remplacer <em>&quot;développeuse&quot;</em> par le code suivant<pre id="1292cdaf-b8d3-4142-b6ab-aebf0fc5261b" class="code code-wrap"><code>&lt;a href=&quot;https://www.linkedin.com/in/clementine-pirlot/&quot; target=&quot;_blank&quot;&gt;développeuse&lt;/a&gt;</code></pre></li></ol><ol id="fb4aaa39-612a-4f28-be2f-6ade35a2e6a9" class="numbered-list" start="6"><li>Afin d&#x27;identifier précisément cette section et lui donner des styles différents des autres sections que nous ajouterons ensuite, ajoutez-lui une classe <code>about</code>, dans la balise ouvrante <code>section</code><pre id="c320f63b-aa27-4310-8057-c60958a0855c" class="code"><code>&lt;section class=&quot;about&quot;&gt;</code></pre></li></ol><ol id="16229a95-272f-40a7-a538-0b75c7042499" class="numbered-list" start="7"><li>Vérifiez que le code de votre bloc présentation ressemble à :<pre id="1983e43b-3964-400e-9b18-7c6ce58e394f" class="code code-wrap"><code>&lt;section class=&quot;about&quot;&gt;
+  &lt;img src=&quot;images/profile.jpg&quot; alt=&quot;Photo de Clementine&quot; /&gt;
+  &lt;h2&gt;Présentation&lt;/h2&gt;
+  &lt;p&gt;
+    Bonjour, je suis Clémentine Pirlot une
+    &lt;a href=&quot;https://www.linkedin.com/in/clementine-pirlot/&quot; target=&quot;_blank&quot;
+      &gt;développeuse&lt;/a
+    &gt;
+    française à Toronto! Après des études d&#x27;informatique au Greta de Lyon et
+    à l&#x27;Ecole 42, ainsi que des expériences professionelles dans des grandes
+    et petites entreprises, je suis actuellement développeuse fullstack chez
+    HiMama, une startup de l&#x27;edtech à Toronto, au Canada.
+  &lt;/p&gt;
+&lt;/section&gt;</code></pre></li></ol><ol id="4c8a2796-3422-49ab-a6c7-90458a9a10b5" class="numbered-list" start="8"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="93ba3047-41d9-494a-8b11-7bfb5ffe41fc" class="block-color-teal_background">Si votre image, le titre et le paragraphe s&#x27;affichent, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="86a3a7b7-d2af-42cb-bd7d-5c773ff7192c" class="">
+</p><h3 id="30cfeeec-74f6-445f-9f90-2e8797869930" class="block-color-yellow_background"><strong>Styles CSS</strong></h3><p id="d9099195-a30b-4993-8fad-a7343c5ea6ac" class="">Il faut maintenant mettre en forme ce bloc, en ajoutant des styles dans le fichier <code>styles.css</code></p><p id="cb60fdca-ba27-402d-b110-915e9f5f4875" class="">
+</p><p id="9d483296-6782-40f1-8708-c7726ca19d42" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="1cdaaac3-864c-4b66-8c0e-3cc3af811cc8" class="numbered-list" start="1"><li>Ajoutez le code suivant pour centrer et redimensionner le bloc<pre id="d9225227-eac3-4c40-9bf8-218b281448de" class="code code-wrap"><code>.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 70%;
+  margin: 70px auto;
+  padding: 20px;
+  padding-top: 0;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+}</code></pre><p id="dff8ba7d-56b7-4c61-9df3-927b9ca51d2b" class="">
+</p></li></ol><ol id="aec3fde1-a2f0-47e3-ac8b-763479dd1672" class="numbered-list" start="2"><li>Ajoutez le code suivant pour cibler l&#x27;image de la section <code>.about</code> et :<ul id="eb1c1e8c-b96f-4707-b7e1-e8de6d836ef8" class="bulleted-list"><li>créer une image arrondie</li></ul><ul id="e6d2950d-ebbc-4457-abf4-3967e27d190d" class="bulleted-list"><li>modifier sa taille</li></ul><ul id="22d7e80e-d544-437a-b2a0-74e7864f2870" class="bulleted-list"><li>réduire la marge en haut</li></ul><pre id="585c2495-bf66-4df9-bbb8-440ebaa4dd51" class="code code-wrap"><code>.about img {
+  border-radius: 50%;
+  width: 150px;
+  margin-top: -30px;
+}</code></pre></li></ol><ol id="81b01cbc-f295-4ae0-96e0-d2fca600a583" class="numbered-list" start="3"><li>Ciblez la balise <code>h2</code> pour lui appliquer une taille de typo et modifier ses marges<pre id="de1d8b6e-4401-4dde-95ab-524534a2c4ab" class="code code-wrap"><code>h2 {
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}</code></pre></li></ol><ol id="c7e94a06-e648-4f5e-ac43-6c51761cc724" class="numbered-list" start="4"><li>Ciblez la balise <code>a</code> pour changer la couleur du lien et supprimer son soulignement<pre id="f3f72438-5d24-458d-9b1d-5ec8404f8c8d" class="code code-wrap"><code>a {
+  color: #129daf;
+  text-decoration: none;
+}</code></pre></li></ol><p id="d854e441-15e3-4a73-b9a6-b4b34c216fff" class="">
+</p><h2 id="a16b46bb-b7ad-4b5c-955a-96e0e9cc223b" class="block-color-purple_background"><strong>Section Compétences</strong></h2><p id="3a022f12-e195-401d-8ee0-4daa2c3ee12d" class="">
+</p><h3 id="b92bb23b-5356-4c55-b5dd-e33ca402f5cd" class="block-color-yellow_background"><strong>Structure HTML</strong></h3><p id="6c3787ba-4b60-480a-afad-6a236389c00e" class="">Nous allons maintenant ajouter une nouvelle section pour présenter nos compétences. Cette section sera composée de :</p><ul id="e3f8fade-f8a5-48af-a6ad-b0d44c49203a" class="bulleted-list"><li>un titre <code>h2</code></li></ul><ul id="5dd2a350-4e74-47e2-bf37-484d590885cb" class="bulleted-list"><li>un conteneur général (<code>.skills-content</code>) contenant toutes les compétences</li></ul><ul id="f4f9d4e6-d366-4e0b-a5e8-6c4fb647e538" class="bulleted-list"><li>des lignes (<code>.skills-row</code>) contenant chacune deux colonnes (<code>.skills-column</code>) permettant d&#x27;afficher deux compétences</li></ul><figure id="ee43c640-d72a-49cf-8f2e-691536585523" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-24_a_17.19.34.png"><img style="width:910px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Capture_decran_2020-08-24_a_17.19.34.png"/></a></figure><p id="6eab8f5c-2981-49f5-a47a-94a400708346" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="aecd0e1a-40b1-49ed-b4f4-4b932e7f0a56" class="numbered-list" start="1"><li>Dans votre fichier <code>index.html</code>, à la suite de la balise fermante <code>&lt;/section&gt;</code>, insérez une nouvelle balise <code>section</code> et donnez-lui la classe <code>.skills</code> pour la différencier de la section précédente (<code>.about</code>)<pre id="1b077a4a-57aa-4655-bba3-eaa53897252c" class="code"><code>&lt;section class=&quot;skills&quot;&gt;
+
+&lt;/section&gt;</code></pre></li></ol><ol id="91e0e402-2228-4bf1-8676-ee93e328520a" class="numbered-list" start="2"><li>À l&#x27;intérieur de cette nouvelle balise <code>section</code>, insérez un titre <code>h2</code><pre id="b370b05a-951d-4772-8a1c-35e1c6c5ffa5" class="code"><code>&lt;section class=&quot;skills&quot;&gt;
+	&lt;h2&gt;Compétences&lt;/h2&gt;
+&lt;/section&gt;</code></pre></li></ol><ol id="e09c2158-f748-46a7-bfbc-d65ec11628e0" class="numbered-list" start="3"><li>Après le titre <code>h2</code>, ajoutez le conteneur général des compétences, avec à l&#x27;intérieur,  une ligne contenant deux colonnes<pre id="440228c8-c4e2-4eb0-84f2-082e4d1702c1" class="code"><code>&lt;section class=&quot;skills&quot;&gt;
+  &lt;h2&gt;Compétences&lt;/h2&gt;
+  &lt;div class=&quot;skills-content&quot;&gt;
+		&lt;div class=&quot;skills-row&quot;&gt;
+      &lt;div class=&quot;skills-column&quot;&gt;
 			&lt;/div&gt;
-			&lt;!-- Fin .skills-row --&gt;
-	  &lt;/div&gt;
-		&lt;!-- Fin .skills-content --&gt;
-	&lt;/section&gt;</code></pre></li></ol><ol id="5cd5865e-a7d3-4bf9-91b0-0ece518fb2d0" class="numbered-list" start="4"><li>À l&#x27;intérieur de la première colonne (<code>.skills-column</code>), ajoutez le code suivant pour créer la première compétence<pre id="2440198a-9259-432e-9a4c-36ff7c33ee32" class="code"><code>&lt;div class=&quot;progress-container&quot;&gt;
-	  &lt;span class=&quot;progress-badge&quot;&gt;HTML&lt;/span&gt;
-	  &lt;div class=&quot;progress&quot;&gt;
-		&lt;div class=&quot;progress-bar&quot; style=&quot;width: 90%;&quot;&gt;&lt;/div&gt;
-		&lt;span class=&quot;progress-value&quot;&gt;90%&lt;/span&gt;
-	  &lt;/div&gt;
-	&lt;/div&gt;</code></pre></li></ol><ol id="ad869ff5-bb85-41d9-90ea-5b6e55ae6d7e" class="numbered-list" start="5"><li>À l&#x27;intérieur de la deuxième colonne (<code>.skills-column</code>), ajoutez le code suivant pour créer la deuxième compétence<pre id="d2e72a18-a109-4349-ae8f-9435eb4f5e0b" class="code"><code>&lt;div class=&quot;progress-container&quot;&gt;
-	  &lt;span class=&quot;progress-badge&quot;&gt;CSS&lt;/span&gt;
-	  &lt;div class=&quot;progress&quot;&gt;
-		&lt;div class=&quot;progress-bar&quot; style=&quot;width: 75%;&quot;&gt;&lt;/div&gt;
-		&lt;span class=&quot;progress-value&quot;&gt;75%&lt;/span&gt;
-	  &lt;/div&gt;
-	&lt;/div&gt;</code></pre></li></ol><ol id="83c5fa0a-3ee8-4224-956b-8b9983087e39" class="numbered-list" start="6"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="3eca601b-2b6a-4b78-8628-c27e8233fca1" class="">
-	</p><p id="5d3bfc40-fd43-4a20-8f80-56c41538aa43" class="block-color-teal_background">Si le titre et deux compétences s&#x27;affichent comme sur le screenshot ci-dessous, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.              </p><figure id="3ddc2c7d-73a8-419e-af57-36c57b733a21" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled%201.png"><img style="width:288px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled%201.png"/></a></figure><p id="67ac7dfe-4b47-422c-85c6-a27f92329e9f" class="">                                              <mark class="highlight-gray_background"><em>Bloc Compétences avant mise en forme CSS</em></mark></p><p id="5f2be2fc-7ce4-4100-8d1f-91c0effee80c" class="">
-	</p><h3 id="57cc1e99-d441-43d4-836c-f7e5640f2dfe" class="block-color-yellow_background"><strong>Styles CSS</strong></h3><p id="1e97e7d6-a6cb-4be6-933e-6b46f441fd2a" class="">Les styles CSS vont permettre de rendre ce nouveau bloc plus joli. </p><p id="8e41d1f2-209b-4a65-8d2d-d6c4ae077952" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="5871ea32-9a4a-4915-a2bb-01c72821a48d" class="numbered-list" start="1"><li>Pour centrer le bloc et créer la grille, ajoutez le code suivant dans le fichier <code>styles.css</code><pre id="f7315767-5045-4444-b8ff-f3237c0d6843" class="code"><code>/* SKILLS
-	–––––––––––––––––––––––––––––––––––––––––––––––––– */
-	
-	.skills {
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
-	  justify-content: center;
-	  text-align: center;
-	  margin: 70px auto;
-	  padding: 20px;
-	  padding-top: 0;
-	}
-	
-	.skills-content {
-	  margin: 0 auto 70px auto;
-	  padding: 20px;
-	  width: 70%;
-	  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
-		text-align: left;
-	}
-	
-	.skills-row {
-	  display: flex;
-	}
-	
-	.skills-column {
-	  display: flex;
-	  flex: 1 1 50%;
-	  padding-right: 15px;
-	  padding-left: 15px;
-	}</code></pre></li></ol><ol id="b17193fe-56f6-4752-819f-5d431d7ed5ac" class="numbered-list" start="2"><li>Pour mettre en forme la barre de progrès, ajoutez les styles suivants<pre id="c23f2be7-fcf0-4c2a-ae17-6ceb6785f0ac" class="code"><code>.progress-container {
-	  margin-bottom: 20px;
-	  font-size: 18px;
-	  position: relative;
-	  width: 100%;
-	}
-	
-	.progress-value,
-	.progress-badge {
-	  color: #0b707e;
-	  font-size: 0.8571em;
-	  text-transform: uppercase;
-	}
-	
-	.progress-value {
-	  position: absolute;
-	  top: 2px;
-	  right: 0;
-	  font-size: 0.8571em;
-	}
-	
-	.progress {
-	  margin-top: 14px;
-	}
-	
-	.progress {
-	  background: rgba(25, 105, 129, 0.4);
-	}
-	
-	.progress-bar {
-	  height: 5px;
-	}
-	
-	.progress-bar {
-	  background: #129daf;
-	}</code></pre></li></ol><ol id="775a27bf-212d-4fea-804f-e94d4aada49f" class="numbered-list" start="3"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="14e54f6c-a57e-43d7-bf67-27f6b265f0ed" class="block-color-teal_background">Si les deux compétences apparaissent avec la bonne mise en forme, comme sur le screenshot ci-dessous, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><figure id="cbc19d7a-1d2d-4214-bb21-6c926acafe81" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled%202.png"><img style="width:1564px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled%202.png"/></a></figure><p id="1e3f5b88-cf5d-4104-bcda-b466a9e2494c" class="">
-	</p><h3 id="a91eec21-3c10-4006-86ba-c2ed4738cfb9" class="block-color-yellow_background"><strong>Ajout de compétences</strong></h3><p id="0f209e42-48f2-464f-9ccb-190fab0524dd" class="">Pour ajouter une ligne avec deux compétences, il suffit d&#x27;ajouter un bloc <code>skills-row</code> à la suite du premier <code>skills-row</code>:</p><pre id="e985486e-fb69-4def-a32c-0031442733ca" class="code"><code>&lt;div class=&quot;skills-row&quot;&gt;
-	  &lt;div class=&quot;skills-column&quot;&gt;
-		&lt;div class=&quot;progress-container&quot;&gt;
-		  &lt;span class=&quot;progress-badge&quot;&gt;RUBY&lt;/span&gt;
-		  &lt;div class=&quot;progress&quot;&gt;
-			&lt;div class=&quot;progress-bar&quot; style=&quot;width: 80%;&quot;&gt;&lt;/div&gt;
-			&lt;span class=&quot;progress-value&quot;&gt;80%&lt;/span&gt;
-		  &lt;/div&gt;
+			&lt;!-- Fin .skills-column --&gt;
+			&lt;div class=&quot;skills-column&quot;&gt;
+			&lt;/div&gt;
+			&lt;!-- Fin .skills-column --&gt;
 		&lt;/div&gt;
-	  &lt;/div&gt;
-	  &lt;div class=&quot;skills-column&quot;&gt;
-		&lt;div class=&quot;progress-container&quot;&gt;
-		  &lt;span class=&quot;progress-badge&quot;&gt;JAVASCRIPT&lt;/span&gt;
-		  &lt;div class=&quot;progress&quot;&gt;
-			&lt;div class=&quot;progress-bar&quot; style=&quot;width: 60%;&quot;&gt;&lt;/div&gt;
-			&lt;span class=&quot;progress-value&quot;&gt;60%&lt;/span&gt;
-		  &lt;/div&gt;
-		&lt;/div&gt;
-	  &lt;/div&gt;
-	&lt;/div&gt;
-	&lt;!-- Fin .skills-row --&gt;</code></pre><p id="bca23330-34c8-4cd3-9d80-0706d9e95c44" class="">
-	</p><p id="0c468a6e-3f70-4820-9e89-2ab3900db164" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="16775e10-eac0-4184-831d-0f6c6ec8d485" class="numbered-list" start="1"><li>Copiez et collez le code ci-dessus dans votre fichier <code>index.html</code>, à la suite du dernier commentaire <code>&lt;!-- Fin .skills-row --&gt;</code> </li></ol><ol id="d6f9844a-5975-4e3e-b93b-db9791c4e9d7" class="numbered-list" start="2"><li>Répétez la dernière opération pour ajouter une troisième ligne de compétences</li></ol><ol id="c5045a63-4590-4cf6-95ae-a9c9b74f2ddd" class="numbered-list" start="3"><li>Modifiez le contenu des compétences pour l&#x27;adapter à votre profil. 
-	Par exemple, si vous savez utiliser le logiciel Word,
-	remplacez<pre id="498d5fa5-652d-4c72-817d-4080a6c65ddc" class="code code-wrap"><code>&lt;span class=&quot;progress-badge&quot;&gt;HTML&lt;/span&gt;</code></pre><p id="9b845cb7-6d94-454c-a6f6-7ef24a10b1d9" class="">par</p><pre id="afdf53ef-ec5b-4739-b447-35e0eec3223b" class="code code-wrap"><code>&lt;span class=&quot;progress-badge&quot;&gt;Word&lt;/span&gt;</code></pre></li></ol><ol id="74f1e988-4fdb-4a1f-aa4d-d076d69e32ca" class="numbered-list" start="4"><li>Pour modifier le pourcentage indiquant le niveau de maitrise, remplacez les chiffres de <code>progress-bar</code> et <code>progress-value</code><pre id="03cc2bca-71bf-4063-b2a8-f663a5100875" class="code code-wrap"><code>&lt;div class=&quot;progress-bar&quot; style=&quot;width: 90%;&quot;&gt;&lt;/div&gt;
-	&lt;span class=&quot;progress-value&quot;&gt;90%&lt;/span&gt;</code></pre></li></ol><p id="52f67869-286d-49ee-8845-c9098c1b0bef" class="">
-	</p><p id="8a0a7c2f-917d-4471-a091-4daddd384d11" class="block-color-teal_background">Lorsque vous avez ajouté et modifié au moins 2 compétences, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="d4eb3bb3-20d7-40ef-b747-5222b9c80f66" class="">
-	</p><h2 id="a078af9e-4793-49a1-a809-323d3ea817f6" class="block-color-purple_background">Effet parallax</h2><p id="b219b074-6735-428d-aa30-8652f837ae33" class="">Grâce aux styles CSS, nous pouvons ajouter un effet parallax à notre page. Cet effet permet de laisser fixe l&#x27;image de fond du header lorsque l&#x27;on scrolle la page.
-	</p><p id="d8de7d17-f07c-459c-9add-37d91afa8828" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="3ff9fbad-7bfa-423f-95e2-2ac83e5320ec" class="numbered-list" start="1"><li>Dans le css du <code>header</code>, ajoutez le code suivant, après la ligne <code>justify-content: center;</code></li></ol><pre id="c637baf6-d8db-46d0-9fee-7ce08cbac4fa" class="code"><code>background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;</code></pre><p id="fe6db583-eb47-49d5-8ce0-feb3e3e5253b" class="">
-	</p><p id="8da35311-8db5-4198-bc94-3484fd4d06cd" class="block-color-teal_background">Si vous voyez l&#x27;image fixe lorsque vous scrollez sur la page, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="8db5ddb4-5bdb-447f-a02b-101aab20c0c8" class="">
-	</p><h2 id="e5580f65-bedf-4891-841f-7601fb9dd14b" class="block-color-purple_background"><strong>Section expérience</strong></h2><p id="3dd6fc75-69c6-411a-8eea-11aab51c7ea1" class="">Nous allons ajouter une nouvelle section pour présenter nos expériences professionnelles sous forme de timeline et utiliser des effets pour que les éléments apparaissent quand on scrolle. Pour ça on va utiliser, en plus du HTML et du CSS, le langage Javascript.</p><p id="8774f729-3ccc-4993-8e06-45436ee6ca29" class="">
-	</p><h3 id="666798e7-36e7-47e4-9454-21ef65d93202" class="block-color-yellow_background"><strong>Structure HTML</strong></h3><p id="9504339e-bec6-4987-b18f-46aa6ccc91fc" class="">Ce sont les balises <code>ul</code> et <code>li</code> qui vont nous servir à créer la structure de cette section. Ces balises sont utilisées pour lister des éléments (ici nos expériences). </p><p id="1fac2742-c5fb-45b0-85e0-784814f5f29e" class="">La syntaxe d&#x27;une liste <code>ul</code> est toujours la suivante :</p><pre id="9ea617f7-26a2-427b-ab35-a9b3f6058105" class="code code-wrap"><code>&lt;ul&gt;
-		&lt;li&gt;Élément 1&lt;/li&gt;
-		&lt;li&gt;Élément 2&lt;/li&gt;
-		&lt;li&gt;Élément 3&lt;/li&gt;
-	&lt;/ul&gt;</code></pre><p id="d36fde7c-9b2d-46c9-994a-4737b09a6448" class=""><code>ul</code> indique une liste non ordonnées (unordered list en anglais)
-	<code>li</code> est utilisé pour chaque élément de la liste</p><p id="d01d49b2-2cb5-43fe-bd7e-d0514fc998c7" class="">
-	</p><p id="cc5a8e60-b655-49a0-a7b4-c18d7e5ae4b8" class="">Notre section Expérience sera donc composée d&#x27;un conteneur général <code>.timeline</code> comportant :</p><ul id="58d7780d-b6a8-4096-92fe-6370d5d0ff8c" class="bulleted-list"><li>Un titre <code>h2</code></li></ul><ul id="c847bde5-27d3-41e7-ac5e-ca2c15a5fc17" class="bulleted-list"><li>Une liste <code>ul</code> avec une balise <code>li</code> pour chaque expérience</li></ul><pre id="0d6eef17-a79a-47c8-95ee-7477dcec8c14" class="code code-wrap"><code>&lt;section class=&quot;timeline&quot;&gt;
-	  &lt;h2&gt;Expérience&lt;/h2&gt;
-		&lt;ul&gt;
-			&lt;li&gt;
-				Expérience 1
-			&lt;/li&gt;
-			&lt;li&gt;
-				Expérience 2
-			&lt;/li&gt;
-			...
-		&lt;/ul&gt;
-	&lt;/section&gt;</code></pre><p id="d3c5c189-fafd-4af6-9771-ce2af80e7d08" class="">Pour chaque expérience, dans la balise <code>li</code>, nous aurons un conteneur <code>.bubble</code> comportant 3 lignes :</p><ul id="3ce6639e-abcc-4e05-bdde-2ed70f965725" class="bulleted-list"><li>Les dates du poste occupé avec la balise <code>time</code></li></ul><ul id="6e2ddedb-e5bc-44b1-9d2c-5de7f9fe0a07" class="bulleted-list"><li>L&#x27;intitulé du poste avec <code>span</code></li></ul><ul id="76274eea-3b70-458a-9d84-f3ed21b2e17e" class="bulleted-list"><li>Le lieu</li></ul><pre id="5ae70015-8744-4589-8acb-776a7fba99d4" class="code code-wrap"><code>&lt;section class=&quot;timeline&quot;&gt;
-	  &lt;h2&gt;Expérience&lt;/h2&gt;
-		&lt;ul&gt;
-			&lt;!-- Début expérience 1 --&gt;
+		&lt;!-- Fin .skills-row --&gt;
+  &lt;/div&gt;
+	&lt;!-- Fin .skills-content --&gt;
+&lt;/section&gt;</code></pre></li></ol><ol id="5cd5865e-a7d3-4bf9-91b0-0ece518fb2d0" class="numbered-list" start="4"><li>À l&#x27;intérieur de la première colonne (<code>.skills-column</code>), ajoutez le code suivant pour créer la première compétence<pre id="2440198a-9259-432e-9a4c-36ff7c33ee32" class="code"><code>&lt;div class=&quot;progress-container&quot;&gt;
+  &lt;span class=&quot;progress-badge&quot;&gt;HTML&lt;/span&gt;
+  &lt;div class=&quot;progress&quot;&gt;
+    &lt;div class=&quot;progress-bar&quot; style=&quot;width: 90%;&quot;&gt;&lt;/div&gt;
+    &lt;span class=&quot;progress-value&quot;&gt;90%&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></li></ol><ol id="ad869ff5-bb85-41d9-90ea-5b6e55ae6d7e" class="numbered-list" start="5"><li>À l&#x27;intérieur de la deuxième colonne (<code>.skills-column</code>), ajoutez le code suivant pour créer la deuxième compétence<pre id="d2e72a18-a109-4349-ae8f-9435eb4f5e0b" class="code"><code>&lt;div class=&quot;progress-container&quot;&gt;
+  &lt;span class=&quot;progress-badge&quot;&gt;CSS&lt;/span&gt;
+  &lt;div class=&quot;progress&quot;&gt;
+    &lt;div class=&quot;progress-bar&quot; style=&quot;width: 75%;&quot;&gt;&lt;/div&gt;
+    &lt;span class=&quot;progress-value&quot;&gt;75%&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></li></ol><ol id="83c5fa0a-3ee8-4224-956b-8b9983087e39" class="numbered-list" start="6"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="3eca601b-2b6a-4b78-8628-c27e8233fca1" class="">
+</p><p id="5d3bfc40-fd43-4a20-8f80-56c41538aa43" class="block-color-teal_background">Si le titre et deux compétences s&#x27;affichent comme sur le screenshot ci-dessous, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.              </p><figure id="3ddc2c7d-73a8-419e-af57-36c57b733a21" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled%201.png"><img style="width:288px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled%201.png"/></a></figure><p id="67ac7dfe-4b47-422c-85c6-a27f92329e9f" class="">                                              <mark class="highlight-gray_background"><em>Bloc Compétences avant mise en forme CSS</em></mark></p><p id="5f2be2fc-7ce4-4100-8d1f-91c0effee80c" class="">
+</p><h3 id="57cc1e99-d441-43d4-836c-f7e5640f2dfe" class="block-color-yellow_background"><strong>Styles CSS</strong></h3><p id="1e97e7d6-a6cb-4be6-933e-6b46f441fd2a" class="">Les styles CSS vont permettre de rendre ce nouveau bloc plus joli. </p><p id="8e41d1f2-209b-4a65-8d2d-d6c4ae077952" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="5871ea32-9a4a-4915-a2bb-01c72821a48d" class="numbered-list" start="1"><li>Pour centrer le bloc et créer la grille, ajoutez le code suivant dans le fichier <code>styles.css</code><pre id="f7315767-5045-4444-b8ff-f3237c0d6843" class="code"><code>/* SKILLS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 70px auto;
+  padding: 20px;
+  padding-top: 0;
+}
+
+.skills-content {
+  margin: 0 auto 70px auto;
+  padding: 20px;
+  width: 70%;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+	text-align: left;
+}
+
+.skills-row {
+  display: flex;
+}
+
+.skills-column {
+  display: flex;
+  flex: 1 1 50%;
+  padding-right: 15px;
+  padding-left: 15px;
+}</code></pre></li></ol><ol id="b17193fe-56f6-4752-819f-5d431d7ed5ac" class="numbered-list" start="2"><li>Pour mettre en forme la barre de progrès, ajoutez les styles suivants<pre id="c23f2be7-fcf0-4c2a-ae17-6ceb6785f0ac" class="code"><code>.progress-container {
+  margin-bottom: 20px;
+  font-size: 18px;
+  position: relative;
+  width: 100%;
+}
+
+.progress-value,
+.progress-badge {
+  color: #0b707e;
+  font-size: 0.8571em;
+  text-transform: uppercase;
+}
+
+.progress-value {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  font-size: 0.8571em;
+}
+
+.progress {
+  margin-top: 14px;
+}
+
+.progress {
+  background: rgba(25, 105, 129, 0.4);
+}
+
+.progress-bar {
+  height: 5px;
+}
+
+.progress-bar {
+  background: #129daf;
+}</code></pre></li></ol><ol id="775a27bf-212d-4fea-804f-e94d4aada49f" class="numbered-list" start="3"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="14e54f6c-a57e-43d7-bf67-27f6b265f0ed" class="block-color-teal_background">Si les deux compétences apparaissent avec la bonne mise en forme, comme sur le screenshot ci-dessous, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><figure id="cbc19d7a-1d2d-4214-bb21-6c926acafe81" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled%202.png"><img style="width:1564px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled%202.png"/></a></figure><p id="1e3f5b88-cf5d-4104-bcda-b466a9e2494c" class="">
+</p><h3 id="a91eec21-3c10-4006-86ba-c2ed4738cfb9" class="block-color-yellow_background"><strong>Ajout de compétences</strong></h3><p id="0f209e42-48f2-464f-9ccb-190fab0524dd" class="">Pour ajouter une ligne avec deux compétences, il suffit d&#x27;ajouter un bloc <code>skills-row</code> à la suite du premier <code>skills-row</code>:</p><pre id="e985486e-fb69-4def-a32c-0031442733ca" class="code"><code>&lt;div class=&quot;skills-row&quot;&gt;
+  &lt;div class=&quot;skills-column&quot;&gt;
+    &lt;div class=&quot;progress-container&quot;&gt;
+      &lt;span class=&quot;progress-badge&quot;&gt;RUBY&lt;/span&gt;
+      &lt;div class=&quot;progress&quot;&gt;
+        &lt;div class=&quot;progress-bar&quot; style=&quot;width: 80%;&quot;&gt;&lt;/div&gt;
+        &lt;span class=&quot;progress-value&quot;&gt;80%&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;skills-column&quot;&gt;
+    &lt;div class=&quot;progress-container&quot;&gt;
+      &lt;span class=&quot;progress-badge&quot;&gt;JAVASCRIPT&lt;/span&gt;
+      &lt;div class=&quot;progress&quot;&gt;
+        &lt;div class=&quot;progress-bar&quot; style=&quot;width: 60%;&quot;&gt;&lt;/div&gt;
+        &lt;span class=&quot;progress-value&quot;&gt;60%&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Fin .skills-row --&gt;</code></pre><p id="bca23330-34c8-4cd3-9d80-0706d9e95c44" class="">
+</p><p id="0c468a6e-3f70-4820-9e89-2ab3900db164" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="16775e10-eac0-4184-831d-0f6c6ec8d485" class="numbered-list" start="1"><li>Copiez et collez le code ci-dessus dans votre fichier <code>index.html</code>, à la suite du dernier commentaire <code>&lt;!-- Fin .skills-row --&gt;</code> </li></ol><ol id="d6f9844a-5975-4e3e-b93b-db9791c4e9d7" class="numbered-list" start="2"><li>Répétez la dernière opération pour ajouter une troisième ligne de compétences</li></ol><ol id="c5045a63-4590-4cf6-95ae-a9c9b74f2ddd" class="numbered-list" start="3"><li>Modifiez le contenu des compétences pour l&#x27;adapter à votre profil. 
+Par exemple, si vous savez utiliser le logiciel Word,
+remplacez<pre id="498d5fa5-652d-4c72-817d-4080a6c65ddc" class="code code-wrap"><code>&lt;span class=&quot;progress-badge&quot;&gt;HTML&lt;/span&gt;</code></pre><p id="9b845cb7-6d94-454c-a6f6-7ef24a10b1d9" class="">par</p><pre id="afdf53ef-ec5b-4739-b447-35e0eec3223b" class="code code-wrap"><code>&lt;span class=&quot;progress-badge&quot;&gt;Word&lt;/span&gt;</code></pre></li></ol><ol id="74f1e988-4fdb-4a1f-aa4d-d076d69e32ca" class="numbered-list" start="4"><li>Pour modifier le pourcentage indiquant le niveau de maitrise, remplacez les chiffres de <code>progress-bar</code> et <code>progress-value</code><pre id="03cc2bca-71bf-4063-b2a8-f663a5100875" class="code code-wrap"><code>&lt;div class=&quot;progress-bar&quot; style=&quot;width: 90%;&quot;&gt;&lt;/div&gt;
+&lt;span class=&quot;progress-value&quot;&gt;90%&lt;/span&gt;</code></pre></li></ol><p id="52f67869-286d-49ee-8845-c9098c1b0bef" class="">
+</p><p id="8a0a7c2f-917d-4471-a091-4daddd384d11" class="block-color-teal_background">Lorsque vous avez ajouté et modifié au moins 2 compétences, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="d4eb3bb3-20d7-40ef-b747-5222b9c80f66" class="">
+</p><h2 id="a078af9e-4793-49a1-a809-323d3ea817f6" class="block-color-purple_background">Effet parallax</h2><p id="b219b074-6735-428d-aa30-8652f837ae33" class="">Grâce aux styles CSS, nous pouvons ajouter un effet parallax à notre page. Cet effet permet de laisser fixe l&#x27;image de fond du header lorsque l&#x27;on scrolle la page.
+</p><p id="d8de7d17-f07c-459c-9add-37d91afa8828" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="3ff9fbad-7bfa-423f-95e2-2ac83e5320ec" class="numbered-list" start="1"><li>Dans le css du <code>header</code>, ajoutez le code suivant, après la ligne <code>justify-content: center;</code></li></ol><pre id="c637baf6-d8db-46d0-9fee-7ce08cbac4fa" class="code"><code>background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;</code></pre><p id="fe6db583-eb47-49d5-8ce0-feb3e3e5253b" class="">
+</p><p id="8da35311-8db5-4198-bc94-3484fd4d06cd" class="block-color-teal_background">Si vous voyez l&#x27;image fixe lorsque vous scrollez sur la page, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="8db5ddb4-5bdb-447f-a02b-101aab20c0c8" class="">
+</p><h2 id="e5580f65-bedf-4891-841f-7601fb9dd14b" class="block-color-purple_background"><strong>Section expérience</strong></h2><p id="3dd6fc75-69c6-411a-8eea-11aab51c7ea1" class="">Nous allons ajouter une nouvelle section pour présenter nos expériences professionnelles sous forme de timeline et utiliser des effets pour que les éléments apparaissent quand on scrolle. Pour ça on va utiliser, en plus du HTML et du CSS, le langage Javascript.</p><p id="8774f729-3ccc-4993-8e06-45436ee6ca29" class="">
+</p><h3 id="666798e7-36e7-47e4-9454-21ef65d93202" class="block-color-yellow_background"><strong>Structure HTML</strong></h3><p id="9504339e-bec6-4987-b18f-46aa6ccc91fc" class="">Ce sont les balises <code>ul</code> et <code>li</code> qui vont nous servir à créer la structure de cette section. Ces balises sont utilisées pour lister des éléments (ici nos expériences). </p><p id="1fac2742-c5fb-45b0-85e0-784814f5f29e" class="">La syntaxe d&#x27;une liste <code>ul</code> est toujours la suivante :</p><pre id="9ea617f7-26a2-427b-ab35-a9b3f6058105" class="code code-wrap"><code>&lt;ul&gt;
+	&lt;li&gt;Élément 1&lt;/li&gt;
+	&lt;li&gt;Élément 2&lt;/li&gt;
+	&lt;li&gt;Élément 3&lt;/li&gt;
+&lt;/ul&gt;</code></pre><p id="d36fde7c-9b2d-46c9-994a-4737b09a6448" class=""><code>ul</code> indique une liste non ordonnées (unordered list en anglais)
+<code>li</code> est utilisé pour chaque élément de la liste</p><p id="d01d49b2-2cb5-43fe-bd7e-d0514fc998c7" class="">
+</p><p id="cc5a8e60-b655-49a0-a7b4-c18d7e5ae4b8" class="">Notre section Expérience sera donc composée d&#x27;un conteneur général <code>.timeline</code> comportant :</p><ul id="58d7780d-b6a8-4096-92fe-6370d5d0ff8c" class="bulleted-list"><li>Un titre <code>h2</code></li></ul><ul id="c847bde5-27d3-41e7-ac5e-ca2c15a5fc17" class="bulleted-list"><li>Une liste <code>ul</code> avec une balise <code>li</code> pour chaque expérience</li></ul><pre id="0d6eef17-a79a-47c8-95ee-7477dcec8c14" class="code code-wrap"><code>&lt;section class=&quot;timeline&quot;&gt;
+  &lt;h2&gt;Expérience&lt;/h2&gt;
+	&lt;ul&gt;
 		&lt;li&gt;
-		  &lt;div class=&quot;bubble&quot;&gt;
-			&lt;time&gt;2019 - aujourd&#x27;hui&lt;/time&gt;
-			&lt;span&gt;Développeuse&lt;/span&gt;
-			&lt;br /&gt;HiMama, Toronto
-		  &lt;/div&gt;
+			Expérience 1
 		&lt;/li&gt;
-		&lt;!-- Fin expérience 1 --&gt;
-		&lt;!-- Début expérience 2 --&gt;
 		&lt;li&gt;
-		  &lt;div class=&quot;bubble&quot;&gt;
-			&lt;time&gt;2018 - 2019&lt;/time&gt;
-			&lt;span&gt;Développeuse&lt;/span&gt;
-			&lt;br /&gt;Borrowell, Toronto
-		  &lt;/div&gt;
+			Expérience 2
 		&lt;/li&gt;
-		&lt;!-- Fin expérience 2 --&gt;
-		&lt;/ul&gt;
-	&lt;/section&gt;</code></pre><p id="37c916a8-d738-4c2c-b7c6-6f36f55a4886" class="">
-	</p><p id="1b83c079-9367-483f-a616-b92465ac135d" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="133ac0cd-2927-4401-af39-b9628d042151" class="numbered-list" start="1"><li>Ajoutez le code ci-dessus dans le fichier <code>index.html</code></li></ol><ol id="5b17a42e-59af-4858-8061-399848b2a085" class="numbered-list" start="2"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page. 
-	Le bloc devrait s&#x27;afficher comme sur le screenshot suivant : <figure id="70eb3083-35d5-464b-8785-d1fa04472324" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled%203.png"><img style="width:384px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled%203.png"/></a></figure></li></ol><ol id="1a542906-ac7a-45cb-998a-304d57ec2d76" class="numbered-list" start="3"><li>Revenez dans <code>index.html</code> et ajoutez 2 ou 3 éléments à la liste. Pour cela, il suffit de copier/coller un bloc comme celui-ci :<pre id="b6228a16-834f-4295-9857-5158ee62fb06" class="code code-wrap"><code>&lt;!-- Début expérience 3 --&gt;
-	&lt;li&gt;
-	  &lt;div class=&quot;bubble&quot;&gt;
-		&lt;time&gt;2018&lt;/time&gt;
-		&lt;span&gt;Développeuse&lt;/span&gt;
-		&lt;br /&gt;Je rêve d&#x27;une Maison, Paris
-	  &lt;/div&gt;
-	&lt;/li&gt;
-	&lt;!-- Fin expérience 3 --&gt;</code></pre><p id="5d29f571-4d43-4693-986e-880a53f5364a" class=""> Vous pouvez ensuite modifier le contenu en changeant l&#x27;année dans la balise <code>time</code>, l&#x27;intitulé du poste dans la balise <code>span</code> et le lieu après <code>br</code></p><p id="d0928695-1a20-489f-8618-9236080a01b6" class="">
-	</p></li></ol><p id="1b4e5fe8-5406-46ac-bfed-fc1944b3b1b1" class="block-color-teal_background">Lorsque votre bloc Expérience affiche 4 ou 5 éléments, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="0bb5e5ce-4cc0-41e3-a9f5-5bca48d22be5" class="">
-	</p><h3 id="7cbe437a-2737-4139-972b-90bae03e8b90" class="block-color-yellow_background"><strong>Styles CSS</strong></h3><p id="db2ed058-c834-4a58-b649-fae59c94aa00" class="">La communauté tech est basée sur le partage et on utilise très souvent du code récupéré sur Internet. C&#x27;est ce que vous allez faire ici, avec le code ci-dessous, qui permet de mettre en forme la timeline.</p><pre id="2cc4a256-ff50-46fd-9b1c-5199a3822aef" class="code"><code>/* TIMELINE
-	–––––––––––––––––––––––––––––––––––––––––––––––––– */
-	html {
-	  overflow-x: hidden;
-	}
-	
-	.timeline h2 {
-	  text-align: center;
-	}
-	
-	.timeline ul {
-	  padding: 50px 0;
-	}
-	
-	.timeline ul li {
-	  list-style-type: none;
-	  position: relative;
-	  width: 6px;
-	  margin: 0 auto;
-	  padding-top: 50px;
-	  background: rgba(25, 105, 129, 0.4);
-	  color: white;
-	}
-	
-	.timeline ul li::after {
-	  content: &quot;&quot;;
-	  position: absolute;
-	  left: 50%;
-	  bottom: 0;
-	  transform: translateX(-50%);
-	  width: 30px;
-	  height: 30px;
-	  border-radius: 50%;
-	  background: inherit;
-	}
-	
-	.timeline .bubble {
-	  position: relative;
-	  bottom: 0;
-	  width: 400px;
-	  padding: 15px;
-	  background: rgba(18, 157, 175, 0.8);
-	  box-sizing: border-box;
-	}
-	
-	.timeline .bubble::before {
-	  content: &quot;&quot;;
-	  position: absolute;
-	  bottom: 7px;
-	  width: 0;
-	  height: 0;
-	  border-style: solid;
-	}
-	
-	.timeline ul li:nth-child(odd) .bubble {
-	  left: 45px;
-	}
-	
-	.timeline ul li:nth-child(odd) .bubble::before {
-	  left: -15px;
-	  border-width: 8px 16px 8px 0;
-	  border-color: transparent rgba(18, 157, 175, 0.8) transparent transparent;
-	}
-	
-	.timeline ul li:nth-child(even) .bubble {
-	  left: -439px;
-	}
-	
-	.timeline ul li:nth-child(even) .bubble::before {
-	  right: -15px;
-	  border-width: 8px 0 8px 16px;
-	  border-color: transparent transparent transparent rgba(18, 157, 175, 0.8);
-	}
-	
-	time {
-	  display: block;
-	  font-size: 1.2rem;
-	  font-weight: bold;
-	  margin-bottom: 8px;
-	}
-	
-	.bubble span {
-	  font-weight: bold;
-	}</code></pre><p id="7b155a61-3b8d-4a02-9264-47716568fed2" class="">
-	</p><p id="281253fe-be3a-4dac-87a6-ddf0a0d8db53" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="d3a47be1-7bb7-4a2f-af2b-82550a9c46e5" class="numbered-list" start="1"><li>À la fin du fichier <code>styles.css</code> copiez le code ci-dessus</li></ol><ol id="6255cea0-4fd7-4df9-8010-8a004692af36" class="numbered-list" start="2"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="a7f36ee7-ecba-46df-82b1-4d997f4354ce" class="">
-	</p><p id="966107a2-05b6-4ef2-a4f5-b615bdc1a53b" class="block-color-teal_background">Si votre timeline est maintenant mise en forme, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="734ccbb7-eb72-4c0a-bb74-6ad475b76177" class="">
-	</p><h2 id="959c8f85-17f5-4c6b-a687-1971c3985689" class="block-color-purple_background">Carte Google</h2><p id="b2345d7f-0953-4e5b-93f0-f46ff90e64c3" class="">Une carte Google rendra notre site très professionnel et indiquera aux visiteurs la ville où nous travaillons. On ne va pas mettre notre adresse exacte parce qu&#x27;on veut pas que le monde entier sache où on habite, on va plutôt mettre notre ville.</p><p id="a185a900-fbf9-449d-aeb8-e991b14d5c0b" class="">
-	</p><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="f014bbba-0f24-4460-85c7-c219dfe526d8"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%">Notre codesandbox et les dossiers qu&#x27;on va mettre sur Github sont publics. On ne veut pas mettre d&#x27;informations personnelles comme un numéro de téléphone ou un email, ou une addresse. On risquerait d&#x27;être inondée de spam parce qu&#x27;il existe de nombreux robots qui lisent toutes les pages web qui existent et piquent ces infos. </div></figure><p id="0e57fbb4-f51b-4909-a17b-f11256c13e4b" class="">
-	</p><p id="2270af83-e3a9-4905-9f63-362283881065" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="342061c5-6ee5-4cb0-adf1-2905a13031cc" class="numbered-list" start="1"><li>Ajoutez une nouvelle section dans <code>index.html</code> avant la balise de fermeture du <code>body</code><pre id="02ec52ad-27d0-4e57-ba1d-b21533c041ae" class="code"><code>&lt;section class=&quot;contact&quot;&gt;
-	  &lt;h2&gt;Contact&lt;/h2&gt;
-	&lt;/section&gt;</code></pre></li></ol><ol id="cc1b7c6a-06e7-436f-9657-85cff7f597d0" class="numbered-list" start="2"><li>Allez sur <a href="https://maps.google.com">https://maps.google.com</a> et tapez votre ville. Cliquez sur <code>Partager</code><figure id="86936a38-1443-4bc0-ae46-37e9378fa115" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Screen_Shot_2020-08-15_at_12.19.41_PM.png"><img style="width:395px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Screen_Shot_2020-08-15_at_12.19.41_PM.png"/></a></figure><p id="ecd2ae4e-1115-43d6-813d-1265ba551915" class="">
-	</p></li></ol><ol id="dee890f2-e06a-4c9c-99e6-9df71bc94b12" class="numbered-list" start="3"><li>Cliquez sur <code>Intégrer une carte</code><figure id="b581d716-f71c-450d-b47e-b45f9c8da5a8" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Screen_Shot_2020-08-15_at_12.20.17_PM.png"><img style="width:408px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Screen_Shot_2020-08-15_at_12.20.17_PM.png"/></a></figure></li></ol><ol id="c3882ee0-d514-47fe-b082-de63a3dbb2b0" class="numbered-list" start="4"><li>Cliquez sur <code>Copier le contenu HTML</code><figure id="b17252d6-9ef0-4f58-b189-b628ba1a0f1b" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Screen_Shot_2020-08-15_at_12.20.24_PM.png"><img style="width:628px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Screen_Shot_2020-08-15_at_12.20.24_PM.png"/></a></figure></li></ol><ol id="6a6e9b79-cba3-43eb-94b7-718632874bdd" class="numbered-list" start="5"><li>Insérez le code HTML copié dans <code>index.html</code>  après la balise <code>h2</code></li></ol><ol id="2859b6b6-8811-453f-b2e0-15f7055cee83" class="numbered-list" start="6"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="8b563516-750b-4487-90b6-b4e0f95dc2e7" class="">
-	</p><p id="59635d87-317e-49b8-825b-fca24d1f0f13" class="block-color-teal_background">Si une carte Google avec votre ville apparait au bas de la page, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="851abc4e-6c8f-4ad4-945c-5913a3d4d295" class="">
-	</p><h2 id="e7d4587d-5244-4d6a-bba2-7519e90db193" class="block-color-purple_background">Pour aller plus loin</h2><p id="fdec8333-24af-43ba-8043-823e09d3bf3a" class="">Notre site est maintenant presque complet. La page suivante vous permettra de le finir totalement en ajoutant un formulaire de contact, des styles pour les petits écrans et en mettant en ligne gratuitement votre site.</p><p id="bf7293cb-abd5-443a-bdb5-96bc6bcf62bb" class="">
-	</p><p id="b29b02d9-5fd6-474e-ad0a-3539a42bafd5" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="89eaf9c7-3048-42fa-86aa-4d92d0eb3594" class="numbered-list" start="1"><li>Suivez les instructions détaillées sur cette page<figure id="2d868f17-9475-4228-bdcc-edf8ae3644a9" class="link-to-page"><a href="https://www.notion.so/Pour-aller-plus-loin-2d868f1794754228bdccedf8ae3644a9">Pour aller plus loin</a></figure></li></ol><p id="4f1604d3-832c-4765-b705-9b1f19c3c52c" class="">
-	</p></div></article></body></html>
+		...
+	&lt;/ul&gt;
+&lt;/section&gt;</code></pre><p id="d3c5c189-fafd-4af6-9771-ce2af80e7d08" class="">Pour chaque expérience, dans la balise <code>li</code>, nous aurons un conteneur <code>.bubble</code> comportant 3 lignes :</p><ul id="3ce6639e-abcc-4e05-bdde-2ed70f965725" class="bulleted-list"><li>Les dates du poste occupé avec la balise <code>time</code></li></ul><ul id="6e2ddedb-e5bc-44b1-9d2c-5de7f9fe0a07" class="bulleted-list"><li>L&#x27;intitulé du poste avec <code>span</code></li></ul><ul id="76274eea-3b70-458a-9d84-f3ed21b2e17e" class="bulleted-list"><li>Le lieu</li></ul><pre id="5ae70015-8744-4589-8acb-776a7fba99d4" class="code code-wrap"><code>&lt;section class=&quot;timeline&quot;&gt;
+  &lt;h2&gt;Expérience&lt;/h2&gt;
+	&lt;ul&gt;
+		&lt;!-- Début expérience 1 --&gt;
+    &lt;li&gt;
+      &lt;div class=&quot;bubble&quot;&gt;
+        &lt;time&gt;2019 - aujourd&#x27;hui&lt;/time&gt;
+        &lt;span&gt;Développeuse&lt;/span&gt;
+        &lt;br /&gt;HiMama, Toronto
+      &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;!-- Fin expérience 1 --&gt;
+    &lt;!-- Début expérience 2 --&gt;
+    &lt;li&gt;
+      &lt;div class=&quot;bubble&quot;&gt;
+        &lt;time&gt;2018 - 2019&lt;/time&gt;
+        &lt;span&gt;Développeuse&lt;/span&gt;
+        &lt;br /&gt;Borrowell, Toronto
+      &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;!-- Fin expérience 2 --&gt;
+	&lt;/ul&gt;
+&lt;/section&gt;</code></pre><p id="37c916a8-d738-4c2c-b7c6-6f36f55a4886" class="">
+</p><p id="1b83c079-9367-483f-a616-b92465ac135d" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="133ac0cd-2927-4401-af39-b9628d042151" class="numbered-list" start="1"><li>Ajoutez le code ci-dessus dans le fichier <code>index.html</code></li></ol><ol id="5b17a42e-59af-4858-8061-399848b2a085" class="numbered-list" start="2"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page. 
+Le bloc devrait s&#x27;afficher comme sur le screenshot suivant : <figure id="70eb3083-35d5-464b-8785-d1fa04472324" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled%203.png"><img style="width:384px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Untitled%203.png"/></a></figure></li></ol><ol id="1a542906-ac7a-45cb-998a-304d57ec2d76" class="numbered-list" start="3"><li>Revenez dans <code>index.html</code> et ajoutez 2 ou 3 éléments à la liste. Pour cela, il suffit de copier/coller un bloc comme celui-ci :<pre id="b6228a16-834f-4295-9857-5158ee62fb06" class="code code-wrap"><code>&lt;!-- Début expérience 3 --&gt;
+&lt;li&gt;
+  &lt;div class=&quot;bubble&quot;&gt;
+    &lt;time&gt;2018&lt;/time&gt;
+    &lt;span&gt;Développeuse&lt;/span&gt;
+    &lt;br /&gt;Je rêve d&#x27;une Maison, Paris
+  &lt;/div&gt;
+&lt;/li&gt;
+&lt;!-- Fin expérience 3 --&gt;</code></pre><p id="5d29f571-4d43-4693-986e-880a53f5364a" class=""> Vous pouvez ensuite modifier le contenu en changeant l&#x27;année dans la balise <code>time</code>, l&#x27;intitulé du poste dans la balise <code>span</code> et le lieu après <code>br</code></p><p id="d0928695-1a20-489f-8618-9236080a01b6" class="">
+</p></li></ol><p id="1b4e5fe8-5406-46ac-bfed-fc1944b3b1b1" class="block-color-teal_background">Lorsque votre bloc Expérience affiche 4 ou 5 éléments, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="0bb5e5ce-4cc0-41e3-a9f5-5bca48d22be5" class="">
+</p><h3 id="7cbe437a-2737-4139-972b-90bae03e8b90" class="block-color-yellow_background"><strong>Styles CSS</strong></h3><p id="db2ed058-c834-4a58-b649-fae59c94aa00" class="">La communauté tech est basée sur le partage et on utilise très souvent du code récupéré sur Internet. C&#x27;est ce que vous allez faire ici, avec le code ci-dessous, qui permet de mettre en forme la timeline.</p><pre id="2cc4a256-ff50-46fd-9b1c-5199a3822aef" class="code"><code>/* TIMELINE
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+html {
+  overflow-x: hidden;
+}
+
+.timeline h2 {
+  text-align: center;
+}
+
+.timeline ul {
+  padding: 50px 0;
+}
+
+.timeline ul li {
+  list-style-type: none;
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  padding-top: 50px;
+  background: rgba(25, 105, 129, 0.4);
+  color: white;
+}
+
+.timeline ul li::after {
+  content: &quot;&quot;;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: inherit;
+}
+
+.timeline .bubble {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 15px;
+  background: rgba(18, 157, 175, 0.8);
+  box-sizing: border-box;
+}
+
+.timeline .bubble::before {
+  content: &quot;&quot;;
+  position: absolute;
+  bottom: 7px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.timeline ul li:nth-child(odd) .bubble {
+  left: 45px;
+}
+
+.timeline ul li:nth-child(odd) .bubble::before {
+  left: -15px;
+  border-width: 8px 16px 8px 0;
+  border-color: transparent rgba(18, 157, 175, 0.8) transparent transparent;
+}
+
+.timeline ul li:nth-child(even) .bubble {
+  left: -439px;
+}
+
+.timeline ul li:nth-child(even) .bubble::before {
+  right: -15px;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent transparent transparent rgba(18, 157, 175, 0.8);
+}
+
+time {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.bubble span {
+  font-weight: bold;
+}</code></pre><p id="7b155a61-3b8d-4a02-9264-47716568fed2" class="">
+</p><p id="281253fe-be3a-4dac-87a6-ddf0a0d8db53" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="d3a47be1-7bb7-4a2f-af2b-82550a9c46e5" class="numbered-list" start="1"><li>À la fin du fichier <code>styles.css</code> copiez le code ci-dessus</li></ol><ol id="6255cea0-4fd7-4df9-8010-8a004692af36" class="numbered-list" start="2"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="a7f36ee7-ecba-46df-82b1-4d997f4354ce" class="">
+</p><p id="966107a2-05b6-4ef2-a4f5-b615bdc1a53b" class="block-color-teal_background">Si votre timeline est maintenant mise en forme, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="734ccbb7-eb72-4c0a-bb74-6ad475b76177" class="">
+</p><h2 id="959c8f85-17f5-4c6b-a687-1971c3985689" class="block-color-purple_background">Carte Google</h2><p id="b2345d7f-0953-4e5b-93f0-f46ff90e64c3" class="">Une carte Google rendra notre site très professionnel et indiquera aux visiteurs la ville où nous travaillons. On ne va pas mettre notre adresse exacte parce qu&#x27;on veut pas que le monde entier sache où on habite, on va plutôt mettre notre ville.</p><p id="a185a900-fbf9-449d-aeb8-e991b14d5c0b" class="">
+</p><figure class="block-color-red_background callout" style="white-space:pre-wrap;display:flex" id="f014bbba-0f24-4460-85c7-c219dfe526d8"><div style="font-size:1.5em"><span class="icon">⚠️</span></div><div style="width:100%">Notre codesandbox et les dossiers qu&#x27;on va mettre sur Github sont publics. On ne veut pas mettre d&#x27;informations personnelles comme un numéro de téléphone ou un email, ou une addresse. On risquerait d&#x27;être inondée de spam parce qu&#x27;il existe de nombreux robots qui lisent toutes les pages web qui existent et piquent ces infos. </div></figure><p id="0e57fbb4-f51b-4909-a17b-f11256c13e4b" class="">
+</p><p id="2270af83-e3a9-4905-9f63-362283881065" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="342061c5-6ee5-4cb0-adf1-2905a13031cc" class="numbered-list" start="1"><li>Ajoutez une nouvelle section dans <code>index.html</code> avant la balise de fermeture du <code>body</code><pre id="02ec52ad-27d0-4e57-ba1d-b21533c041ae" class="code"><code>&lt;section class=&quot;contact&quot;&gt;
+  &lt;h2&gt;Contact&lt;/h2&gt;
+&lt;/section&gt;</code></pre></li></ol><ol id="cc1b7c6a-06e7-436f-9657-85cff7f597d0" class="numbered-list" start="2"><li>Allez sur <a href="https://maps.google.com">https://maps.google.com</a> et tapez votre ville. Cliquez sur <code>Partager</code><figure id="86936a38-1443-4bc0-ae46-37e9378fa115" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Screen_Shot_2020-08-15_at_12.19.41_PM.png"><img style="width:395px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Screen_Shot_2020-08-15_at_12.19.41_PM.png"/></a></figure><p id="ecd2ae4e-1115-43d6-813d-1265ba551915" class="">
+</p></li></ol><ol id="dee890f2-e06a-4c9c-99e6-9df71bc94b12" class="numbered-list" start="3"><li>Cliquez sur <code>Intégrer une carte</code><figure id="b581d716-f71c-450d-b47e-b45f9c8da5a8" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Screen_Shot_2020-08-15_at_12.20.17_PM.png"><img style="width:408px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Screen_Shot_2020-08-15_at_12.20.17_PM.png"/></a></figure></li></ol><ol id="c3882ee0-d514-47fe-b082-de63a3dbb2b0" class="numbered-list" start="4"><li>Cliquez sur <code>Copier le contenu HTML</code><figure id="b17252d6-9ef0-4f58-b189-b628ba1a0f1b" class="image"><a href="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Screen_Shot_2020-08-15_at_12.20.24_PM.png"><img style="width:628px" src="%F0%9F%92%BB%20Premie%CC%80re%20page%20web%20c78de6b7f2224882bec7f4d89c4fdf13/Screen_Shot_2020-08-15_at_12.20.24_PM.png"/></a></figure></li></ol><ol id="6a6e9b79-cba3-43eb-94b7-718632874bdd" class="numbered-list" start="5"><li>Insérez le code HTML copié dans <code>index.html</code>  après la balise <code>h2</code></li></ol><ol id="2859b6b6-8811-453f-b2e0-15f7055cee83" class="numbered-list" start="6"><li>Allez sur l&#x27;onglet de prévisualisation et actualisez votre page</li></ol><p id="8b563516-750b-4487-90b6-b4e0f95dc2e7" class="">
+</p><p id="59635d87-317e-49b8-825b-fca24d1f0f13" class="block-color-teal_background">Si une carte Google avec votre ville apparait au bas de la page, revenez dans Zoom et cliquez sur <mark class="highlight-teal">yes</mark>.</p><p id="851abc4e-6c8f-4ad4-945c-5913a3d4d295" class="">
+</p><h2 id="e7d4587d-5244-4d6a-bba2-7519e90db193" class="block-color-purple_background">Pour aller plus loin</h2><p id="fdec8333-24af-43ba-8043-823e09d3bf3a" class="">Notre site est maintenant presque complet. La page suivante vous permettra de le finir totalement en ajoutant un formulaire de contact, des styles pour les petits écrans et en mettant en ligne gratuitement votre site.</p><p id="bf7293cb-abd5-443a-bdb5-96bc6bcf62bb" class="">
+</p><p id="b29b02d9-5fd6-474e-ad0a-3539a42bafd5" class="block-color-blue"><strong>À VOUS !</strong></p><ol id="89eaf9c7-3048-42fa-86aa-4d92d0eb3594" class="numbered-list" start="1"><li>Suivez les instructions détaillées sur cette page<figure id="2d868f17-9475-4228-bdcc-edf8ae3644a9" class="link-to-page"><a href="https://www.notion.so/Pour-aller-plus-loin-2d868f1794754228bdccedf8ae3644a9">Pour aller plus loin</a></figure></li></ol><p id="4f1604d3-832c-4765-b705-9b1f19c3c52c" class="">
+</p></div></article></body></html>
