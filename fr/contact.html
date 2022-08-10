@@ -110,12 +110,16 @@
 
                     <!-- contact form -->
                     <div class="col-md-8 col-md-offset-2">
-                        <form class="contact-form" id="contact-form" method="POST" data-netlify="true">
-                            <input type="text" required class="input-name" name="name" placeholder="Nom">
-                            <input type="email" required class="input-email" name="email" placeholder="Email">
-                            <textarea name="message" class="input-message" required placeholder="Message"></textarea>
-                            <input class="main-btn" type="submit" value="Envoyer">
-                        </form>
+                        <form class="contact-form" id="contact-form" method="POST" netlify-honeypot="fullname" data-netlify="true" data-netlify-recaptcha="true" >
+                          <input class="hidden" name=fullname">
+                          <input type="text" required class="input-name" name="name" placeholder="Nom">
+                          <input type="email" required class="input-email" name="email" placeholder="Email">
+                          <textarea name="message" class="input-message" required placeholder="Message"></textarea>
+                          <div data-netlify-recaptcha="true"></div>
+                          <div style="padding-top: 16px">
+                              <input class="main-btn" type="submit" value="Send">
+                          </div>                        
+                      </form>
                     </div>
                     <!-- /contact form -->
 
